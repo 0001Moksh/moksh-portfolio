@@ -9,35 +9,35 @@ import whatsapp from "../../public/whatsapp.png";
 function Project() {
   const cardItem = [
     {
-      id: 3,
+      id: 1,
       logo: Gym_web,
       name: "Gym web",
     },
     {
-      id: 3,
+      id: 2,
       logo: dealer,
       name: "Property Dealer Website",
     },
-    // {
-    //   id: 1,
-    //   logo: portfolio,
-    //   name: "My First Portfolio",
-    // },
     {
-      id: 4,
+      id: 3,
       logo: whatsapp,
       name: "Whatsapp Form Automation",
     },
     {
-      id: 5,
+      id: 4,
       logo: Deva,
       name: "Deva Voice Assistant",
     },
     {
-      id: 2,
+      id: 5,
       logo: Chatbot,
       name: "Chatbot",
     },
+    // {
+    //   id: 6,
+    //   logo: portfolio,
+    //   name: "My First Portfolio",
+    // },
   ];
   return (
     <div
