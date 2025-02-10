@@ -4,7 +4,7 @@ function About() {
   return (
     <div
       name="About"
-      className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20"
+      className="max-w-screen-2xl container mx-auto px-4 md:px-20 mt-20"
     >
       <div>
         <h1 className="text-5xl mb-5">About</h1>

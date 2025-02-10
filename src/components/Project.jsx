@@ -47,10 +47,10 @@ function Project() {
       <div>
         <h1 className="text-5xl font-bold mb-5">Projects</h1>
         <span className=" underline font-semibold">Featured Projects</span>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-1 my-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-1 my-5">
           {cardItem.map(({ id, logo, name }) => (
             <div
-              className="md:w-[300px] md:h-[300px] border-[2px] rounded-lg shadow-lg p-1 cursor-pointer hover:scale-110 duration-300"
+              className="md:w-[300px] md:h-[300px] border-[2px] rounded-lg shadow-lg p-1"
               key={id}
             >
               <img
@@ -65,10 +65,10 @@ function Project() {
                 </p>
               </div>
               <div className=" px-6 py-4 space-x-3 justify-around">
-                <button className="bg-cyan-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded">
-                  Video
+                <button className="bg-[#e69f8b] text-white font-bold px-4 py-2 rounded">
+                  View
                 </button>
-                <button className="bg-cyan-500 hover:bg-pink-500 text-white font-bold px-4 py-2 rounded">
+                <button className="bg-[#e69f8b] text-white font-bold px-4 py-2 rounded">
                   Source code
                 </button>
               </div>
