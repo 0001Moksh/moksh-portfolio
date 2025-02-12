@@ -65,10 +65,10 @@ function Project() {
                 </p>
               </div>
               <div className=" px-6 py-4 space-x-3 justify-around">
-                <button className="bg-[#e69f8b] text-white font-bold px-4 py-2 rounded">
+                <button className="bg-[#000000bf] text-white font-bold px-4 py-2 rounded hover:bg-slate-700 duration-300">
                   View
                 </button>
-                <button className="bg-[#e69f8b] text-white font-bold px-4 py-2 rounded">
+                <button className="bg-[#000000bf] text-white font-bold px-4 py-2 rounded">
                   Source code
                 </button>
               </div>
