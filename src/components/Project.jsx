@@ -68,7 +68,7 @@ function Project() {
                 <button className="bg-[#000000bf] text-white font-bold px-4 py-2 rounded hover:bg-slate-700 duration-300">
                   View
                 </button>
-                <button className="bg-[#000000bf] text-white font-bold px-4 py-2 rounded">
+                <button className="bg-[#000000bf] text-white font-bold px-4 py-2 rounded  hover:bg-slate-700 duration-300">
                   Source code
                 </button>
               </div>
