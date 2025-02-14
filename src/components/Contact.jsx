@@ -44,7 +44,7 @@ function Contact() {
             <label className="block text-gray-700">FullName</label>
             <input
               {...register("name", { required: true })}
-              className="shadow-lg rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="hover:shadow-lg rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="name"
               name="name"
               type="text"
@@ -56,7 +56,7 @@ function Contact() {
             <label className="block text-gray-700">Email Address</label>
             <input
               {...register("email", { required: true })}
-              className="shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="hover:shadow-lg shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
               name="email"
               type="text"
@@ -68,7 +68,7 @@ function Contact() {
             <label className="block text-gray-700">Message</label>
             <textarea
               {...register("message", { required: true })}
-              className="shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="hover:shadow-lg shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="message"
               name="message"
               type="text"
