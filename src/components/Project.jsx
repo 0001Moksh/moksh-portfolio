@@ -1,11 +1,9 @@
 import React from "react";
 import Deva from "../../public/deva_ai.png";
-import mongoDB from "../../public/keras.png";
 import Chatbot from "../../public/chatbot.png";
 import Gym_web from "../../public/gym.png";
 import dealer from "../../public/dealer.png";
 import haritai from "../../public/haritai.png";
-import whatsapp from "../../public/whatsapp.png";
 import whatsapp from "../../public/whatsapp.png";
 function Project() {
   const cardItem = [
