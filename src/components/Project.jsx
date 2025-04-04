@@ -4,7 +4,8 @@ import mongoDB from "../../public/keras.png";
 import Chatbot from "../../public/chatbot.png";
 import Gym_web from "../../public/gym.png";
 import dealer from "../../public/dealer.png";
-import portfolio from "../../public/portfolio.png";
+import haritai from "../../public/haritai.png";
+import whatsapp from "../../public/whatsapp.png";
 import whatsapp from "../../public/whatsapp.png";
 function Project() {
   const cardItem = [
@@ -33,11 +34,11 @@ function Project() {
       logo: Chatbot,
       name: "Chatbot",
     },
-    // {
-    //   id: 6,
-    //   logo: portfolio,
-    //   name: "My First Portfolio",
-    // },
+    {
+      id: 6,
+      logo: haritai,
+      name: "HaritAI",
+    },
   ];
   return (
     <div
