@@ -65,8 +65,8 @@ function Project() {
       logo: voice_chatbot,
       name: "Deva Voice chatbot",
       // TODO: Verify viewUrl
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/deva-voice.png",
-      liveDemoUrl: null, // Renamed from sourceUrl & set to null/undefined or remove if no demo exists
+      viewUrl: "https://mokshbhardwaj.netlify.app/assets/deva-voice-xWDN8Of6.png",
+      liveDemoUrl: "https://deva-voice-chat.onrender.com/", // Renamed from sourceUrl & set to null/undefined or remove if no demo exists
     },
   ];
 
