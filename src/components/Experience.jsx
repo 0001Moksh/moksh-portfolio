@@ -37,17 +37,16 @@ function Experience() {
   ];
 
   return (
+    
+ 
     <div
       name="Experience"
-      className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-10"
+      className="max-w-screen-2xl container mx-auto px-4 md:px-20"
     >
       <div>
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 text-orange-600">
-          My Experience
-        </h1>
-        <p className="text-center mb-10 text-gray-700">
-          I have over 2 years of hands-on experience with the following
-          technologies:
+      <h1 className="text-5xl mb-5">Experience</h1>
+      <p className="  ">
+          I've more than 2 years of Experience in below technologies.
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

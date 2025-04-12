@@ -14,15 +14,16 @@ function About() {
         <h1 className="text-cyan-600 font-semibold text-xl">
           Education & Training
         </h1>
-        <span>
-B.Tech in Artificial Intelligence & Machine Learning, MDU University, 2027
-
-Zoho Developer Certification, Zoho Corp, 2024
-
-Machine Learning & Deep Learning Specialization, QuantumDev, 2025
-
-
-        </span>
+        <span class="text-[rgb(164_93_72_/_var(--tw-text-opacity))]">
+  B.Tech in Artificial Intelligence & Machine Learning, MDU University, 2027
+  <br />
+  Zoho Developer Certification, Zoho Corp, 2024
+  <br />
+  Machine Learning & Deep Learning Specialization, 
+  <a href="https://quantum-dev-xi.vercel.app/" target="_blank" class="underline">
+    QuantumDev
+  </a>, 2025
+</span>
         <br />
         <br />
         <h1 className="text-cyan-600 font-semibold text-xl">
