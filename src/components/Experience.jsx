@@ -43,6 +43,8 @@ function Experience() {
       name="Experience"
       className="max-w-screen-2xl container mx-auto px-4 md:px-20"
     >
+      <br />
+      <br />
       <div>
       <h1 className="text-5xl mb-5">Experience</h1>
       <p className="  ">

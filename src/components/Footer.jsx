@@ -1,46 +1,95 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
-  FaTwitter,
   FaInstagram,
   FaLinkedinIn,
   FaGithub,
-
 } from "react-icons/fa6";
 
-function Footer() {
+const socialLinks = [
+  {
+    icon: <FaGithub size={28} />,
+    url: "https://github.com/0001Moksh",
+    label: "GitHub",
+    hover: "hover:text-gray-800",
+  },
+  {
+    icon: <FaInstagram size={28} />,
+    url: "https://www.instagram.com/moksh_bhardwaj23/",
+    label: "Instagram",
+    hover: "hover:text-pink-600",
+  },
+  {
+    icon: <FaLinkedinIn size={28} />,
+    url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh/",
+    label: "LinkedIn",
+    hover: "hover:text-blue-700",
+  },
+];
+
+const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <>
       <hr />
-      <footer className="bg-orange-50 py-12">
-        <div className="decoration-sky-500/30 max-w-screen-2xl container mx-auto px-4 md:px-20">
-          <div className="flex flex-col items-center justify-center">
-            <div className="flex space-x-4">
-              <a href="https://github.com/0001Moksh" target="_blank" rel="noopener noreferrer">
-                <FaGithub size={50} />
-              </a>
-              <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
-                <FaTwitter size={50} />
-              </a>
-              <a href="https://www.instagram.com/moksh_bhardwaj23/" target="_blank" rel="noopener noreferrer">
-                <FaInstagram size={50} />
-              </a>
-              <a href="https://www.linkedin.com/in/moksh-bhardwaj-0001moksh/" target="_blank" rel="noopener noreferrer">
-                <FaLinkedinIn size={50} />
-              </a>
-            </div>
-            <div className="mt-8 border-t border-gray-700 pt-8 flex flex-col items-center">
-              <p className="text-sm">
-                Supportive Partner ❤️{" "}
-                <a href="https://aksh06.netlify.app/" target="_blank" rel="noopener noreferrer">
-                  Akshat Rai
-                </a>
-              </p>
-            </div>
+      <footer className="bg-orange-50 py-10 mt-10">
+      <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{
+    type: "spring",
+    stiffness: 100,
+    damping: 15,
+    duration: 0.8,
+    delay: 0.2,
+  }}
+  viewport={{ once: true, amount: 0.2 }}
+  className="max-w-screen-xl mx-auto px-4 sm:px-8 md:px-16 lg:px-20 text-center"
+>
+
+          {/* 🔗 Social Icons */}
+          <div className="flex justify-center gap-6 mb-6">
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                whileHover={{ scale: 1.2 }}
+                className={`${link.hover} transition-colors duration-300`}
+              >
+                {link.icon}
+              </motion.a>
+            ))}
           </div>
-        </div>
+
+          {/* 💬 Footer Text */}
+          <p className="text-sm text-gray-700">
+            © {year} — Built with ❤️ by{" "}
+            <a
+              href="https://mokshbhardwaj.netlify.app"
+              className="text-blue-600 underline hover:text-blue-800"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Moksh Bhardwaj
+            </a>{" "}
+            | Support by{" "}
+            <a
+              href="https://aksh06.netlify.app/"
+              className="text-red-500 underline hover:text-red-700"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Akshat Rai
+            </a>
+          </p>
+        </motion.div>
       </footer>
     </>
   );
-}
+};
 
 export default Footer;

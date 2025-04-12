@@ -21,7 +21,7 @@ function About() {
   <br />
   Machine Learning & Deep Learning Specialization, 
   <a href="https://quantum-dev-xi.vercel.app/" target="_blank" class="underline">
-    QuantumDev
+  <br/> QuantumDev 
   </a>, 2025
 </span>
         <br />
