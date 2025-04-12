@@ -132,6 +132,7 @@ function Project() {
           ))}
         </div>
       </div>
+      <hr />
     </div>
   );
 }
