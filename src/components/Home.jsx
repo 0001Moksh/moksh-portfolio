@@ -3,7 +3,6 @@ import pic from "../../public/1ig3.png";
 import { FaGithub, FaSquareFacebook } from "react-icons/fa6";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
-import { FaTelegram } from "react-icons/fa6";
 import { ReactTyped } from "react-typed";
 import { SiScipy, SiZoho, SiKeras, SiTensorflow, SiPandas, SiNumpy, SiScikitlearn, SiPython } from "react-icons/si";
 import { motion } from "framer-motion";
