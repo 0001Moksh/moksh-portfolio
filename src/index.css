@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities;/* Shared Gradient Bar Styling */
+.led-navbar {
+  position: relative;
+  overflow: hidden;
+}
+
+.led-navbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  width: 200%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    #a855f7,
+    #3b82f6,
+    #ec4899,
+    #22d3ee,
+    #a855f7
+  );
+  background-size: 400%;
+  animation: led-shadow-slide 5s linear infinite;
+  z-index: 10;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+}
+
+@keyframes led-shadow-slide {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}

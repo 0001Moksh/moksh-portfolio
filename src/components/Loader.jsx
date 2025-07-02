@@ -3,7 +3,7 @@ import React from 'react';
 
 function Loader({ speed = '1.5s', color = 'rgb(164 93 72 / var(--tw-text-opacity, 1))' }) {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 flex items-center justify-center min-h-screen bg-gray-100">
       <div className="flex space-x-2 text-xl font-mono text-gray-900">
         <span className="dot" style={{ animationDuration: speed, backgroundColor: color }}></span>
         <span className="dot" style={{ animationDuration: speed, backgroundColor: color }}></span>

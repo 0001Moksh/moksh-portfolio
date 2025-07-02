@@ -30,18 +30,19 @@ function Contact() {
   return (
     <div
       name="Contact"
-      className=" max-w-screen-2xl container mx-auto px-4 md:px-20 my-16"
+      className="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 max-w-screen-2xl container mx-auto px-4 md:px-20"
     >
       <h1 className="text-3xl font-bold mb-4">Contact me</h1>
       <span>Please fill out the form below to contact me</span>
       <div className="flex flex-col items-center justify-center mt-5">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="shadow-lg border bg-slate-200 w-96 px-8 py-6 rounded-xl"
+className="bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300 shadow-lg border border-gray-200 dark:border-gray-700 rounded-2xl px-4 py-6 sm:px-6 md:px-8 lg:px-12 md:w-1/2
+ w-full mx-auto"
         >
           <h1 className="text-xl font-semibold mb-4">Send Your Message</h1>
           <div className="flex flex-col mb-5">
-            <label className="block text-gray-700">FullName</label>
+            <label className="block">FullName</label>
             <input
               {...register("name", { required: true })}
               className="hover:shadow-lg rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -53,7 +54,7 @@ function Contact() {
             {errors.name && <span>This field is required</span>}
           </div>
           <div className="flex flex-col mb-4">
-            <label className="block text-gray-700">Email Address</label>
+            <label className="block">Email Address</label>
             <input
               {...register("email", { required: true })}
               className="hover:shadow-lg shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -65,7 +66,7 @@ function Contact() {
             {errors.email && <span>This field is required</span>}
           </div>
           <div className="flex flex-col mb-4">
-            <label className="block text-gray-700">Message</label>
+            <label className="block">Message</label>
             <textarea
               {...register("message", { required: true })}
               className="hover:shadow-lg shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -76,15 +77,23 @@ function Contact() {
             />
             {errors.message && <span>This field is required</span>}
           </div>
-          <button
-            type="submit"
-            className="bg-black text-white rounded-xl px-3 py-2 hover:bg-slate-700 duration-300"
-          >
-            Send
-          </button>
+          <div className="w-full max-w-md mx-auto mt-6">
+  <div className="w-full max-w-md mx-auto mt-6">
+  <button
+    type="submit"
+    className="w-full bg-gradient-to-r from-cyan-800 via-gray-700 to-pink-900 text-white rounded-lg px-6 py-3 text-sm sm:text-base font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out hover:from-pink-800 hover:via-gray-700 hover:to-cyan-900 dark:text-white"
+  >
+    Send
+  </button>
+</div>
+          </div>
+
+
         </form>
       </div>
-      <br /><br />
+      <hr className="relative w-3/4 md:w-3/2 ml-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-r from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
+      <hr className="relative w-3/4 md:w-3/2 mr-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-l from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
+      
     </div>
   );
 }

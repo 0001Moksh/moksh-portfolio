@@ -41,21 +41,21 @@ function Experience() {
  
     <div
       name="Experience"
-      className="max-w-screen-2xl container mx-auto px-4 md:px-20"
+      className="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 max-w-screen-2xl container mx-auto px-4 md:px-20"
     >
       <br />
       <br />
       <div>
       <h1 className="text-5xl mb-5">Experience</h1>
-      <p className="  ">
+      <p className=" py-4 ">
           I've more than 2 years of Experience in below technologies.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className=" grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {cardItem.map(({ id, logo, name }) => (
             <div
               key={id}
-              className="flex flex-col items-center justify-center p-4 border-2 border-gray-200 rounded-xl shadow-md transition-transform transform hover:-rotate-3 hover:scale-105 duration-300 bg-white hover:shadow-xl"
+              className="bg-white text-black dark:bg-gray-400 dark:text-white transition-colors duration-300 flex flex-col items-center justify-center p-4 border-2 border-gray-200 rounded-xl shadow-md transition-transform transform hover:-rotate-3 hover:scale-105 duration-300 bg-white hover:shadow-xl"
             >
               <img
                 src={logo}
@@ -69,10 +69,9 @@ function Experience() {
           ))}
         </div>
       </div>
-      <br />
-      <br />
-      <hr />
-    </div>
+<hr className="relative w-3/4 md:w-3/2 ml-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-r from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
+      <hr className="relative w-3/4 md:w-3/2 mr-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-l from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
+          </div>
   );
 }
 

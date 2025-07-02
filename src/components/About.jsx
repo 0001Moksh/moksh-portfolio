@@ -3,8 +3,8 @@ import React from "react";
 function About() {
   return (
     <div
-      name="About"
-      className="max-w-screen-2xl container mx-auto px-4 md:px-20 mt-20"
+    name="About"
+    className="py-0 bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 max-w-screen-2xl container mx-auto px-4 md:px-20 py-10"
     >
       <div>
         <h1 className="text-5xl mb-5">About</h1>
@@ -14,15 +14,15 @@ function About() {
         <h1 className="text-cyan-600 font-semibold text-xl">
           Education & Training
         </h1>
-        <span class="text-[rgb(164_93_72_/_var(--tw-text-opacity))]">
+        <span class="text-gray-700 dark:text-gray-300">
   B.Tech in Artificial Intelligence & Machine Learning, MDU University, 2027
   <br />
   Zoho Developer Certification, Zoho Corp, 2024
   <br />
   Machine Learning & Deep Learning Specialization, 
-  <a href="https://quantum-dev-xi.vercel.app/" target="_blank" class="underline">
-  <br/> QuantumDev 
-  </a>, 2025
+  <a href="https://quantum-dev-xi.vercel.app/" target="_blank" class="text-red-700 dark:text-red-300">
+  <br/> NexYug Tech 
+  </a>, @2025
 </span>
         <br />
         <br />
@@ -71,8 +71,10 @@ AI4Humanity Hackathon at NSUT University – Participated in an AI-focused hacka
         <p>
         My mission is to leverage AI and automation to develop efficient, scalable, and user-friendly solutions. I am committed to continuous learning, innovation, and helping businesses optimize their workflows with Zoho and AI.        </p>
       </div>
-      <br />
-      <br /><hr />
+      
+      <hr className="relative w-3/4 md:w-3/2 ml-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-r from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
+      <hr className="relative w-3/4 md:w-3/2 mr-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-l from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
+      
     </div>
   );
 }
