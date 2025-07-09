@@ -29,7 +29,7 @@ function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="py-20 bg-white text-black dark:gradient-background dark:text-white transition-colors duration-300 max-w-screen-2xl container mx-auto px-4 md:px-20"
+        className="py-20 bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 max-w-screen-2xl container mx-auto px-4 md:px-20"
       >
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 mt-12 md:mt-10 space-y-2 order-2 md:order-1">
@@ -85,7 +85,7 @@ function Home() {
           <div className="w-full md:w-1/2 flex justify-center md:justify-start sm:flex md:ml-48 md:mt-0 mt-8 order-1">
             <img
               src={pic}
-              className="shadow-lg rounded-full md:w-[500px] md:h-[480px]"
+              className="shadow-lg rounded-full w-80 h-80 md:w-96 md:h-96 object-cover"
               alt=""
             />
           </div>
