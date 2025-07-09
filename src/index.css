@@ -35,3 +35,11 @@
     left: 100%;
   }
 }
+
+.gradient-background {
+  background-image: radial-gradient(
+    ellipse 80% 80% at 50% -20%,
+    rgba(var(--gradient-color), 0.3),
+    rgba(255, 255, 255, 0)
+  );
+}
