@@ -3,24 +3,12 @@ import pic from "../../public/1ig3.png";
 import { FaGithub, FaSquareFacebook } from "react-icons/fa6";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
+import { FaTelegram } from "react-icons/fa6";
 import { ReactTyped } from "react-typed";
 import { SiScipy, SiZoho, SiKeras, SiTensorflow, SiPandas, SiNumpy, SiScikitlearn, SiPython } from "react-icons/si";
 import { motion } from "framer-motion";
 
 function Home() {
-  // Optional: Add glow effect on scroll
-  window.addEventListener("scroll", () => {
-    const leftBar = document.getElementById("left-bar");
-    const rightBar = document.getElementById("right-bar");
-
-    const scrollY = window.scrollY;
-
-    // Pulse intensity based on scroll
-    const glow = Math.min(scrollY / 20, 20);
-
-    leftBar.style.boxShadow = `0 0 ${glow}px rgba(236, 72, 153, 0.5)`;
-    rightBar.style.boxShadow = `0 0 ${glow}px rgba(72, 129, 236, 0.5)`;
-  });
   return (
     <>
       <motion.div
@@ -29,7 +17,7 @@ function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="py-20 bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 max-w-screen-2xl container mx-auto px-4 md:px-20"
+        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20"
       >
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 mt-12 md:mt-10 space-y-2 order-2 md:order-1">
@@ -41,7 +29,7 @@ function Home() {
                 <span className="bg-gradient-to-r from-[#ba4d17] via-[#fdbf53] to-[#ba4d17] bg-clip-text text-3xl tracking-tight text-transparent">
                   <ReactTyped
                     className="text-5xl text-[#a45d48] font-bold"
-                    strings={["Developer", "Programmer", "Coder","AI ML Engineer"]}
+                    strings={["Developer", "Programmer", "Coder"]}
                     typeSpeed={40}
                     backSpeed={50}
                     loop={true}
@@ -85,15 +73,14 @@ function Home() {
           <div className="w-full md:w-1/2 flex justify-center md:justify-start sm:flex md:ml-48 md:mt-0 mt-8 order-1">
             <img
               src={pic}
-              className="shadow-lg rounded-full w-80 h-80 md:w-96 md:h-96 object-cover"
+              className="shadow-lg rounded-full md:w-[500px] md:h-[480px]"
               alt=""
             />
           </div>
-          </div>
-      <hr className="relative w-3/4 md:w-3/2 ml-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-r from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
-      <hr className="relative w-3/4 md:w-3/2 mr-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-l from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
+        </div>
       </motion.div>
 
+      <hr />
     </>
   );
 }

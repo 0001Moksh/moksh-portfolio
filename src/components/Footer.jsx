@@ -11,7 +11,7 @@ const socialLinks = [
     icon: <FaGithub size={28} />,
     url: "https://github.com/0001Moksh",
     label: "GitHub",
-    hover: "hover:text-cyan-500",
+    hover: "hover:text-gray-800",
   },
   {
     icon: <FaInstagram size={28} />,
@@ -32,7 +32,8 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 bg-orange-50 py-10">
+      <hr />
+      <footer className="bg-orange-50 py-10 mt-10">
       <motion.div
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +66,7 @@ const Footer = () => {
           </div>
 
           {/* 💬 Footer Text */}
-          <p className="text-sm ">
+          <p className="text-sm text-gray-700">
             © {year} — Built with ❤️ by{" "}
             <a
               href="https://mokshbhardwaj.netlify.app"

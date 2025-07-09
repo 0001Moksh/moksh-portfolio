@@ -74,7 +74,7 @@ function Project() {
     <div
       name="Project"
       // Corrected padding class, increased top margin for spacing
-      className="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 max-w-screen-2xl container mx-auto px-4 sm:px-6 md:px-10 lg:px-20 py-16" // Adjusted padding for responsiveness
+      className="max-w-screen-2xl container mx-auto px-4 sm:px-6 md:px-10 lg:px-20 py-16" // Adjusted padding for responsiveness
     >
       <div>
         <h1 className="text-3xl md:text-5xl font-bold mb-5 text-center md:text-left">Projects</h1>
@@ -132,9 +132,8 @@ function Project() {
           ))}
         </div>
       </div>
-<hr className="relative w-3/4 md:w-3/2 ml-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-r from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
-      <hr className="relative w-3/4 md:w-3/2 mr-0 mx-auto mt-20 h-2 rounded-full border-none bg-gradient-to-l from-pink-500 via-cyan-500 to-black-500 animate-gradient shadow-lg shadow-pink-500/10 dark:shadow-blue-500/40" />
-          </div>
+      <hr />
+    </div>
   );
 }
 
