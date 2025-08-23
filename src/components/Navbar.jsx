@@ -26,6 +26,7 @@ function Navbar() {
             <p className="text-sm text-gray-600">AI-ML Engineer</p>
           </h1>
         </div>
+        
 
         {/* Desktop Navbar */}
         <ul className="hidden md:flex space-x-8">
@@ -42,6 +43,35 @@ function Navbar() {
         <div className="md:hidden" onClick={() => setMenu(true)}>
           <AiOutlineMenu size={30} />
         </div>
+
+        <div className="flex items-center space-x-2">
+        <a
+          href="https://drive.google.com/uc?export=download&id=1mXnS-dNLi5DShw50UvgzyJ93ldOqgcMU" 
+          download
+          style={{
+            marginLeft: "20px",
+            padding: "10px 18px",
+            backgroundColor: "rgb(164, 93, 72)",
+            color: "white",
+            borderRadius: "8px",
+            textDecoration: "none",
+            fontWeight: "bold",
+            transition: "all 0.3s ease",
+            display: "inline-block",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = "scale(1.05)";
+            e.target.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = "scale(1)";
+            e.target.style.boxShadow = "none";
+          }}
+        >
+          Download CV
+        </a>
+        </div>
+        
       </div>
 
       {/* AnimatePresence for enter & exit animations */}
