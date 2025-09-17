@@ -6,6 +6,8 @@ import dealer from "../../public/dealer.png";
 import haritai from "../../public/haritai.png";
 import whatsapp from "../../public/whatsapp.png";
 import voice_chatbot from "../../public/deva-voice.png";
+import ai_interviewer from "../../public/ai_interviewer.png";
+import diabetes from "../../public/diabetes.png";
 
 function Project() {
   // --- Project Data ---
@@ -67,6 +69,22 @@ function Project() {
       // TODO: Verify viewUrl
       viewUrl: "https://mokshbhardwaj.netlify.app/assets/deva-voice-xWDN8Of6.png",
       liveDemoUrl: "https://deva-voice-chat.onrender.com/", // Renamed from sourceUrl & set to null/undefined or remove if no demo exists
+    },
+    {
+      id: 8,
+      logo: ai_interviewer,
+      name: "AI Interviewer",
+      // TODO: Verify viewUrl
+      viewUrl: "https://mokshbhardwaj.netlify.app/assets/deva-voice-xWDN8Of6.png",
+      liveDemoUrl: "https://ai-interviewer-by-moksh.onrender.com/", // Renamed from sourceUrl & set to null/undefined or remove if no demo exists
+    },
+    {
+      id: 7,
+      logo: diabetes,
+      name: "Diabetes Prediction Web Application",
+      // TODO: Verify viewUrl
+      viewUrl: "https://mokshbhardwaj.netlify.app/assets/deva-voice-xWDN8Of6.png",
+      liveDemoUrl: "https://github.com/0001Moksh/Diabetes-Prediction-App", // Renamed from sourceUrl & set to null/undefined or remove if no demo exists
     },
   ];
 
