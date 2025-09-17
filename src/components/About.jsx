@@ -1,78 +1,122 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { FaGraduationCap, FaTools, FaBriefcase, FaAward, FaBullseye } from "react-icons/fa";
 
 function About() {
   return (
-    <div
-      name="About"
-      className="max-w-screen-2xl container mx-auto px-4 md:px-20 mt-20"
-    >
-      <div>
-        <h1 className="text-5xl mb-5">About</h1>
-        <p>
-        Hello, I'm Moksh, a passionate Zoho Developer and AI Enthusiast with expertise in building intelligent and scalable solutions. With a background in Artificial Intelligence & Machine Learning, I specialize in Zoho applications, automation, and AI-powered integrations to optimize business processes and enhance efficiency.          </p>
-        <br />
-        <h1 className="text-cyan-600 font-semibold text-xl">
-          Education & Training
-        </h1>
-        <span class="text-[rgb(164_93_72_/_var(--tw-text-opacity))]">
-  B.Tech in Artificial Intelligence & Machine Learning, MDU University, 2027
-  <br />
-  Zoho Developer Certification, Zoho Corp, 2024
-  <br />
-  Machine Learning & Deep Learning Specialization, 
-  <a href="https://nexyugtech.com" target="_blank" class="underline">
-  <br/> NexYug Tech 
-  </a>, @2025
-</span>
-        <br />
-        <br />
-        <h1 className="text-cyan-600 font-semibold text-xl">
-          Skills & Expertise
-        </h1>
-        <span>
-        Programming Languages: Python, JavaScript, C++
+    <div name="About" className="max-w-screen-2xl container mx-auto px-4 md:px-20 mt-20">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <h1 className="text-5xl font-bold mb-10 text-center md:text-left text-gray-800">About Me</h1>
 
-Zoho Development: Zoho CRM, Zoho Creator, Zoho Deluge
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="text-gray-700 text-justify mb-10"
+        >
+          Hello, I'm <span className="font-semibold text-cyan-600">Moksh</span>, a passionate <span className="font-semibold text-cyan-600">Zoho Developer</span> and AI Enthusiast with expertise in building intelligent, scalable solutions.  
+          I specialize in AI, ML, Zoho automation, and business process optimization to enhance workflow efficiency.
+        </motion.p>
 
-AI & Data Science: TensorFlow, Keras, NumPy, Pandas, Matplotlib, Seaborn
+        {/* Education */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8 p-6 rounded-xl shadow-lg bg-white dark:bg-slate-800 border-l-4 border-cyan-500"
+        >
+          <div className="flex items-center space-x-3 mb-3">
+            <FaGraduationCap className="text-cyan-600 text-2xl" />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Education & Training</h2>
+          </div>
+          <ul className="list-disc ml-7 text-gray-700 dark:text-gray-300">
+            <li>B.Tech in Artificial Intelligence & Machine Learning, MDU University, 2027</li>
+            <li>Zoho Developer Certification, Zoho Corp, 2024</li>
+            <li>Machine Learning & Deep Learning Specialization, <a href="https://nexyugtech.com" target="_blank" className="underline text-cyan-600">NexYug Tech, 2025</a></li>
+          </ul>
+        </motion.div>
 
-Web Development: HTML, CSS, JavaScript
+        {/* Skills */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8 p-6 rounded-xl shadow-lg bg-white dark:bg-slate-800 border-l-4 border-black"
+        >
+          <div className="flex items-center space-x-3 mb-3">
+            <FaTools className="text-black text-2xl" />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Skills & Expertise</h2>
+          </div>
+          <p className="text-gray-700 dark:text-gray-300">
+            <span className="font-semibold">Programming Languages:</span> Python, JavaScript, C++ <br />
+            <span className="font-semibold">Zoho Development:</span> Zoho CRM, Zoho Creator, Zoho Deluge <br />
+            <span className="font-semibold">AI & Data Science:</span> TensorFlow, Keras, NumPy, Pandas, Matplotlib, Seaborn <br />
+            <span className="font-semibold">Web Development:</span> HTML, CSS, JavaScript <br />
+            <span className="font-semibold">Automation & Integration:</span> Zapier, APIs, Webhooks
+          </p>
+        </motion.div>
 
-Automation & Integration: Zapier, APIs, Webhooks
-        </span>
-        <br />
-        <br />
-        <h1 className="text-cyan-600 font-semibold text-xl">
-          Professional Experience
-        </h1>
-        <span>
-        Zoho Developer – Business Raiser (2024 - Present)
-Customized and optimized Zoho CRM for a USA-based client, enhancing their sales and purchase workflows.
-Developed AI-powered automation for data processing, reducing manual effort by 40%.
-Integrated Amazon SP-API for Multi-Channel Fulfillment (MCF).
+        {/* Experience */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8 p-6 rounded-xl shadow-lg bg-white dark:bg-slate-800 border-l-4 border-green-500"
+        >
+          <div className="flex items-center space-x-3 mb-3">
+            <FaBriefcase className="text-green-500 text-2xl" />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Professional Experience</h2>
+          </div>
+          <ul className="list-disc ml-7 text-gray-700 dark:text-gray-300">
+            <li>
+              <span className="font-semibold">Zoho Developer – Business Raiser (2024 - Present):</span> Customized Zoho CRM for a USA client, AI-powered automation, integrated Amazon SP-API for MCF.
+            </li>
+            <li>
+              <span className="font-semibold">Corporate Trainer – Excel & BI Tools (Freelance, 2023 - Present):</span> Conducted online sessions on Excel, Power BI, and data visualization.
+            </li>
+          </ul>
+        </motion.div>
 
-Corporate Trainer – Excel & BI Tools (Freelance, 2023 - Present)
-Conducted online training for corporate professionals on Excel, Power BI, and data visualization.</span>
-        <br />
-        <br />
-        <h1 className="text-cyan-600 font-semibold text-xl">
-          Achievements & Awards
-        </h1>
-        <span>
-Zoho Creator Expert – Recognized for workflow automation and low-code development.
-Amazon Smbhav Hackathon 2024 Participant – Working on sustainable logistics solutions.
-AI4Humanity Hackathon at NSUT University – Participated in an AI-focused hackathon, contributing innovative solutions for human-centric problems.
-</span>
-        <br />
-        <br />
-        <h1 className="text-cyan-600 font-semibold text-xl">
-          Mission Statement
-        </h1>
-        <p>
-        My mission is to leverage AI and automation to develop efficient, scalable, and user-friendly solutions. I am committed to continuous learning, innovation, and helping businesses optimize their workflows with Zoho and AI.        </p>
-      </div>
-      <br />
-      <br /><hr />
+        {/* Achievements */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8 p-6 rounded-xl shadow-lg bg-white dark:bg-slate-800 border-l-4 border-yellow-500"
+        >
+          <div className="flex items-center space-x-3 mb-3">
+            <FaAward className="text-yellow-500 text-2xl" />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Achievements & Awards</h2>
+          </div>
+          <ul className="list-disc ml-7 text-gray-700 dark:text-gray-300">
+            <li>Zoho Creator Expert – Recognized for workflow automation and low-code development</li>
+            <li>Amazon Smbhav Hackathon 2024 Participant – Sustainable logistics solutions</li>
+            <li>AI4Humanity Hackathon at NSUT University – Contributed AI solutions for human-centric problems</li>
+          </ul>
+        </motion.div>
+
+        {/* Mission */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8 p-6 rounded-xl shadow-lg bg-white dark:bg-slate-800 border-l-4 border-red-500"
+        >
+          <div className="flex items-center space-x-3 mb-3">
+            <FaBullseye className="text-red-500 text-2xl" />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Mission Statement</h2>
+          </div>
+          <p className="text-gray-700 dark:text-gray-300">
+            My mission is to leverage AI and automation to develop efficient, scalable, and user-friendly solutions. I am committed to continuous learning, innovation, and helping businesses optimize workflows with Zoho and AI.
+          </p>
+        </motion.div>
+      </motion.div>
+      <hr className="mt-10 border-gray-300 dark:border-gray-600" />
     </div>
   );
 }
