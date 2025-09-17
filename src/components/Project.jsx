@@ -64,6 +64,7 @@ function Project() {
           </Tilt>
         ))}
       </motion.div>
+      <hr className="mt-20 border-gray-300" />
     </div>
   );
 }

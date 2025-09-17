@@ -1,11 +1,10 @@
 import React from "react";
 import pic from "../../public/1ig3.png";
-import { FaGithub, FaSquareFacebook } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
-import { FaTelegram } from "react-icons/fa6";
 import { ReactTyped } from "react-typed";
-import { SiScipy, SiZoho, SiKeras, SiTensorflow, SiPandas, SiNumpy, SiScikitlearn, SiPython } from "react-icons/si";
+import { SiScipy, SiKeras, SiTensorflow, SiScikitlearn } from "react-icons/si";
 import { motion } from "framer-motion";
 
 function Home() {
@@ -53,28 +52,56 @@ function Home() {
                 <ul className="flex space-x-5">
                   <li><a href="https://www.instagram.com/moksh_bhardwaj23/" target="_blank"><FaInstagram className="text-2xl cursor-pointer" /></a></li>
                   <li><a href="https://www.linkedin.com/in/moksh-bhardwaj-0001moksh" target="_blank"><FaLinkedin className="text-2xl cursor-pointer" /></a></li>
-                  <li><a href="https://youtube.com/@ai_factory_09" target="_blank"><IoLogoYoutube className="text-2xl cursor-pointer" /></a></li>
+                  <li><a href="https://www.youtube.com/@NexYugTech" target="_blank"><IoLogoYoutube className="text-2xl cursor-pointer" /></a></li>
                   <li><a href="https://github.com/0001Moksh" target="_blank"><FaGithub className="text-2xl cursor-pointer" /></a></li>
                 </ul>
               </div>
+           <div className="space-y-2">
+  <h1 className="font-bold text-center text-gray-800">Currently working on</h1>
+  <div className="flex space-x-5 justify-center">
+    {/* LangChain */}
+    <div className="text-center cursor-pointer p-3 border-2 border-black rounded-full hover:scale-110 duration-200 bg-black text-white font-semibold">
+      LangChain
+    </div>
 
-              <div className="space-y-2">
-                <h1 className="font-bold text-center">Currently working on</h1>
-                <div className="flex space-x-5">
-                  <SiScipy className="text-3xl md:text-5xl hover:scale-110 duration-200 rounded-full border-[2px] cursor-pointer" />
-                  <SiScikitlearn className="text-3xl md:text-5xl hover:scale-110 duration-200 rounded-full border-[2px] cursor-pointer" />
-                  <SiTensorflow className="text-3xl md:text-5xl hover:scale-110 duration-200 rounded-full border-[2px] cursor-pointer" />
-                  <SiKeras className="text-3xl md:text-5xl hover:scale-110 duration-200 rounded-full border-[2px] cursor-pointer" />
-                </div>
-              </div>
+    {/* RAG Model */}
+    <div className="text-center cursor-pointer p-3 border-2 border-black rounded-full hover:scale-110 duration-200 bg-white text-black font-semibold">
+      RAG Model
+    </div>
+
+    {/* LLM */}
+    <div className="text-center cursor-pointer p-3 border-2 border-black rounded-full hover:scale-110 duration-200 bg-black text-white font-semibold">
+      LLM
+    </div>
+
+    {/* AI Agent */}
+    <div className="text-center cursor-pointer p-3 border-2 border-black rounded-full hover:scale-110 duration-200 bg-white text-black font-semibold">
+      AI Agent
+    </div>
+  </div>
+</div>
+
             </div>
           </div>
 
+          {/* 3D floating profile image */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-start sm:flex md:ml-48 md:mt-0 mt-8 order-1">
-            <img
+            <motion.img
               src={pic}
-              className="shadow-lg rounded-full md:w-[500px] md:h-[480px]"
-              alt=""
+              alt="Profile"
+              className="shadow-lg rounded-full md:w-[500px] md:h-[480px] object-cover"
+              animate={{
+                x: ["0%", "5%", "-5%", "0%"],
+                y: ["0%", "5%", "-5%", "0%"],
+                rotateY: [0, 15, -15, 0],
+                rotateX: [0, 10, -10, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
             />
           </div>
         </div>

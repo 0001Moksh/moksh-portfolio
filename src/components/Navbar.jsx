@@ -44,32 +44,35 @@ function Navbar() {
           <AiOutlineMenu size={30} />
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 mr-4">
         <a
-          href="https://drive.google.com/uc?export=download&id=1mXnS-dNLi5DShw50UvgzyJ93ldOqgcMU" 
-          download
-          style={{
-            marginLeft: "20px",
-            padding: "10px 18px",
-            backgroundColor: "rgb(164, 93, 72)",
-            color: "white",
-            borderRadius: "8px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            transition: "all 0.3s ease",
-            display: "inline-block",
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.transform = "scale(1.05)";
-            e.target.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = "scale(1)";
-            e.target.style.boxShadow = "none";
-          }}
-        >
-          Download CV
-        </a>
+  href="https://drive.google.com/uc?export=download&id=1mXnS-dNLi5DShw50UvgzyJ93ldOqgcMU"
+  download
+  style={{
+    marginLeft: "20px",
+    padding: "12px 10px",
+    backgroundColor: "rgb(164, 93, 72)",
+    color: "white",
+    borderRadius: "12px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    fontSize: "16px",
+    display: "inline-block",
+    transition: "all 0.2s ease",
+    boxShadow: "0 6px 0 rgb(123, 70, 55), 0 10px 20px rgba(0,0,0,0.3)", // 3D shadow layers
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.transform = "translateY(-4px) scale(1.05)";
+    e.target.style.boxShadow = "0 10px 0 rgb(123, 70, 55), 0 14px 30px rgba(0,0,0,0.4)";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.transform = "translateY(0) scale(1)";
+    e.target.style.boxShadow = "0 6px 0 rgb(123, 70, 55), 0 10px 20px rgba(0,0,0,0.3)";
+  }}
+>
+  Download CV
+</a>
+
         </div>
         
       </div>
@@ -83,8 +86,8 @@ function Navbar() {
               initial={{ x: "-100vw" }}
               animate={{ x: 0 }}
               exit={{ x: "-100vw" }} // Exit animation
-              transition={{ type: "spring", stiffness: 120, damping: 13 }}
-              className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50"
+              transition={{ type: "spring", stiffness: 120, damping: 20 }}
+              className="fixed top-0 left-0 mt-16 h-full w-64 bg-white shadow-lg z-50"
             >
               <div className="flex justify-between items-center p-4 border-b">
                 <h2 className="text-xl font-bold">Menu</h2>

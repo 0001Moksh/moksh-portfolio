@@ -20,9 +20,9 @@ function About() {
   Zoho Developer Certification, Zoho Corp, 2024
   <br />
   Machine Learning & Deep Learning Specialization, 
-  <a href="https://quantum-dev-xi.vercel.app/" target="_blank" class="underline">
-  <br/> QuantumDev 
-  </a>, 2025
+  <a href="https://nexyugtech.com" target="_blank" class="underline">
+  <br/> NexYug Tech 
+  </a>, @2025
 </span>
         <br />
         <br />
