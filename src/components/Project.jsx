@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 import Deva from "../../public/deva_ai.png";
 import Chatbot from "../../public/chatbot.png";
 import Gym_web from "../../public/gym.png";
@@ -10,147 +12,58 @@ import ai_interviewer from "../../public/ai_interviewer.png";
 import diabetes from "../../public/diabetes.png";
 
 function Project() {
-  // --- Project Data ---
-  // Consider what 'viewUrl' should link to. Currently, some link to static images.
-  // 'liveDemoUrl' links to the deployed application or relevant page.
   const cardItem = [
-    {
-      id: 1,
-      logo: Gym_web,
-      name: "Gym web",
-      // TODO: Verify if this viewUrl (image link) is the intended behavior for the "View" button.
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/gym-eyjU2jWE.png",
-      liveDemoUrl: "https://power-fitness-gym-by-moksh2333.netlify.app/", // Renamed from sourceUrl
-    },
-    {
-      id: 2,
-      logo: dealer,
-      name: "Property Dealer Website",
-      // TODO: Verify viewUrl
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/dealer-D0MNy4je.png",
-      liveDemoUrl: "https://sahil03.netlify.app/", // Renamed from sourceUrl
-    },
-    {
-      id: 3,
-      logo: whatsapp,
-      name: "Whatsapp Form Automation",
-      // TODO: Verify viewUrl
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/whatsapp-DbZBb8E7.png",
-      liveDemoUrl: "https://mokshbhardwaj.netlify.app/assets/whatsapp-DbZBb8E7.png", // Renamed from sourceUrl - Is this also just an image?
-    },
-    {
-      id: 4,
-      logo: Deva,
-      name: "Deva Voice Assistant",
-      // TODO: Verify viewUrl
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/deva_ai-BFScOjB4.png",
-      liveDemoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7293938971489763328/?originTrackingId=z7DfvmzPQOOuss4kdSpvOw%3D%3D", // Renamed from sourceUrl (Links to LinkedIn post - okay if intended)
-    },
-    {
-      id: 5,
-      logo: Chatbot,
-      name: "Chatbot",
-      // TODO: Verify viewUrl
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/chatbot-BVlcI7YC.png",
-      liveDemoUrl: "https://deva-chatbot.onrender.com/", // Renamed from sourceUrl
-    },
-    {
-      id: 6,
-      logo: haritai,
-      name: "HaritAI",
-      // TODO: Verify viewUrl
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/haritai-CdDTkKb_.png",
-      liveDemoUrl: "https://haritai.onrender.com/", // Renamed from sourceUrl
-    },
-    {
-      id: 7,
-      logo: voice_chatbot,
-      name: "Deva Voice chatbot",
-      // TODO: Verify viewUrl
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/deva-voice-xWDN8Of6.png",
-      liveDemoUrl: "https://deva-voice-chat.onrender.com/", // Renamed from sourceUrl & set to null/undefined or remove if no demo exists
-    },
-    {
-      id: 8,
-      logo: ai_interviewer,
-      name: "AI Interviewer",
-      // TODO: Verify viewUrl
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/deva-voice-xWDN8Of6.png",
-      liveDemoUrl: "https://ai-interviewer-by-moksh.onrender.com/", // Renamed from sourceUrl & set to null/undefined or remove if no demo exists
-    },
-    {
-      id: 7,
-      logo: diabetes,
-      name: "Diabetes Prediction Web Application",
-      // TODO: Verify viewUrl
-      viewUrl: "https://mokshbhardwaj.netlify.app/assets/deva-voice-xWDN8Of6.png",
-      liveDemoUrl: "https://github.com/0001Moksh/Diabetes-Prediction-App", // Renamed from sourceUrl & set to null/undefined or remove if no demo exists
-    },
+    { id: 1, logo: Gym_web, name: "Gym web", viewUrl: "#", liveDemoUrl: "https://power-fitness-gym-by-moksh2333.netlify.app/" },
+    { id: 2, logo: dealer, name: "Property Dealer Website", viewUrl: "#", liveDemoUrl: "https://sahil03.netlify.app/" },
+    { id: 4, logo: Deva, name: "Deva Voice Assistant", viewUrl: "#", liveDemoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7293938971489763328/" },
+    { id: 5, logo: Chatbot, name: "Chatbot", viewUrl: "#", liveDemoUrl: "https://deva-chatbot.onrender.com/" },
+    { id: 6, logo: haritai, name: "HaritAI", viewUrl: "#", liveDemoUrl: "https://haritai.onrender.com/" },
+    { id: 7, logo: voice_chatbot, name: "Deva Voice chatbot", viewUrl: "#", liveDemoUrl: "https://deva-voice-chat.onrender.com/" },
+    { id: 8, logo: ai_interviewer, name: "AI Interviewer", viewUrl: "#", liveDemoUrl: "https://ai-interviewer-by-moksh.onrender.com/" },
+    { id: 9, logo: diabetes, name: "Diabetes Prediction App", viewUrl: "#", liveDemoUrl: "https://github.com/0001Moksh/Diabetes-Prediction-App" },
+    { id: 3, logo: whatsapp, name: "Whatsapp Form Automation", viewUrl: "#", liveDemoUrl: "#" },
   ];
 
+  const controls = useAnimation();
+
+  // Continuous horizontal scroll animation
+  useEffect(() => {
+    controls.start({
+      x: [0, -1000],
+      transition: {
+        repeat: Infinity,
+        duration: 8, // faster loop
+        ease: "linear",
+      },
+    });
+  }, [controls]);
+
   return (
-    <div
-      name="Project"
-      // Corrected padding class, increased top margin for spacing
-      className="max-w-screen-2xl container mx-auto px-4 sm:px-6 md:px-10 lg:px-20 py-16" // Adjusted padding for responsiveness
-    >
-      <div>
-        <h1 className="text-3xl md:text-5xl font-bold mb-5 text-center md:text-left">Projects</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 text-center md:text-left">
-            Here are some of the projects I've worked on. Explore the live demos or view more details.
+    <div name="Project" className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-16 overflow-hidden">
+      <div className="text-center mb-10">
+        <h1 className="text-5xl font-bold mb-4">My Projects</h1>
+        <p className="text-lg text-gray-600">Showcasing my key projects with live demos and screenshots.
         </p>
-        {/* Increased gap for better spacing */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-5">
-          {/* Destructure liveDemoUrl (renamed from sourceUrl) */}
-          {cardItem.map(({ id, logo, name, viewUrl, liveDemoUrl }) => (
-            <div
-              // Added min-height, increased padding, subtle hover effect
-              className="md:min-h-[300px] border dark:border-gray-700 rounded-lg shadow-lg p-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out bg-white dark:bg-slate-800"
-              key={id}
-            >
-              {/* Image and Title Container */}
-              <div>
-                <img
-                  src={logo}
-                  // Ensure image scales well within its container
-                  className="w-full h-[150px] object-contain p-1 mb-3 border-b dark:border-gray-600"
-                  alt={`${name} project screenshot`} // More descriptive alt text
-                />
-                <h3 className="px-2 font-bold text-xl mb-2 text-gray-800 dark:text-white">{name}</h3>
-                {/* Optional: Add a short description here if desired */}
-                {/* <p className="px-2 text-sm text-gray-600 dark:text-gray-400 mb-3">A brief description of the project...</p> */}
-              </div>
+      </div>
 
-              {/* Buttons Container */}
-              <div className="px-2 py-3 space-x-3 text-center border-t dark:border-gray-600 mt-auto"> {/* mt-auto pushes buttons down */}
-                {/* View Button */}
-                {/* Consider changing href if viewUrl shouldn't be just an image */}
-                <a
-                  href={viewUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-blue-600 text-white font-semibold px-4 py-2 rounded hover:bg-blue-700 duration-300 text-sm" // Adjusted styling
-                >
-                  View
-                </a>
+      {/* Horizontal scrolling marquee */}
+      <motion.div animate={controls} className="flex space-x-8 py-6 min-w-[200%]">
+        {[...cardItem, ...cardItem].map(({ id, logo, name, viewUrl, liveDemoUrl }, index) => (
+          <Tilt key={id + "-" + index} glareEnable={true} glareMaxOpacity={0.3} tiltMaxAngleX={12} tiltMaxAngleY={12}>
+            <div className="bg-gradient-to-tr from-white/80 to-gray-500/80 dark:from-gray-800/80 dark:to-gray-700/80 rounded-3xl shadow-2xl hover:scale-105 hover:shadow-3xl transition-transform duration-500 p-6 flex flex-col justify-between min-w-[250px]">
+              <img src={logo} alt={name} className="w-full h-[160px] object-contain rounded-3xl mb-4 border-b border-gray-200 dark:border-gray-600" />
+              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">{name}</h3>
 
-                {/* Live Demo Button - Conditionally Rendered */}
-                {liveDemoUrl && liveDemoUrl !== "#" && ( // Only render if liveDemoUrl is valid
-                  <a
-                    href={liveDemoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-green-600 text-white font-semibold px-4 py-2 rounded hover:bg-green-700 duration-300 text-sm" // Adjusted styling
-                  >
-                    Live Demo
-                  </a>
+              <div className="flex justify-center gap-3 mt-auto">
+                <a href={viewUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 text-sm bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md transition-all duration-300">View</a>
+                {liveDemoUrl && liveDemoUrl !== "#" && (
+                  <a href={liveDemoUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 text-sm bg-green-600 hover:bg-green-700 text-white rounded-lg shadow-md transition-all duration-300">Live Demo</a>
                 )}
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-      <hr />
+          </Tilt>
+        ))}
+      </motion.div>
     </div>
   );
 }
