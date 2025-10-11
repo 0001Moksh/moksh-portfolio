@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
+
 import html from "../../public/html.jpg";
 import css from "../../public/css.jpg";
 import js from "../../public/js.jpg";
@@ -19,76 +20,85 @@ import NLP from "../../public/NLP.png";
 import genai from "../../public/genai.png";
 import langchain from "../../public/langchain.png";
 import rag from "../../public/rag.png";
+import llm from "../../public/llm.jpg";
+
 
 function Experience() {
-  const cardItem = [
-  { id: 1, logo: genai, name: "GenAI" },
-  { id: 2, logo: langchain, name: "LangChain" },
-  { id: 3, logo: rag, name: "RAG" },
-  { id: 4, logo: tensorflow, name: "TensorFlow" },
-  { id: 5, logo: keras, name: "Keras" },
-  { id: 6, logo: sklearn, name: "Scikit-learn" },
-  { id: 7, logo: scipy, name: "SciPy" },
-  { id: 8, logo: opencv, name: "OpenCV" },
-  { id: 9, logo: Sea, name: "Seaborn" },
-  { id: 10, logo: pandas, name: "Pandas" },
-  { id: 11, logo: Matplotlib, name: "Matplotlib" },
-  { id: 12, logo: numpy, name: "NumPy" },
-  { id: 13, logo: NLP, name: "NLP" },
-  { id: 14, logo: Fastapi, name: "FastAPI" },
-  { id: 15, logo: Flask, name: "Flask" },
-  { id: 16, logo: crm, name: "Zoho CRM" },
-  { id: 17, logo: js, name: "JavaScript" },
-  { id: 18, logo: css, name: "CSS" },
-  { id: 19, logo: html, name: "HTML" },
-];
+  const skills = [
+    { id: 1, logo: genai, name: "GenAI" },
+    { id: 2, logo: llm, name: "LLM" },
+    { id: 3, logo: langchain, name: "LangChain" },
+    { id: 4, logo: rag, name: "RAG" },
+    { id: 5, logo: tensorflow, name: "TensorFlow" },
+    { id: 6, logo: keras, name: "Keras" },
+    { id: 7, logo: sklearn, name: "Scikit-learn" },
+    { id: 8, logo: scipy, name: "SciPy" },
+    { id: 9, logo: opencv, name: "OpenCV" },
+    { id: 10, logo: Sea, name: "Seaborn" },
+    { id: 11, logo: pandas, name: "Pandas" },
+    { id: 12, logo: Matplotlib, name: "Matplotlib" },
+    { id: 13, logo: numpy, name: "NumPy" },
+    { id: 14, logo: NLP, name: "NLP" },
+    { id: 15, logo: Fastapi, name: "FastAPI" },
+    { id: 16, logo: Flask, name: "Flask" },
+    { id: 17, logo: crm, name: "Zoho CRM" },
+    { id: 18, logo: js, name: "JavaScript" },
+    { id: 19, logo: css, name: "CSS" },
+    { id: 20, logo: html, name: "HTML" },
+  ];
 
-
-  const controls = useAnimation();
-
-  useEffect(() => {
-    controls.start({
-      x: [-2000, 0],
-      transition: {
-        repeat: Infinity,
-        duration: 20,
-        ease: "linear",
-      },
-    });
-  }, [controls]);
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.05, type: "spring", stiffness: 80 },
+    }),
+  };
 
   return (
     <div
       name="Experience"
-      className="max-w-screen-2xl container mx-auto py-20 px-4 md:px-20 overflow-hidden"
+      className="max-w-screen-xl mx-auto py-20 px-4 md:px-10 text-center bg-white"
     >
-      <div className="text-center mb-10">
-        <h1 className="text-5xl font-bold mb-4">Experience</h1>
-        <p className="text-lg text-gray-600">
-          I've more than 2 years of experience working with these technologies.
-        </p>
-      </div>
+      <h1 className="text-5xl font-bold mb-6 tracking-wide">
+        Experience
+      </h1>
+      <p className="text-lg text-gray-600 mb-12">
+        2+ years of hands-on experience with AI, ML, and web technologies.
+      </p>
 
-      {/* Continuous horizontal scrolling showcase */}
-      <motion.div animate={controls} className="flex space-x-8 py-6">
-        {[...cardItem, ...cardItem].map(({ id, logo, name }, index) => (
-          <div
-            key={id + "-" + index}
-            className="flex flex-col items-center justify-center min-w-[180px] p-6 border border-gray-200 rounded-2xl shadow-lg transition-transform transform hover:-rotate-2 hover:scale-110 duration-300 bg-white hover:shadow-2xl"
+      {/* Grid Layout for All Skills */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 place-items-center">
+        {skills.map((skill, index) => (
+          <motion.div
+            key={skill.id}
+            custom={index}
+            variants={cardVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.1, rotate: 1 }}
+            className="bg-white border border-gray-300 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-indigo-300 hover:border-indigo-400"
           >
             <img
-              src={logo}
-              alt={name}
-              className="w-[80px] h-[80px] object-contain mb-4 rounded-full"
+              src={skill.logo}
+              alt={skill.name}
+              className="w-[70px] h-[70px] object-contain mb-3 rounded-full shadow-md"
             />
-            <div className="text-center text-base font-semibold text-gray-900">
-              {name}
-            </div>
-          </div>
+            <h3 className="text-gray-800 font-semibold text-base">
+              {skill.name}
+            </h3>
+          </motion.div>
         ))}
-      </motion.div>
+      </div>
 
-      <hr className="mt-12 border-gray-300" />
+      <motion.hr
+        className="mt-16 border-gray-300 w-3/4 mx-auto"
+        initial={{ width: 0 }}
+        whileInView={{ width: "75%" }}
+        transition={{ duration: 1 }}
+      />
     </div>
   );
 }

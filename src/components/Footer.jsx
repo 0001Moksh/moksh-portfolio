@@ -76,15 +76,7 @@ const Footer = () => {
             >
               Moksh Bhardwaj
             </a>{" "}
-            | Support by{" "}
-            <a
-              href="https://aksh06.netlify.app/"
-              className="text-red-500 underline hover:text-red-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Akshat Rai
-            </a>
+            | All rights reserved.
           </p>
         </motion.div>
       </footer>

@@ -8,7 +8,7 @@ function Contact() {
     register,
     handleSubmit,
     formState: { errors },
-    reset, // <-- Add reset here
+    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -20,7 +20,7 @@ function Contact() {
     try {
       await axios.post("https://getform.io/f/bejryrva", userInfo);
       toast.success("Your message has been sent");
-      reset(); // <-- Clear form after successful submission
+      reset();
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -30,61 +30,61 @@ function Contact() {
   return (
     <div
       name="Contact"
-      className=" max-w-screen-2xl container mx-auto px-4 md:px-20 my-10"
+      className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-10"
     >
-      <h1 className="text-5xl font-bold mb-4">Contact me</h1>
-      <span>Please fill out the form below to contact me</span>
+      <h1 className="text-5xl font-bold mb-4 text-gray-900">Contact Me</h1>
+      <span className="text-gray-700">Please fill out the form below to contact me</span>
+      
       <div className="flex flex-col items-center justify-center mt-5">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="shadow-lg border bg-slate-200 w-96 px-8 py-6 rounded-xl"
+          className="shadow-lg border border-gray-300 bg-white w-96 px-8 py-6 rounded-xl"
         >
-          <h1 className="text-xl font-semibold mb-4">Send Your Message</h1>
+          <h1 className="text-xl font-semibold mb-4 text-gray-800">Send Your Message</h1>
+
           <div className="flex flex-col mb-5">
-            <label className="block text-gray-700">FullName</label>
+            <label className="block text-gray-700">Full Name</label>
             <input
               {...register("name", { required: true })}
-              className="hover:shadow-lg rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="hover:shadow-lg rounded-lg border border-gray-300 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-400"
               id="name"
-              name="name"
               type="text"
               placeholder="Enter your fullname"
             />
-            {errors.name && <span>This field is required</span>}
+            {errors.name && <span className="text-red-500 text-sm">This field is required</span>}
           </div>
+
           <div className="flex flex-col mb-4">
             <label className="block text-gray-700">Email Address</label>
             <input
               {...register("email", { required: true })}
-              className="hover:shadow-lg shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="hover:shadow-lg rounded-lg border border-gray-300 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-400"
               id="email"
-              name="email"
-              type="text"
+              type="email"
               placeholder="Enter your email address"
             />
-            {errors.email && <span>This field is required</span>}
+            {errors.email && <span className="text-red-500 text-sm">This field is required</span>}
           </div>
+
           <div className="flex flex-col mb-4">
             <label className="block text-gray-700">Message</label>
             <textarea
               {...register("message", { required: true })}
-              className="hover:shadow-lg shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="hover:shadow-lg rounded-lg border border-gray-300 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-400"
               id="message"
-              name="message"
-              type="text"
-              placeholder="Enter your Query"
+              placeholder="Enter your query"
             />
-            {errors.message && <span>This field is required</span>}
+            {errors.message && <span className="text-red-500 text-sm">This field is required</span>}
           </div>
+
           <button
             type="submit"
-            className="w-full bg-black text-white rounded-xl px-3 py-2 hover:bg-slate-700 duration-300"
+            className="w-full bg-indigo-600 text-white rounded-xl px-3 py-2 hover:bg-indigo-700 transition-all duration-300"
           >
             Send
           </button>
         </form>
       </div>
-      <br /><br />
     </div>
   );
 }

@@ -26,10 +26,9 @@ function Navbar() {
             <p className="text-sm text-gray-600">AI-ML Engineer</p>
           </h1>
         </div>
-        
 
         {/* Desktop Navbar */}
-        <ul className="hidden md:flex space-x-8">
+        <ul className="hidden md:flex space-x-8 text-gray-800">
           {navItems.map(({ id, text }) => (
             <li key={id} className="hover:scale-105 duration-200 cursor-pointer">
               <Link to={text} smooth={true} duration={500} offset={-70} activeClass="active">
@@ -44,37 +43,36 @@ function Navbar() {
           <AiOutlineMenu size={30} />
         </div>
 
+        {/* Download CV Button */}
         <div className="flex items-center space-x-2 mr-4">
-        <a
-  href="https://drive.google.com/uc?export=download&id=1mXnS-dNLi5DShw50UvgzyJ93ldOqgcMU"
-  download
-  style={{
-    marginLeft: "20px",
-    padding: "12px 10px",
-    backgroundColor: "rgb(164, 93, 72)",
-    color: "white",
-    borderRadius: "12px",
-    textDecoration: "none",
-    fontWeight: "bold",
-    fontSize: "16px",
-    display: "inline-block",
-    transition: "all 0.2s ease",
-    boxShadow: "0 6px 0 rgb(123, 70, 55), 0 10px 20px rgba(0,0,0,0.3)", // 3D shadow layers
-  }}
-  onMouseEnter={(e) => {
-    e.target.style.transform = "translateY(-4px) scale(1.05)";
-    e.target.style.boxShadow = "0 10px 0 rgb(123, 70, 55), 0 14px 30px rgba(0,0,0,0.4)";
-  }}
-  onMouseLeave={(e) => {
-    e.target.style.transform = "translateY(0) scale(1)";
-    e.target.style.boxShadow = "0 6px 0 rgb(123, 70, 55), 0 10px 20px rgba(0,0,0,0.3)";
-  }}
->
-  Download CV
-</a>
-
+          <a
+            href="https://drive.google.com/uc?export=download&id=1mXnS-dNLi5DShw50UvgzyJ93ldOqgcMU"
+            download
+            style={{
+              marginLeft: "20px",
+              padding: "12px 10px",
+              backgroundColor: "rgb(164, 93, 72)",
+              color: "white",
+              borderRadius: "12px",
+              textDecoration: "none",
+              fontWeight: "bold",
+              fontSize: "16px",
+              display: "inline-block",
+              transition: "all 0.2s ease",
+              boxShadow: "0 6px 0 rgb(123, 70, 55), 0 10px 20px rgba(0,0,0,0.3)",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = "translateY(-4px) scale(1.05)";
+              e.target.style.boxShadow = "0 10px 0 rgb(123, 70, 55), 0 14px 30px rgba(0,0,0,0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "translateY(0) scale(1)";
+              e.target.style.boxShadow = "0 6px 0 rgb(123, 70, 55), 0 10px 20px rgba(0,0,0,0.3)";
+            }}
+          >
+            Download CV
+          </a>
         </div>
-        
       </div>
 
       {/* AnimatePresence for enter & exit animations */}
@@ -85,15 +83,15 @@ function Navbar() {
             <motion.div
               initial={{ x: "-100vw" }}
               animate={{ x: 0 }}
-              exit={{ x: "-100vw" }} // Exit animation
+              exit={{ x: "-100vw" }}
               transition={{ type: "spring", stiffness: 120, damping: 20 }}
               className="fixed top-0 left-0 mt-16 h-full w-64 bg-white shadow-lg z-50"
             >
               <div className="flex justify-between items-center p-4 border-b">
-                <h2 className="text-xl font-bold">Menu</h2>
+                <h2 className="text-xl font-bold text-gray-800">Menu</h2>
                 <IoCloseSharp size={30} className="cursor-pointer" onClick={() => setMenu(false)} />
               </div>
-              <ul className="flex flex-col space-y-6 p-6 text-lg">
+              <ul className="flex flex-col space-y-6 p-6 text-lg text-gray-800">
                 {navItems.map(({ id, text }) => (
                   <li key={id} className="hover:scale-105 duration-200 cursor-pointer">
                     <Link onClick={() => setMenu(false)} to={text} smooth={true} duration={500} offset={-70} activeClass="active">
@@ -108,7 +106,7 @@ function Navbar() {
             <motion.div
               initial={{ opacity: 0.2 }}
               animate={{ opacity: 0.7 }}
-              exit={{ opacity: 0 }} // Fade out when closing
+              exit={{ opacity: 0 }}
               className="fixed top-0 left-0 w-full h-full bg-black"
               onClick={() => setMenu(false)}
             ></motion.div>
