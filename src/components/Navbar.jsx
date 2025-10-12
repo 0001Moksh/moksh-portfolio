@@ -50,13 +50,13 @@ function Navbar() {
             download
             style={{
               marginLeft: "20px",
-              padding: "8px 10px",
+              padding: "8px 8px",
               backgroundColor: "rgb(164, 93, 72)",
               color: "white",
               borderRadius: "12px",
               textDecoration: "none",
               fontWeight: "bold",
-              fontSize: "16px",
+              fontSize: "12px",
               display: "inline-block",
               transition: "all 0.2s ease",
               boxShadow: "0 6px 0 rgb(123, 70, 55), 0 10px 20px rgba(0,0,0,0.3)",

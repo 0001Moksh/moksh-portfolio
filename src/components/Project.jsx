@@ -260,7 +260,8 @@ function Project() {
 
   return (
     <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-16 bg-gray-50">
-      <div className="text-center mb-12">
+      <div 
+        name="Project" className="text-center mb-12">
         <h1 className="text-5xl font-extrabold mb-3 text-gray-900 tracking-tight">My Projects</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Explore my portfolio of innovative projects, featuring live demos, detailed overviews, and cutting-edge technologies.
