@@ -1,31 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FaInstagram,
-  FaLinkedinIn,
-  FaGithub,
-} from "react-icons/fa6";
-
-const socialLinks = [
-  {
-    icon: <FaGithub size={28} />,
-    url: "https://github.com/0001Moksh",
-    label: "GitHub",
-    hover: "hover:text-gray-800",
-  },
-  {
-    icon: <FaInstagram size={28} />,
-    url: "https://www.instagram.com/moksh_bhardwaj23/",
-    label: "Instagram",
-    hover: "hover:text-pink-600",
-  },
-  {
-    icon: <FaLinkedinIn size={28} />,
-    url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh/",
-    label: "LinkedIn",
-    hover: "hover:text-blue-700",
-  },
-];
+import { FaInstagram, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -34,39 +10,77 @@ const Footer = () => {
     <>
       <hr />
       <footer className="bg-orange-50 py-10 mt-10">
-      <motion.div
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{
-    type: "spring",
-    stiffness: 100,
-    damping: 15,
-    duration: 0.8,
-    delay: 0.2,
-  }}
-  viewport={{ once: true, amount: 0.2 }}
-  className="max-w-screen-xl mx-auto px-4 sm:px-8 md:px-16 lg:px-20 text-center"
->
-
-          {/* 🔗 Social Icons */}
-          <div className="flex justify-center gap-6 mb-6">
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-                whileHover={{ scale: 1.2 }}
-                className={`${link.hover} transition-colors duration-300`}
-              >
-                {link.icon}
-              </motion.a>
-            ))}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 15,
+            duration: 0.8,
+            delay: 0.2,
+          }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-screen-xl mx-auto px-4 sm:px-8 md:px-16 lg:px-20 text-center"
+        >
+          {/* SOCIAL MEDIA ICONS */}
+          <div className="mt-8 space-y-6">
+            <div>
+              <h2 className="font-bold text-center text-gray-800 mb-2">
+                Available on
+              </h2>
+              <ul className="flex justify-center space-x-6">
+                <li>
+                  <a
+                    href="https://www.instagram.com/moksh_bhardwaj23/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaInstagram className="text-2xl text-pink-600 hover:scale-125 transition-transform duration-200" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:mokshbhardwaj2333@gmail.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaEnvelope className="text-2xl hover:scale-125 transition-transform duration-200" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/moksh-bhardwaj-0001moksh"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaLinkedin className="text-2xl text-blue-700 hover:scale-125 transition-transform duration-200" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/@NexYugTech"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <IoLogoYoutube className="text-2xl text-red-600 hover:scale-125 transition-transform duration-200" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/0001Moksh"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaGithub className="text-2xl text-gray-800 hover:scale-125 transition-transform duration-200" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* 💬 Footer Text */}
-          <p className="text-sm text-gray-700">
+          {/* Footer Text */}
+          <p className="text-sm text-gray-700 mt-6">
             © {year} — Built with ❤️ by{" "}
             <a
               href="https://mokshbhardwaj.netlify.app"
