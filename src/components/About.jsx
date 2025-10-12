@@ -18,11 +18,12 @@ const aboutCards = [
         <li>B.Tech in AI & ML, MDU University, 2027</li>
         <li>Zoho Developer Certification, Zoho Corp, 2024</li>
         <li>
-          ML & Deep Learning Specialization,{" "}
+          AI & Deep Learning Specialization,{" "}
           <a href="https://nexyugtech.com" target="_blank" className="underline text-cyan-600">
             NexYug Tech, 2025
           </a>
         </li>
+        <li>Hands-on experience in GenAI, LLM, LangChain, RAG, NLP, Computer Vision</li>
       </ul>
     ),
     border: "border-cyan-500",
@@ -30,14 +31,14 @@ const aboutCards = [
   {
     id: 2,
     icon: <FaTools className="text-black text-3xl" />,
-    title: "Skills & Expertise",
+    title: "AI & Technical Skills",
     content: (
       <p className="text-gray-700 space-y-1">
-        <span className="font-semibold">Programming Languages:</span> Python, JavaScript, C++ <br />
-        <span className="font-semibold">Zoho Development:</span> Zoho CRM, Zoho Creator, Deluge <br />
-        <span className="font-semibold">AI & Data Science:</span> TensorFlow, Keras, NumPy, Pandas, Matplotlib, Seaborn <br />
-        <span className="font-semibold">Web Development:</span> HTML, CSS, JavaScript <br />
-        <span className="font-semibold">Automation & Integration:</span> Zapier, APIs, Webhooks
+        <span className="font-semibold">Programming & Web:</span> Python, JavaScript, HTML, CSS, Flask, FastAPI <br />
+        <span className="font-semibold">AI & ML Tools:</span> TensorFlow, Keras, Scikit-learn, SciPy, OpenCV, NumPy, Pandas, Matplotlib, Seaborn <br />
+        <span className="font-semibold">AI Applications:</span> NLP, LLM, RAG, GenAI, LangChain, AI Resume Analyzer, AI Interviewer <br />
+        <span className="font-semibold">Zoho & Automation:</span> Zoho CRM, Deluge, Zapier, Workflow Automation <br />
+        <span className="font-semibold">Deployment & Integration:</span> API Development, Model Deployment, Full-stack integration
       </p>
     ),
     border: "border-black",
@@ -49,10 +50,13 @@ const aboutCards = [
     content: (
       <ul className="list-disc ml-6 text-gray-700 space-y-1">
         <li>
-          <span className="font-semibold">Zoho Developer – Business Raiser (2024-Present):</span> Customized Zoho CRM, AI automation, Amazon SP-API integration for MCF
+          <span className="font-semibold">Zoho Developer – Business Raiser (2024-Present):</span> Customized Zoho CRM, integrated AI-powered automation, Amazon SP-API integration, and predictive analytics workflows.
         </li>
         <li>
-          <span className="font-semibold">Corporate Trainer – Excel & BI (2023-Present):</span> Online sessions on Excel, Power BI, and data visualization
+          <span className="font-semibold">Corporate Trainer – Excel & BI (2023-Present):</span> Teaching data visualization, AI analytics, Python & ML applications for business solutions.
+        </li>
+        <li>
+          <span className="font-semibold">AI Projects:</span> Deva Voice Chatbot, AI Resume Analyzer, AI Interviewer, Diabetes Prediction App, HaritAI, WhatsApp Form Automation, and full-stack websites.
         </li>
       </ul>
     ),
@@ -61,12 +65,13 @@ const aboutCards = [
   {
     id: 4,
     icon: <FaAward className="text-yellow-500 text-3xl" />,
-    title: "Achievements & Awards",
+    title: "Achievements & Recognition",
     content: (
       <ul className="list-disc ml-6 text-gray-700 space-y-1">
-        <li>Zoho Creator Expert – Workflow automation & low-code recognition</li>
-        <li>Amazon Smbhav Hackathon 2024 – Sustainable logistics solution</li>
+        <li>Zoho Creator Expert – Low-code & AI workflow automation</li>
+        <li>Amazon Smbhav Hackathon 2024 – Sustainable AI logistics solution</li>
         <li>AI4Humanity Hackathon at NSUT – Human-centric AI solutions</li>
+        <li>Multiple AI & ML projects deployed with live demos on GitHub</li>
       </ul>
     ),
     border: "border-yellow-500",
@@ -74,10 +79,10 @@ const aboutCards = [
   {
     id: 5,
     icon: <FaBullseye className="text-red-500 text-3xl" />,
-    title: "Mission Statement",
+    title: "Mission & Vision",
     content: (
       <p className="text-gray-700">
-        Leverage AI & automation to build efficient, scalable, user-friendly solutions. Continuous learning, innovation, and helping businesses optimize workflows with Zoho and AI.
+        Build intelligent, ethical, and scalable AI solutions that solve real-world problems. Leverage AI, ML, and automation to optimize workflows, enhance productivity, and create impactful business solutions. Continuous learning, innovation, and contributing to the AI community.
       </p>
     ),
     border: "border-red-500",
@@ -94,7 +99,9 @@ function About() {
       >
         <h1 className="text-5xl font-bold mb-12 text-center md:text-left text-gray-800">About Me</h1>
         <p className="text-gray-700 text-justify mb-12 text-lg">
-          Hello, I'm <span className="font-semibold text-cyan-600">Moksh</span>, a passionate <span className="font-semibold text-cyan-600">Zoho Developer</span> and AI Enthusiast. I build intelligent, scalable solutions specializing in AI, ML, Zoho automation, and business process optimization to enhance workflow efficiency.
+          Hello, I'm <span className="font-semibold text-cyan-600">Moksh</span>, a passionate <span className="font-semibold text-cyan-600">AI & ML Engineer</span> and <span className="font-semibold text-cyan-600">Zoho Developer</span>. 
+          With 2+ years of hands-on experience in AI, ML, GenAI, NLP, Computer Vision, and web technologies, I build intelligent, scalable, and user-friendly solutions. 
+          My projects span AI chatbots, predictive analytics, automation workflows, and full-stack web apps designed to optimize business processes.
         </p>
 
         {/* Cards Grid */}

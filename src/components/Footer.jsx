@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 
 const Footer = () => {
@@ -73,6 +73,16 @@ const Footer = () => {
                     rel="noreferrer"
                   >
                     <FaGithub className="text-2xl text-gray-800 hover:scale-125 transition-transform duration-200" />
+                  </a>
+                </li>
+                {/* WhatsApp */}
+                <li>
+                  <a
+                    href="https://wa.me/918882563225?text=Hi%20Moksh,%20I%20am%20contacting%20you%20from%20your%20resume"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaWhatsapp className="text-2xl text-green-500 hover:scale-125 transition-transform duration-200" />
                   </a>
                 </li>
               </ul>
