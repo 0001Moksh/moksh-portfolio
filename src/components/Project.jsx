@@ -10,7 +10,7 @@ import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 
-// Import images (assuming they are optimized and in public folder)
+// Import images
 import Deva from "../../public/deva_ai.png";
 import Chatbot from "../../public/chatbot.png";
 import Gym_web from "../../public/gym.png";
@@ -33,7 +33,6 @@ function Project() {
   const [lightboxImage, setLightboxImage] = useState(null);
   const modalRef = useRef(null);
 
-  // Sorted card items
   const cardItem = [
     {
       id: 13,
@@ -108,6 +107,8 @@ function Project() {
         techStack: ["Python", "Flask", "MongoDB", "Google Generative AI"],
       },
       githubUrl: "https://github.com/0001Moksh/AI-Resume-Analyzer",
+      videoUrl:
+        "https://www.linkedin.com/posts/moksh-bhardwaj-0001moksh_resumeanalyzer-recruitment-hrtech-activity-7375703203616817152-Tekt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
     },
     {
       id: 9,
@@ -167,7 +168,7 @@ function Project() {
         techStack: ["Python", "Flask", "Google Gemini API", "gTTS"],
       },
       liveDemoUrl: "https://deva-voice-chat.onrender.com/",
-    },
+      },
     {
       id: 5,
       logo: haritai,
@@ -180,6 +181,8 @@ function Project() {
         techStack: ["Python", "Flask", "Pillow", "Google Gemini AI"],
       },
       liveDemoUrl: "https://haritai.onrender.com/",
+      videoUrl:
+        "https://www.linkedin.com/posts/nexyugtech_nexyugtech-techstartup-madeinindia-ugcPost-7338819436818190336-xy_W?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
     },
     {
       id: 4,
@@ -210,7 +213,10 @@ function Project() {
         techStack: ["Python", "PyQt5", "Google Gemini"],
       },
       liveDemoUrl:
-        "https://www.linkedin.com/feed/update/urn:li:activity:7293938971489763328/",
+        "https://www.linkedin.com/posts/dpg-institute-of-technology-and-management_dpgitm-voiceassistant-aiassistant-ugcPost-7329051618228822016-u8MJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
+        videoUrl:
+        "https://www.linkedin.com/posts/dpg-institute-of-technology-and-management_dpgitm-voiceassistant-aiassistant-ugcPost-7329051618228822016-u8MJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
+
     },
     {
       id: 2,
@@ -255,13 +261,11 @@ function Project() {
       : cardItem.filter((item) => item.category === filter);
 
   useEffect(() => setVisibleCount(6), [filter]);
-
   const handleLoadMore = () => setVisibleCount((p) => p + 6);
 
   return (
     <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-16 bg-gray-50">
-      <div 
-        name="Project" className="text-center mb-12">
+      <div name="Project" className="text-center mb-12">
         <h1 className="text-5xl font-extrabold mb-3 text-gray-900 tracking-tight">My Projects</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Explore my portfolio of innovative projects, featuring live demos, detailed overviews, and cutting-edge technologies.
@@ -319,7 +323,7 @@ function Project() {
 
                 {overview && (
                   <button
-                    onClick={() => setSelectedProject({ name, overview, liveDemoUrl, githubUrl })}
+                    onClick={() => setSelectedProject({ name, overview, liveDemoUrl, githubUrl, videoUrl: cardItem.find(p => p.name === name)?.videoUrl })}
                     className="absolute top-2 right-2 text-gray-500 hover:text-indigo-600 text-2xl p-1 rounded-full bg-white/80 backdrop-blur-sm transition-colors duration-300"
                   >
                     <AiOutlineInfoCircle />
@@ -419,7 +423,7 @@ function Project() {
                 ))}
               </div>
 
-              <div className="flex justify-end gap-4">
+              <div className="flex justify-end gap-4 flex-wrap">
                 {selectedProject.liveDemoUrl && (
                   <a
                     href={selectedProject.liveDemoUrl}
@@ -438,6 +442,16 @@ function Project() {
                     className="px-6 py-2 text-base bg-gray-800 hover:bg-gray-900 text-white rounded-lg shadow-md transition-colors duration-300 flex items-center gap-2"
                   >
                     <FaGithub /> GitHub
+                  </a>
+                )}
+                {selectedProject.videoUrl && (
+                  <a
+                    href={selectedProject.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 text-base bg-red-600 hover:bg-red-700 text-white rounded-lg shadow-md transition-colors duration-300"
+                  >
+                    Watch Video
                   </a>
                 )}
               </div>
