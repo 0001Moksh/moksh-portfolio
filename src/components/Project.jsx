@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import Zoom from "react-medium-image-zoom";
-import "react-medium-image-zoom/dist/styles.css";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+import "yet-another-react-lightbox/plugins/captions.css";
 
 // Import images (assuming they are optimized and in public folder)
 import Deva from "../../public/deva_ai.png";
@@ -25,9 +29,11 @@ function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState("all");
   const [visibleCount, setVisibleCount] = useState(6);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState(null);
   const modalRef = useRef(null);
-  
-  // Sorted card items by ID descending for newest first (assuming higher ID is newer)
+
+  // Sorted card items
   const cardItem = [
     {
       id: 13,
@@ -35,11 +41,17 @@ function Project() {
       name: "Import Medicine",
       category: "AI & Data Management",
       overview: {
-        description: "Medicine inventory management app with AI enrichment and batch validation.",
-        features: ["Excel upload & validation", "MongoDB updates", "AI-powered data enrichment"],
+        description:
+          "Medicine inventory management app with AI enrichment and batch validation.",
+        features: [
+          "Excel upload & validation",
+          "MongoDB updates",
+          "AI-powered data enrichment",
+        ],
         techStack: ["Python", "Flask", "MongoDB", "Google Gemini AI"],
       },
-      githubUrl: "https://github.com/0001Moksh/Aushidi-360-Sub-Projects/tree/main/Import%20Medicine%20using%202%20LLm",
+      githubUrl:
+        "https://github.com/0001Moksh/Aushidi-360-Sub-Projects/tree/main/Import%20Medicine%20using%202%20LLm",
     },
     {
       id: 12,
@@ -47,11 +59,24 @@ function Project() {
       name: "Symptoms to Medicine",
       category: "AI & Healthcare",
       overview: {
-        description: "AI-powered medicine recommendation web app using semantic search and GenAI guidance.",
-        features: ["Natural language queries", "Structured JSON output", "Doctor-style guidance"],
-        techStack: ["Python", "Flask", "dotenv", "SentenceTransformer", "FAISS", "Google Gemini AI"],
+        description:
+          "AI-powered medicine recommendation web app using semantic search and GenAI guidance.",
+        features: [
+          "Natural language queries",
+          "Structured JSON output",
+          "Doctor-style guidance",
+        ],
+        techStack: [
+          "Python",
+          "Flask",
+          "dotenv",
+          "SentenceTransformer",
+          "FAISS",
+          "Google Gemini AI",
+        ],
       },
-      githubUrl: "https://github.com/0001Moksh/Aushidi-360-Sub-Projects/tree/main/Symptoms%20to%20Medicine%20using%20langchain%20%2B%201%20LLM",
+      githubUrl:
+        "https://github.com/0001Moksh/Aushidi-360-Sub-Projects/tree/main/Symptoms%20to%20Medicine%20using%20langchain%20%2B%201%20LLM",
     },
     {
       id: 11,
@@ -59,11 +84,13 @@ function Project() {
       name: "Medicine Filtering",
       category: "AI & Search",
       overview: {
-        description: "Intelligent medicine retrieval via fuzzy matching and semantic vector search.",
+        description:
+          "Intelligent medicine retrieval via fuzzy matching and semantic vector search.",
         features: ["Batch ID & name search", "Typo tolerance", "Semantic similarity ranking"],
         techStack: ["Python", "Flask", "FAISS", "SentenceTransformer", "RapidFuzz"],
       },
-      githubUrl: "https://github.com/0001Moksh/Aushidi-360-Sub-Projects/tree/main/Medicine%20Filtering%20using%20Embedding%20%2B%20Vector%20DB",
+      githubUrl:
+        "https://github.com/0001Moksh/Aushidi-360-Sub-Projects/tree/main/Medicine%20Filtering%20using%20Embedding%20%2B%20Vector%20DB",
     },
     {
       id: 10,
@@ -71,8 +98,13 @@ function Project() {
       name: "AI Resume Analyzer",
       category: "AI & Productivity",
       overview: {
-        description: "Streamlined resume evaluation with ML-based insights and MongoDB storage.",
-        features: ["PDF/DOCX upload", "Structured data extraction", "Interactive query chat"],
+        description:
+          "Streamlined resume evaluation with ML-based insights and MongoDB storage.",
+        features: [
+          "PDF/DOCX upload",
+          "Structured data extraction",
+          "Interactive query chat",
+        ],
         techStack: ["Python", "Flask", "MongoDB", "Google Generative AI"],
       },
       githubUrl: "https://github.com/0001Moksh/AI-Resume-Analyzer",
@@ -83,7 +115,8 @@ function Project() {
       name: "WhatsApp Form Automation",
       category: "Automation",
       overview: {
-        description: "Automates form submissions via WhatsApp using API integration.",
+        description:
+          "Automates form submissions via WhatsApp using API integration.",
         features: ["Prefilled WhatsApp messages", "API-based automation"],
         techStack: ["JavaScript", "WhatsApp API"],
       },
@@ -94,11 +127,16 @@ function Project() {
       name: "Diabetes Prediction App",
       category: "ML & Healthcare",
       overview: {
-        description: "Predicts diabetes risk using ML models with a Streamlit interface.",
-        features: ["Real-time predictions", "Model comparison & feature importance", "Slider inputs for health data"],
+        description:
+          "Predicts diabetes risk using ML models with a Streamlit interface.",
+        features: [
+          "Real-time predictions",
+          "Model comparison & feature importance",
+          "Slider inputs for health data",
+        ],
         techStack: ["Python", "Streamlit", "scikit-learn", "Pandas", "Seaborn"],
       },
-      liveDemoUrl: "https://github.com/0001Moksh/Diabetes-Prediction-App",
+      githubUrl: "https://github.com/0001Moksh/Diabetes-Prediction-App",
     },
     {
       id: 7,
@@ -106,8 +144,13 @@ function Project() {
       name: "AI Interviewer",
       category: "AI & Education",
       overview: {
-        description: "Web app for Excel skill assessment with structured mock interviews and AI evaluation.",
-        features: ["Automated scoring & feedback", "Leaderboard for top performers", "Firebase tracking"],
+        description:
+          "Web app for Excel skill assessment with structured mock interviews and AI evaluation.",
+        features: [
+          "Automated scoring & feedback",
+          "Leaderboard for top performers",
+          "Firebase tracking",
+        ],
         techStack: ["Python", "Flask", "Google Gemini LLM", "Firebase"],
       },
       liveDemoUrl: "https://ai-interviewer-by-moksh.onrender.com/",
@@ -118,7 +161,8 @@ function Project() {
       name: "Deva Voice Chatbot",
       category: "AI & Voice",
       overview: {
-        description: "Flask-based AI voice assistant with multiple characters, accents, and audio responses.",
+        description:
+          "Flask-based AI voice assistant with multiple characters, accents, and audio responses.",
         features: ["Deva & Devi characters", "Audio playback", "Conversation history"],
         techStack: ["Python", "Flask", "Google Gemini API", "gTTS"],
       },
@@ -130,7 +174,8 @@ function Project() {
       name: "HaritAI",
       category: "AI & Environment",
       overview: {
-        description: "Eco-friendly product generator transforming waste images into sustainable product ideas.",
+        description:
+          "Eco-friendly product generator transforming waste images into sustainable product ideas.",
         features: ["Waste classification", "AI-generated product ideas", "Interactive frontend"],
         techStack: ["Python", "Flask", "Pillow", "Google Gemini AI"],
       },
@@ -142,7 +187,8 @@ function Project() {
       name: "Deva Chatbot",
       category: "AI & Chat",
       overview: {
-        description: "Flask-based conversational AI chatbot powered by Google Gemini, with session history.",
+        description:
+          "Flask-based conversational AI chatbot powered by Google Gemini, with session history.",
         features: ["Personalized conversation", "HTML/Markdown cleaning", "Web deployment"],
         techStack: ["Python", "Flask", "BeautifulSoup", "markdown2"],
       },
@@ -154,11 +200,17 @@ function Project() {
       name: "Deva Voice Assistant",
       category: "AI & Voice",
       overview: {
-        description: "Advanced desktop AI assistant with voice commands, chat, TTS, and system control.",
-        features: ["Voice-controlled system commands", "Real-time translation", "Task management"],
+        description:
+          "Advanced desktop AI assistant with voice commands, chat, TTS, and system control.",
+        features: [
+          "Voice-controlled system commands",
+          "Real-time translation",
+          "Task management",
+        ],
         techStack: ["Python", "PyQt5", "Google Gemini"],
       },
-      liveDemoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7293938971489763328/",
+      liveDemoUrl:
+        "https://www.linkedin.com/feed/update/urn:li:activity:7293938971489763328/",
     },
     {
       id: 2,
@@ -166,8 +218,13 @@ function Project() {
       name: "Property Dealer Website",
       category: "Web Development",
       overview: {
-        description: "Responsive landing page showcasing Godrej Aristocrat luxury 4 BHK residences.",
-        features: ["Interactive image slider", "Project & amenities overview", "Location advantages"],
+        description:
+          "Responsive landing page showcasing Godrej Aristocrat luxury 4 BHK residences.",
+        features: [
+          "Interactive image slider",
+          "Project & amenities overview",
+          "Location advantages",
+        ],
         techStack: ["HTML", "CSS", "JavaScript"],
       },
       liveDemoUrl: "https://sahil03.netlify.app/",
@@ -178,81 +235,48 @@ function Project() {
       name: "Gym Website",
       category: "Web Development",
       overview: {
-        description: "Dynamic and user-friendly gym website with hero sections, testimonials, stats, and membership forms.",
-        features: ["WhatsApp prefilled form", "Interactive stats charts", "Floating contact button"],
+        description:
+          "Dynamic and user-friendly gym website with hero sections, testimonials, stats, and membership forms.",
+        features: [
+          "WhatsApp prefilled form",
+          "Interactive stats charts",
+          "Floating contact button",
+        ],
         techStack: ["HTML", "CSS", "JS", "Netlify Deployment"],
       },
       liveDemoUrl: "https://power-fitness-gym-by-moksh2333.netlify.app/",
     },
   ];
 
-  // Extract unique categories
   const categories = ["all", ...new Set(cardItem.map((item) => item.category))];
+  const filteredProjects =
+    filter === "all"
+      ? cardItem
+      : cardItem.filter((item) => item.category === filter);
 
-  // Filtered projects based on category
-  const filteredProjects = filter === "all" ? cardItem : cardItem.filter((item) => item.category === filter);
+  useEffect(() => setVisibleCount(6), [filter]);
 
-  // Reset visible count when filter changes
-  useEffect(() => {
-    setVisibleCount(6);
-  }, [filter]);
-
-  // Handle outside click and ESC key for modal close
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setSelectedProject(null);
-      }
-    };
-
-    const handleEscKey = (event) => {
-      if (event.key === "Escape") {
-        setSelectedProject(null);
-      }
-    };
-
-    if (selectedProject) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("keydown", handleEscKey);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscKey);
-    };
-  }, [selectedProject]);
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.2 } },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-  };
-
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 6);
-  };
+  const handleLoadMore = () => setVisibleCount((p) => p + 6);
 
   return (
-    <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-16">
+    <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-16 bg-gray-50">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold mb-3 text-gray-900">My Projects</h1>
-        <p className="text-lg text-gray-600">Showcasing featured projects with live demos and professional overviews.</p>
+        <h1 className="text-5xl font-extrabold mb-3 text-gray-900 tracking-tight">My Projects</h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Explore my portfolio of innovative projects, featuring live demos, detailed overviews, and cutting-edge technologies.
+        </p>
       </div>
 
       {/* Category Filter */}
-      <div className="flex justify-center mb-8 flex-wrap gap-2">
+      <div className="flex justify-center mb-10 flex-wrap gap-3">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`px-4 py-2 text-sm rounded-lg shadow-md transition-all duration-300 ${
+            className={`px-5 py-2 text-base font-medium rounded-full shadow-sm transition-all duration-300 ${
               filter === cat
-                ? "bg-indigo-600 text-white"
-                : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                ? "bg-indigo-600 text-white shadow-md"
+                : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
             }`}
           >
             {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -261,44 +285,56 @@ function Project() {
       </div>
 
       <motion.div
-        variants={container}
+        variants={{
+          hidden: { opacity: 0 },
+          show: { opacity: 1, transition: { staggerChildren: 0.15 } },
+        }}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
       >
-        {filteredProjects.slice(0, visibleCount).map(({ id, logo, name, overview, liveDemoUrl, githubUrl }) => (
-          <motion.div key={id} variants={item}>
-            <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
-              <div className="bg-white border border-gray-200 rounded-3xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 p-6 flex flex-col justify-between relative">
-                <Zoom>
+        {filteredProjects.slice(0, visibleCount).map(({ id, logo, name, category, overview, liveDemoUrl, githubUrl }) => (
+          <motion.div 
+            key={id} 
+            variants={{ hidden: { opacity: 0, y: 50 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
+          >
+            <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2000}>
+              <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transform transition-all duration-500 p-5 flex flex-col justify-between relative overflow-hidden">
+                <div className="relative">
                   <img
                     src={logo}
                     alt={`${name} project screenshot`}
-                    className="w-full h-[160px] object-contain rounded-2xl mb-4 border-b border-gray-100 cursor-pointer"
+                    className="w-full h-48 object-cover rounded-xl mb-4 cursor-pointer transition-transform duration-300 hover:scale-105"
                     loading="lazy"
+                    onClick={() => {
+                      setLightboxImage(logo);
+                      setLightboxOpen(true);
+                    }}
                   />
-                </Zoom>
+                  <span className="absolute top-2 left-2 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                    {category}
+                  </span>
+                </div>
 
                 {overview && (
                   <button
                     onClick={() => setSelectedProject({ name, overview, liveDemoUrl, githubUrl })}
-                    className="absolute bottom-3 right-3 text-gray-500 hover:text-gray-800 text-3xl p-1 rounded-full transition-colors duration-300"
-                    aria-label={`View details for ${name}`}
+                    className="absolute top-2 right-2 text-gray-500 hover:text-indigo-600 text-2xl p-1 rounded-full bg-white/80 backdrop-blur-sm transition-colors duration-300"
                   >
                     <AiOutlineInfoCircle />
                   </button>
                 )}
 
-                <h3 className="text-xl font-semibold mb-2 text-gray-800 text-center">{name}</h3>
-                <p className="text-gray-600 text-sm text-center line-clamp-3 mb-4">{overview.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">{name}</h3>
+                <p className="text-gray-600 text-sm line-clamp-2 mb-4">{overview.description}</p>
 
-                <div className="flex justify-center gap-3 mt-auto">
-                  {liveDemoUrl && liveDemoUrl !== "#" && (
+                <div className="flex justify-between gap-3 mt-auto">
+                  {liveDemoUrl && (
                     <a
                       href={liveDemoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 text-sm bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 text-white rounded-lg shadow-md transition-all duration-300 flex items-center gap-1"
+                      className="flex-1 px-4 py-2 text-sm bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center gap-1"
                     >
                       Live Demo
                     </a>
@@ -308,7 +344,7 @@ function Project() {
                       href={githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 text-sm bg-gray-800 hover:bg-black text-white rounded-lg shadow-md transition-all duration-300 flex items-center gap-1"
+                      className="flex-1 px-4 py-2 text-sm bg-gray-800 text-white rounded-lg shadow hover:bg-gray-900 transition-colors duration-300 flex items-center justify-center gap-1"
                     >
                       <FaGithub /> GitHub
                     </a>
@@ -321,79 +357,74 @@ function Project() {
       </motion.div>
 
       {visibleCount < filteredProjects.length && (
-        <div className="flex justify-center mt-10">
-          <button
+        <div className="flex justify-center mt-12">
+          <motion.button
             onClick={handleLoadMore}
-            className="relative inline-block px-10 py-3 font-semibold text-white rounded-lg overflow-hidden group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 font-semibold text-white rounded-full shadow-lg bg-gradient-to-r from-indigo-600 to-indigo-800 hover:from-indigo-700 hover:to-indigo-900 transition-all duration-300"
           >
-            {/* Animated Gradient Background */}
-            <span className="absolute inset-0 bg-gradient-to-r from-gray-600 via-gray-800 to-gray-900 
-                            animate-gradient-x opacity-70 transition-all duration-500 ease-in-out 
-                            group-hover:opacity-100"></span>
-            
-            {/* Overlay for depth */}
-            <span className="absolute inset-0 bg-black opacity-20 rounded-lg"></span>
-            
-            {/* Button Text */}
-            <span className="relative z-10 text-lg group-hover:scale-105 transition-transform duration-300">
-              view more
-            </span>
-            
-            {/* Border Animation */}
-            <span className="absolute top-0 left-0 w-0 h-0 border-t-2 border-r-2 border-white rounded-lg
-                            group-hover:w-full group-hover:h-full transition-all duration-500"></span>
-          </button>
+            Load More Projects
+          </motion.button>
         </div>
       )}
 
-      {/* Enhanced Modal with AnimatePresence */}
+      {/* Modal */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 backdrop-blur-sm"
+            onClick={() => setSelectedProject(null)}
           >
             <motion.div
               ref={modalRef}
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-3xl p-8 max-w-lg mx-4 text-left relative shadow-xl overflow-y-auto max-h-[80vh]"
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="bg-white rounded-2xl p-8 max-w-md mx-4 text-left relative shadow-2xl overflow-y-auto max-h-[85vh]"
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-xl font-bold"
-                aria-label="Close modal"
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-3xl font-bold transition-colors duration-200"
               >
                 &times;
               </button>
-              <h2 className="text-2xl font-bold mb-4">{selectedProject.name}</h2>
-              <p className="text-gray-700 mb-4">{selectedProject.overview.description}</p>
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">{selectedProject.name}</h2>
+              <p className="text-gray-700 mb-6 leading-relaxed">{selectedProject.overview.description}</p>
 
-              <h3 className="font-semibold mb-2">Features:</h3>
-              <ul className="list-disc list-inside mb-4">
-                {selectedProject.overview.features.map((f, idx) => (
-                  <li key={idx} className="text-gray-600">{f}</li>
+              <h3 className="font-semibold text-lg mb-3 text-gray-800">Key Features:</h3>
+              <ul className="list-disc list-inside mb-6 space-y-2">
+                {selectedProject.overview.features.map((f, i) => (
+                  <li key={i} className="text-gray-600">
+                    {f}
+                  </li>
                 ))}
               </ul>
 
-              <h3 className="font-semibold mb-2">Tech Stack:</h3>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedProject.overview.techStack.map((tech, idx) => (
-                  <span key={idx} className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-lg text-sm">{tech}</span>
+              <h3 className="font-semibold text-lg mb-3 text-gray-800">Tech Stack:</h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {selectedProject.overview.techStack.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    {tech}
+                  </span>
                 ))}
               </div>
 
-              <div className="flex justify-end gap-3">
-                {selectedProject.liveDemoUrl && selectedProject.liveDemoUrl !== "#" && (
+              <div className="flex justify-end gap-4">
+                {selectedProject.liveDemoUrl && (
                   <a
                     href={selectedProject.liveDemoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 text-sm bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 text-white rounded-lg shadow-md transition-all duration-300"
+                    className="px-6 py-2 text-base bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md transition-colors duration-300"
                   >
                     Live Demo
                   </a>
@@ -403,7 +434,7 @@ function Project() {
                     href={selectedProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 text-sm bg-gray-800 hover:bg-black text-white rounded-lg shadow-md transition-all duration-300 flex items-center gap-1"
+                    className="px-6 py-2 text-base bg-gray-800 hover:bg-gray-900 text-white rounded-lg shadow-md transition-colors duration-300 flex items-center gap-2"
                   >
                     <FaGithub /> GitHub
                   </a>
@@ -413,6 +444,16 @@ function Project() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Lightbox */}
+      {lightboxOpen && (
+        <Lightbox
+          open={lightboxOpen}
+          close={() => setLightboxOpen(false)}
+          slides={[{ src: lightboxImage }]}
+          plugins={[Captions, Thumbnails]}
+        />
+      )}
 
       <hr className="mt-20 border-gray-300" />
     </div>
