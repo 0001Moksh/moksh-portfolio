@@ -233,7 +233,7 @@ function Project() {
         ],
         techStack: ["HTML", "CSS", "JavaScript"],
       },
-      liveDemoUrl: "https://sahil03.netlify.app/",
+      liveDemoUrl: "https://sahil-dealer.netlify.app/",
     },
     {
       id: 1,
