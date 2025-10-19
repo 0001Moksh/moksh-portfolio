@@ -266,21 +266,21 @@ function Project() {
   return (
     <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-16 bg-gray-50">
       <div name="Project" className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold mb-3 text-gray-900 tracking-tight">My Projects</h1>
+        <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-gray-800">My Projects</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Explore my portfolio of innovative projects, featuring live demos, detailed overviews, and cutting-edge technologies.
         </p>
       </div>
 
       {/* Category Filter */}
-      <div className="flex justify-center mb-10 flex-wrap gap-3">
+      <div className="flex justify-center mb-8 flex-wrap gap-2">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`px-5 py-2 text-base font-medium rounded-full shadow-sm transition-all duration-300 ${
+            className={`px-5 py-2 text-sm font-medium rounded-full shadow-sm transition-all duration-300 ${
               filter === cat
-                ? "bg-indigo-600 text-white shadow-md"
+                ? "bg-indigo-600 text-white shadow-xl"
                 : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
             }`}
           >
@@ -288,6 +288,7 @@ function Project() {
           </button>
         ))}
       </div>
+
 
       <motion.div
         variants={{
