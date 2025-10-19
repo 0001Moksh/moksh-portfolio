@@ -211,7 +211,25 @@ function Experience() {
     <div
       name="Experience"
       className="max-w-screen-xl mx-auto py-20 px-4 md:px-10 text-center bg-white"
-    >
+    > <style>
+          {`
+            ::-webkit-scrollbar {
+              width: 6px;
+            }
+            ::-webkit-scrollbar-track {
+              background: #f3f4f6;
+              border-radius: 10px;
+            }
+            ::-webkit-scrollbar-thumb {
+              background-color: #0000007c;
+              border-radius: 10px;
+              border: 2px solid #f3f4f6;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+              background-color: #0000007f;
+            }
+          `}
+        </style>
       <motion.h1
         className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-gray-800"
         initial={{ opacity: 0, y: -20 }}
@@ -251,7 +269,7 @@ function Experience() {
               d="M4 4h6v6H4V4zM14 4h6v6h-6V4zM4 14h6v6H4v-6zM14 14h6v6h-6v-6z"
             />
           </svg>
-          <span className="text-sm font-medium">View All Skills</span>
+          <span className="text-sm font-medium">View All Skills Together</span>
           <motion.span
             className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"
             animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
@@ -260,75 +278,87 @@ function Experience() {
         </motion.button>
       </div>
 
-      <AnimatePresence>
-        {isSkillsOpen && (
-          <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+<AnimatePresence>
+  {isSkillsOpen && (
+    <motion.div
+      className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        ref={modalRef}
+        className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-6 sm:p-8 max-w-6xl w-full max-h-[85vh] overflow-y-auto border border-gray-200/30 relative"
+        variants={modalVariant}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        style={{
+          scrollbarWidth: 'thin',
+          scrollbarColor: '#0000002e #ffffff',
+        }}
+      >
+
+        {/* Header */}
+        <div className="flex justify-between items-center mb-6 sticky top-0 z-10 px-4 py-2 bg-white/10 backdrop-blur-md rounded-2xl">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-cyan-900 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient-x">
+            All Skills
+          </h3>
+          <button
+            className="text-gray-500 hover:text-gray-800 transition-colors duration-200"
+            onClick={() => setIsSkillsOpen(false)}
           >
-            <motion.div
-              ref={modalRef}
-              className="bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-6 sm:p-8 max-w-5xl w-full max-h-[85vh] overflow-auto border border-gray-200/50"
-              variants={modalVariant}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <div className="flex justify-between items-center mb-6 sticky top-0 bg-white bg-opacity-95 z-10 py-2">
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  All Skills
-                </h3>
-                <button
-                  className="text-gray-500 hover:text-gray-800 transition-colors"
-                  onClick={() => setIsSkillsOpen(false)}
-                >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Skills Grid */}
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5"
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          {allSkills.map((skill) => (
+            <motion.div
+              key={skill.id}
+              className="flex flex-col items-center justify-center p-3 sm:p-4 bg-white/80 rounded-2xl shadow-md hover:shadow-xl hover:bg-white transition-all duration-300 cursor-pointer"
+              variants={skillItemVariant}
+              whileHover={{ scale: 1.08, y: -5 }}
+            >
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center mb-2 sm:mb-3 rounded-full shadow-inner border border-gray-200 overflow-hidden">
+                <img
+                  src={skill.logo}
+                  alt={skill.name}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
               </div>
-              <motion.div
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
-                variants={containerVariant}
-                initial="hidden"
-                animate="visible"
-              >
-                {allSkills.map((skill) => (
-                  <motion.div
-                    key={skill.id}
-                    className="flex flex-col items-center justify-center p-3 sm:p-4 bg-white bg-opacity-80 rounded-xl shadow-md hover:shadow-lg hover:bg-opacity-100 transition-all duration-300"
-                    variants={skillItemVariant}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                  >
-                    <img
-                      src={skill.logo}
-                      alt={skill.name}
-                      className="w-10 h-10 sm:w-12 sm:h-12 object-contain mb-2 sm:mb-3 rounded-full shadow-sm border border-gray-200"
-                      loading="lazy"
-                    />
-                    <span className="text-xs sm:text-sm text-gray-800 font-semibold text-center">
-                      {skill.name}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
+              <span className="text-sm sm:text-base text-gray-900 font-semibold text-center">
+                {skill.name}
+              </span>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          ))}
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
+
 
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8"
