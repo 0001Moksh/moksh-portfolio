@@ -264,7 +264,7 @@ function Project() {
   const handleLoadMore = () => setVisibleCount((p) => p + 6);
 
   return (
-    <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-16 bg-gray-50">
+    <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-16">
       <div name="Project" className="text-center mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-gray-800">My Projects</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
