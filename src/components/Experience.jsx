@@ -46,12 +46,12 @@ import docker from "../../public/docker.png";
 import react from "../../public/react.png";
 import vite from "../../public/vite.png";
 import tailwind from "../../public/tailwind.png";
-import webDevBg from "../../public/g-webdev-bg.jpg";
-import dataScienceBg from "../../public/g-datascience-bg.jpg";
-import mlDlBg from "../../public/g-mldl-bg.jpg";
-import aiToolsBg from "../../public/g-aitools-bg.jpg";
-import cloudDbBg from "../../public/g-clouddb-bg.jpg";
-import otherToolsBg from "../../public/g-othertools-bg.jpg";
+import webDevBg from "../../public/webdev-bg.jpg";
+import dataScienceBg from "../../public/datascience-bg.jpg";
+import mlDlBg from "../../public/mldl-bg.jpg";
+import aiToolsBg from "../../public/aitools-bg.jpg";
+import cloudDbBg from "../../public/clouddb-bg.jpg";
+import otherToolsBg from "../../public/othertools-bg.jpg";
 
 function Experience() {
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);

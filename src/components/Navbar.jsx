@@ -49,7 +49,7 @@ function Navbar() {
         >
           <img
             src={pic}
-            className="h-12 w-12 rounded-full object-cover"
+            className="h-12 w-12 object-cover"
             alt="Moksh's logo"
             loading="lazy"
           />
@@ -66,15 +66,15 @@ function Navbar() {
               key={id}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative hover:text-indigo-600 cursor-pointer transition-colors duration-300"
+              className="relative hover:text-[#a45d48] cursor-pointer transition-colors duration-300"
             >
               <Link
                 to={text}
                 smooth={true}
                 duration={500}
                 offset={-70}
-                activeClass="text-indigo-600 after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-indigo-600"
-                className="relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
+                activeClass="text-[#a45d48] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-[#6366f1]"
+                className="relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#a45d48] after:transition-all after:duration-300 hover:after:w-full"
               >
                 {text}
               </Link>
