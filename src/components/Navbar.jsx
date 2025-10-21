@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import styled from "styled-components";
 import pic from "../../public/image.jpg";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoCloseSharp } from "react-icons/io5";
+import { FiDownload } from "react-icons/fi";
 import { Link } from "react-scroll";
 
 function Navbar() {
@@ -85,15 +87,20 @@ function Navbar() {
         {/* Right buttons */}
         <div className="flex items-center space-x-4">
           {/* Download CV */}
-          <motion.a
-            href="https://drive.google.com/uc?export=download&id=1mXnS-dNLi5DShw50UvgzyJ93ldOqgcMU"
-            download
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:inline-block px-5 py-2.5 bg-gradient-to-r from-[#a45d48] to-[#8b4a3d] hover:from-[#8b4a3d] hover:to-[#723a31] text-white rounded-full text-sm font-bold shadow-md transition-all duration-300"
-          >
-            Download CV
-          </motion.a>
+          <StyledWrapper>
+            <motion.a
+              href="https://drive.google.com/uc?export=download&id=1mXnS-dNLi5DShw50UvgzyJ93ldOqgcMU"
+              download
+              className="bookmarkBtn hidden md:inline-block"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="IconContainer">
+                <FiDownload className="icon" size={18} />
+              </span>
+              <p className="text">Download CV</p>
+            </motion.a>
+          </StyledWrapper>
 
           {/* Mobile menu button */}
           <motion.div
@@ -155,15 +162,20 @@ function Navbar() {
               </ul>
 
               {/* Mobile CV Button */}
-              <motion.a
-                href="https://drive.google.com/uc?export=download&id=1mXnS-dNLi5DShw50UvgzyJ93ldOqgcMU"
-                download
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="mx-6 mt-auto mb-8 px-6 py-3 bg-gradient-to-r from-[#a45d48] to-[#8b4a3d] hover:from-[#8b4a3d] hover:to-[#723a31] text-white rounded-full text-center font-bold shadow-md transition-all duration-300"
-              >
-                Download CV
-              </motion.a>
+              <StyledWrapper>
+                <motion.a
+                  href="https://drive.google.com/uc?export=download&id=1mXnS-dNLi5DShw50UvgzyJ93ldOqgcMU"
+                  download
+                  className="bookmarkBtn mx-6 mt-auto mb-8"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="IconContainer">
+                    <FiDownload className="icon" size={18} />
+                  </span>
+                  <p className="text">Download CV</p>
+                </motion.a>
+              </StyledWrapper>
             </motion.div>
 
             {/* Overlay with better transition */}
@@ -181,5 +193,79 @@ function Navbar() {
     </>
   );
 }
+
+const StyledWrapper = styled.div`
+  .bookmarkBtn {
+    width: 160px;
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    background-color: #a45d48;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .IconContainer {
+    position: absolute;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), #ffffffff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .icon {
+    color: #454545ff;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .text {
+    height: 100%;
+    padding-left: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+    font-size: 1em;
+  }
+
+  .bookmarkBtn:hover {
+    background-color: #a45944ff;
+  }
+
+  .bookmarkBtn:hover .IconContainer {
+    width: 140px;
+    border-radius: 40px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .bookmarkBtn:hover .text {
+    opacity: 0;
+    transform: translateX(160px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .bookmarkBtn:hover .icon {
+    transform: rotate(360deg);
+  }
+
+  .bookmarkBtn:active {
+    transform: scale(0.95);
+  }
+`;
 
 export default Navbar;

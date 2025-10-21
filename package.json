@@ -23,6 +23,7 @@
     "react-parallax-tilt": "^1.7.308",
     "react-scroll": "^1.9.2",
     "react-typed": "^2.0.12",
+    "styled-components": "^6.1.19",
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
