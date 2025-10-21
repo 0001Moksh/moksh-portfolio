@@ -363,12 +363,12 @@ function Project() {
       </motion.div>
 
       {visibleCount < filteredProjects.length && (
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-24">
           <motion.button
             onClick={handleLoadMore}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 font-semibold text-white rounded-full shadow-lg bg-gradient-to-r from-indigo-600 to-indigo-800 hover:from-indigo-700 hover:to-indigo-900 transition-all duration-300"
+            className="px-12 py-1 font-semibold text-white bg-gray-800 hover:bg-gray-700 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-gray-500/50 hover:shadow-xl focus:outline-none rounded-tl-3xl rounded-br-3xl rounded-tr-md rounded-bl-md shadow-md"
           >
             Load More Projects
           </motion.button>
