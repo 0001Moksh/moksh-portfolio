@@ -39,8 +39,17 @@ function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 px-4 md:px-20 h-16 flex items-center justify-between"
-      >
+        className="
+  fixed top-0 left-0 right-0 z-50 
+  flex items-center justify-between
+  h-20 px-4 md:px-20
+  bg-white
+  border-x border-b border-gray-800/40
+  rounded-b-[30px] md:rounded-b-[50px]
+  shadow-[0_10px_50px_-15px_rgba(0,0,0,0.6)]
+  transition-all duration-500 ease-in-out
+"
+    >
         {/* Logo - Make it clickable to scroll to Home */}
         <Link
           to="Home"
@@ -62,7 +71,7 @@ function Navbar() {
         </Link>
 
         {/* Desktop Navbar */}
-        <ul className="hidden md:flex space-x-8 text-gray-700 font-semibold items-center">
+        <ul className="hidden md:flex space-x-8 text-gray-800 font-semibold items-center">
           {navItems.map(({ id, text }) => (
             <motion.li
               key={id}

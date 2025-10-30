@@ -369,7 +369,7 @@ function Project() {
       className="w-full mx-0 mt-20 flex flex-col items-center justify-center
       bg-transparent border-x border-b border-gray-800/40 
       rounded-b-[100px] md:rounded-b-[800px] py-5
-      shadow-[inset_0_-15px_10px_-10px_rgba(0,0,0,0.6)]
+      shadow-[inset_0_-15px_100px_-90px_rgba(0,0,0,0.5)]
       backdrop-blur-sm"
     >
       {/* Centered Button */}
@@ -377,7 +377,7 @@ function Project() {
         onClick={handleLoadMore}
         whileHover={{
           scale: 1.08,
-          boxShadow: "0 0 40px rgba(164,93,72,0.6)",
+          boxShadow: "0 0 10px rgba(72, 71, 70, 0.6)",
         }}
         whileTap={{ scale: 0.96 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
