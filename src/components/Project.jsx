@@ -1,3 +1,5 @@
+import { FiDownload } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Tilt from "react-parallax-tilt";
@@ -264,8 +266,8 @@ function Project() {
   const handleLoadMore = () => setVisibleCount((p) => p + 6);
 
   return (
-    <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 py-16">
-      <div name="Project" className="text-center mb-12">
+    <div className="max-w-screen-2xl container mx-auto py-16">
+      <div name="Project" className="px-4 md:px-20 text-center mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-gray-800">My Projects</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Explore my portfolio of innovative projects, featuring live demos, detailed overviews, and cutting-edge technologies.
@@ -297,7 +299,7 @@ function Project() {
         }}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+        className="px-4 md:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
       >
         {filteredProjects.slice(0, visibleCount).map(({ id, logo, name, category, overview, liveDemoUrl, githubUrl }) => (
           <motion.div 
@@ -363,18 +365,45 @@ function Project() {
       </motion.div>
 
       {visibleCount < filteredProjects.length && (
-        <div className="flex justify-center mt-24">
-          <motion.button
-            onClick={handleLoadMore}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-12 py-1 font-semibold text-white bg-gray-800 hover:bg-gray-700 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-gray-500/50 hover:shadow-xl focus:outline-none rounded-tl-3xl rounded-br-3xl rounded-tr-md rounded-bl-md shadow-md"
-          >
-            Load More Projects
-          </motion.button>
-        </div>
-      )}
+        <div
+      className="w-full mx-0 mt-20 flex flex-col items-center justify-center
+      bg-transparent border-x border-b border-gray-800/40 
+      rounded-b-[100px] md:rounded-b-[800px] py-5
+      shadow-[inset_0_-15px_10px_-10px_rgba(0,0,0,0.6)]
+      backdrop-blur-sm"
+    >
+      {/* Centered Button */}
+      <motion.button
+        onClick={handleLoadMore}
+        whileHover={{
+          scale: 1.08,
+          boxShadow: "0 0 40px rgba(164,93,72,0.6)",
+        }}
+        whileTap={{ scale: 0.96 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+        className="
+          relative flex items-center justify-center
+          px-8 py-3 font-semibold text-white tracking-wide
+          bg-[#a45d48] hover:bg-[#a45d48]/90 
+          rounded-tl-3xl rounded-br-3xl rounded-tr-md rounded-bl-md
+          shadow-[0_4px_15px_rgba(0,0,0,0.3),_inset_0_0_10px_rgba(255,255,255,0.1)]
+          border border-gray-200/60 hover:border-gray-900/60
+          overflow-hidden transition-all duration-500 ease-in-out
+        "
+      >
+        View More
+      </motion.button>
 
+      {/* Down Arrow (Centered & Animated) */}
+      <motion.span
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        className="mt-4"
+      >
+        <FiChevronDown size={38} className="text-[#a45d48]" />
+      </motion.span>
+    </div>
+      )}
       {/* Modal */}
       <AnimatePresence>
         {selectedProject && (
@@ -470,8 +499,6 @@ function Project() {
           plugins={[Captions, Thumbnails]}
         />
       )}
-
-      <hr className="mt-20 border-gray-300" />
     </div>
   );
 }

@@ -8,7 +8,6 @@ const Footer = () => {
 
   return (
     <>
-      <hr />
       <footer className="bg-orange-50 py-10 mt-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
