@@ -46,7 +46,7 @@ function Navbar() {
   bg-white
   border-x border-b border-gray-800/40
   rounded-b-[30px] md:rounded-b-[50px]
-  shadow-[0_10px_50px_-15px_rgba(0,0,0,0.6)]
+  shadow-[0_10px_20px_-15px_rgba(0,0,0,0.3)]
   transition-all duration-500 ease-in-out
 "
     >
