@@ -368,8 +368,8 @@ function Project() {
         <div
       className="w-full mx-0 mt-20 flex flex-col items-center justify-center
       bg-transparent border-x border-b border-gray-800/40 
-      rounded-b-[100px] md:rounded-b-[800px] py-5
-      shadow-[inset_0_-15px_100px_-90px_rgba(0,0,0,0.5)]
+      rounded-b-[100px] md:rounded-b-[800px] py-10
+      shadow-[inset_0_-15px_20px_-15px_rgba(0,0,0,0.3)]
       backdrop-blur-sm"
     >
       {/* Centered Button */}
