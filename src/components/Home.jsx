@@ -14,11 +14,11 @@ function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-32"
+        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-28"
       >
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-24">
           {/* LEFT SECTION */}
-          <div className="md:w-1/2 space-y-4 order-2 md:order-1">
+          <div className="md:w-1/2 space-y-2 order-2 md:order-1">
             <span className="text-xl text-gray-600 tracking-wide">Welcome In My Feed</span>
 
             <div className="text-4xl md:text-5xl font-bold text-gray-900">
@@ -34,14 +34,14 @@ function Home() {
               </span>
             </div>
 
-            <p className="text-gray-700 text-justify leading-relaxed mt-4 text-base md:text-lg">
+            <p className="text-gray-700 text-justify leading-relaxed mt-6 text-base md:text-lg">
               I am a Machine Learning and AI enthusiast specializing in Python, Scikit-learn, Keras, and TensorFlow.
               I build intelligent models, optimize data workflows, and create scalable AI-driven solutions. I also
               integrate business automation with smart AI systems using Zoho.
             </p>
 
             {/* SOCIAL MEDIA ICONS */}
-            <div className="mt-8 space-y-6">
+            <div className="mt-8 py-8 space-y-6">
               <div>
                 <h2 className="font-bold text-center text-gray-800 mb-2">Available On</h2>
                 <ul className="flex justify-center space-x-6">
@@ -88,8 +88,8 @@ function Home() {
                     <div
                       key={i}
                       className={`cursor-pointer px-5 py-2 border-2 border-gray-800 rounded-full ${
-                        i % 2 === 0 ? "bg-gray-800 text-white" : "bg-white text-gray-800"
-                      } hover:scale-110 hover:shadow-lg transition-transform duration-200 font-semibold`}
+                        i % 2 === 0 ? "bg-gray-800 text-white" : "bg-white text-gray-800 scale-110"
+                      } hover:scale-105 hover:shadow-lg transition-transform duration-200 font-semibold`}
                     >
                       {proj}
                     </div>
