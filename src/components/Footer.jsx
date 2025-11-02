@@ -77,7 +77,7 @@ const Footer = () => {
                 {/* WhatsApp */}
                 <li>
                   <a
-                    href="https://wa.me/918882563225?text=Hi%20Moksh,%20I%20am%20contacting%20you%20from%20your%20resume"
+                    href="https://wa.me/918882563225?text=Hi%20Moksh,%20I%20am%20contacting%20you%20from%20your%20Portfolio%20website."
                     target="_blank"
                     rel="noreferrer"
                   >
