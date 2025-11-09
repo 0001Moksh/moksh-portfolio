@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
-import pic from "../../public/image.jpg";
+// import pic from "../assets/image.jpg";
+import pic from "../assets/image.jpg";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoCloseSharp } from "react-icons/io5";
 import { FiDownload, FiEye } from "react-icons/fi";

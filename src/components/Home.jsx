@@ -1,5 +1,5 @@
 import React from "react";
-import pic from "../../public/1ig3.png";
+import pic from "../assets/1ig3.png";
 import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import { ReactTyped } from "react-typed";

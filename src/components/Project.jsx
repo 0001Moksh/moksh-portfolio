@@ -13,19 +13,19 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 
 // Import images
-import Deva from "../../public/deva_ai.png";
-import Chatbot from "../../public/chatbot.png";
-import Gym_web from "../../public/gym.png";
-import dealer from "../../public/dealer.png";
-import haritai from "../../public/haritai.png";
-import whatsapp from "../../public/whatsapp.png";
-import voice_chatbot from "../../public/deva-voice.png";
-import ai_interviewer from "../../public/ai_interviewer.png";
-import diabetes from "../../public/diabetes.png";
-import resume_analyzer from "../../public/resume_analyzer.png";
-import ai_filter_medicine from "../../public/ai_filter_medicine.png";
-import Symptoms_to_Medicine from "../../public/Symptoms_to_Medicine.png";
-import import_medicine from "../../public/Import_Medicine.png";
+import Deva from "../assets/deva_ai.png";
+import Chatbot from "../assets/chatbot.png";
+import Gym_web from "../assets/gym.png";
+import dealer from "../assets/dealer.png";
+import haritai from "../assets/haritai.png";
+import whatsapp from "../assets/whatsapp.png";
+import voice_chatbot from "../assets/deva-voice.png";
+import ai_interviewer from "../assets/ai_interviewer.png";
+import diabetes from "../assets/diabetes.png";
+import resume_analyzer from "../assets/resume_analyzer.png";
+import ai_filter_medicine from "../assets/ai_filter_medicine.png";
+import Symptoms_to_Medicine from "../assets/Symptoms_to_Medicine.png";
+import import_medicine from "../assets/Import_Medicine.png";
 
 function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
