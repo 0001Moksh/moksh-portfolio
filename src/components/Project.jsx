@@ -108,7 +108,6 @@ function Project() {
         ],
         techStack: ["Python", "Flask", "MongoDB", "Google Generative AI"],
       },
-      liveDemoUrl: "https://ai-resume-analyzer-9jxc.onrender.com/",
       githubUrl: "https://github.com/0001Moksh/AI-Resume-Analyzer",
       videoUrl:
         "https://www.linkedin.com/posts/moksh-bhardwaj-0001moksh_resumeanalyzer-recruitment-hrtech-activity-7375703203616817152-Tekt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
