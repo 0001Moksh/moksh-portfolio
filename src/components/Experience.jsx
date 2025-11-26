@@ -46,6 +46,7 @@ import docker from "../assets/docker.png";
 import react from "../assets/react.png";
 import vite from "../assets/vite.png";
 import tailwind from "../assets/tailwind.png";
+import llama from "../assets/llama.png";
 import webDevBg from "../assets/webdev-bg.jpg";
 import dataScienceBg from "../assets/datascience-bg.jpg";
 import mlDlBg from "../assets/mldl-bg.jpg";
@@ -141,6 +142,7 @@ function Experience() {
         { id: 21, logo: NLP, name: "NLP" },
         { id: 26, logo: openai, name: "OpenAI API" },
         { id: 27, logo: gemini, name: "Gemini API" },
+        { id: 28, logo: llama, name: "LLaMA API" },
       ],
     },
     {
