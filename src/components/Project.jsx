@@ -26,6 +26,7 @@ import resume_analyzer from "../assets/resume_analyzer.png";
 import ai_filter_medicine from "../assets/ai_filter_medicine.png";
 import Symptoms_to_Medicine from "../assets/Symptoms_to_Medicine.png";
 import import_medicine from "../assets/Import_Medicine.png";
+import Seema_iq from "../assets/seema_iq_logo.png";
 
 function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -36,6 +37,32 @@ function Project() {
   const modalRef = useRef(null);
 
   const cardItem = [
+    {
+      id: 14,
+      logo: Seema_iq,
+      name: "Seema IQ",
+      category: "AI & Productivity",
+      overview: {
+        description:
+          "An AI-powered interview preparation platform with resume parsing, multi-round interviews, and real-time feedback.",
+         features: [
+          "Email-based authentication",
+          "Resume upload & auto-profile generation",
+          "HR, Expert & Manager interview rounds",
+          "AI-generated questions & feedback",
+          "Break & resume interview flow"
+        ],
+ techStack: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "MongoDB",
+          "Google Gemini API",
+          "Google Services",
+          "SMTP",
+        ],      },
+      githubUrl:
+"https://github.com/0001Moksh/seemaIQ",    },
     {
       id: 13,
       logo: import_medicine,
