@@ -45,14 +45,14 @@ function Project() {
       overview: {
         description:
           "An AI-powered interview preparation platform with resume parsing, multi-round interviews, and real-time feedback.",
-         features: [
+        features: [
           "Email-based authentication",
           "Resume upload & auto-profile generation",
           "HR, Expert & Manager interview rounds",
           "AI-generated questions & feedback",
           "Break & resume interview flow"
         ],
- techStack: [
+        techStack: [
           "Next.js",
           "React",
           "TypeScript",
@@ -60,9 +60,14 @@ function Project() {
           "Google Gemini API",
           "Google Services",
           "SMTP",
-        ],      },
+        ],
+      },
       githubUrl:
-"https://github.com/0001Moksh/seemaIQ",    },
+        "https://github.com/0001Moksh/seemaIQ",
+
+      liveDemoUrl:
+        "https://seema-iq.vercel.app/",
+    },
     {
       id: 13,
       logo: import_medicine,
@@ -198,7 +203,7 @@ function Project() {
         techStack: ["Python", "Flask", "Google Gemini API", "gTTS"],
       },
       liveDemoUrl: "https://deva-voice-chat.onrender.com/",
-      },
+    },
     {
       id: 5,
       logo: haritai,
@@ -244,7 +249,7 @@ function Project() {
       },
       liveDemoUrl:
         "https://www.linkedin.com/posts/dpg-institute-of-technology-and-management_dpgitm-voiceassistant-aiassistant-ugcPost-7329051618228822016-u8MJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
-        videoUrl:
+      videoUrl:
         "https://www.linkedin.com/posts/dpg-institute-of-technology-and-management_dpgitm-voiceassistant-aiassistant-ugcPost-7329051618228822016-u8MJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
 
     },
@@ -308,11 +313,10 @@ function Project() {
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`px-5 py-2 text-sm font-medium rounded-full shadow-sm transition-all duration-300 ${
-              filter === cat
-                ? "bg-indigo-600 text-white shadow-xl"
-                : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
-            }`}
+            className={`px-5 py-2 text-sm font-medium rounded-full shadow-sm transition-all duration-300 ${filter === cat
+              ? "bg-indigo-600 text-white shadow-xl"
+              : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+              }`}
           >
             {cat.charAt(0).toUpperCase() + cat.slice(1)}
           </button>
@@ -330,8 +334,8 @@ function Project() {
         className="px-4 md:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
       >
         {filteredProjects.slice(0, visibleCount).map(({ id, logo, name, category, overview, liveDemoUrl, githubUrl }) => (
-          <motion.div 
-            key={id} 
+          <motion.div
+            key={id}
             variants={{ hidden: { opacity: 0, y: 50 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
           >
             <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2000}>
@@ -394,22 +398,22 @@ function Project() {
 
       {visibleCount < filteredProjects.length && (
         <div
-      className="w-full mx-0 mt-20 flex flex-col items-center justify-center
+          className="w-full mx-0 mt-20 flex flex-col items-center justify-center
       bg-transparent border-x border-b border-gray-800/40 
       rounded-b-[100px] md:rounded-b-[800px] py-10
       shadow-[inset_0_-15px_20px_-15px_rgba(0,0,0,0.3)]
       backdrop-blur-sm"
-    >
-      {/* Centered Button */}
-      <motion.button
-        onClick={handleLoadMore}
-        whileHover={{
-          scale: 1.08,
-          boxShadow: "0 0 10px rgba(72, 71, 70, 0.6)",
-        }}
-        whileTap={{ scale: 0.96 }}
-        transition={{ duration: 0.2, ease: "easeInOut" }}
-        className="
+        >
+          {/* Centered Button */}
+          <motion.button
+            onClick={handleLoadMore}
+            whileHover={{
+              scale: 1.08,
+              boxShadow: "0 0 10px rgba(72, 71, 70, 0.6)",
+            }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="
           relative flex items-center justify-center
           px-8 py-3 font-semibold text-white tracking-wide
           bg-[#a45d48] hover:bg-[#a45d48]/90 
@@ -418,19 +422,19 @@ function Project() {
           border border-gray-200/60 hover:border-gray-900/60
           overflow-hidden transition-all duration-500 ease-in-out
         "
-      >
-        View More
-      </motion.button>
+          >
+            View More
+          </motion.button>
 
-      {/* Down Arrow (Centered & Animated) */}
-      <motion.span
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        className="mt-4"
-      >
-        <FiChevronDown size={38} className="text-[#a45d48]" />
-      </motion.span>
-    </div>
+          {/* Down Arrow (Centered & Animated) */}
+          <motion.span
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            className="mt-4"
+          >
+            <FiChevronDown size={38} className="text-[#a45d48]" />
+          </motion.span>
+        </div>
       )}
       {/* Modal */}
       <AnimatePresence>
