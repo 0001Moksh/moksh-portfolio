@@ -27,6 +27,7 @@ import ai_filter_medicine from "../assets/ai_filter_medicine.png";
 import Symptoms_to_Medicine from "../assets/Symptoms_to_Medicine.png";
 import import_medicine from "../assets/Import_Medicine.png";
 import Seema_iq from "../assets/seema_iq_logo.png";
+import Aushadhi360 from "../assets/aushadhi360.png";
 
 function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -37,6 +38,30 @@ function Project() {
   const modalRef = useRef(null);
 
   const cardItem = [
+    {
+      id: 15,
+      logo: Aushadhi360,
+      name: "Aushadhi 360",
+      category: "AI & Healthcare",
+      overview: {
+        description:
+          "A complete medical store software workflow designed to support pharmacists, improve safety, and modernize pharmacy operations with AI-assisted features.",
+        features: [
+          "Secure, role-based login for store owners and admins.",
+          "Dashboard with manual & AI search, plus low stock/expiry alerts.",
+          "Offline billing with automated calculations and email invoices.",
+          "AI-driven, symptom-based OTC medicine recommendations.",
+          "Stock import from bill photos using OCR technology.",
+          "Automated alerts and reporting for inventory management.",
+          "Chatbot for exporting disease-wise medicine lists.",
+        ],
+        techStack: [
+          "React", "Node.js", "Python", "Flask", "MongoDB", "Google Gemini AI", "OCR Technology", "SMTP",
+        ],
+      },
+      githubUrl: "https://github.com/0001Moksh/aushadhi-360",
+      liveDemoUrl: "https://aushadhi-360.vercel.app/",
+    },
     {
       id: 14,
       logo: Seema_iq,
