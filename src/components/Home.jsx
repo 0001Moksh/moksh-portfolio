@@ -84,7 +84,12 @@ function Home() {
               <div>
                 <h2 className="font-bold text-center text-gray-800 mb-3">Currently Working On</h2>
                 <div className="flex flex-wrap justify-center gap-3">
-                  {["LangChain", "RAG Model", "LLM", "AI Agent"].map((proj, i) => (
+                  {[
+  "Cloud-Native",
+  "CI/CD",
+  "Product Engineering",
+  "AI Automation"
+].map((proj, i) => (
                     <div
                       key={i}
                       className={`cursor-pointer px-5 py-2 border-2 border-gray-800 rounded-full ${
