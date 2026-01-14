@@ -59,8 +59,9 @@ function Project() {
           "React", "Node.js", "Python", "Flask", "MongoDB", "Google Gemini AI", "OCR Technology", "SMTP",
         ],
       },
-        githubUrl: "https://github.com/0001Moksh/aushadhi-360",
+      githubUrl: "https://github.com/0001Moksh/aushadhi-360",
       liveDemoUrl: "https://aushadhi-360.vercel.app/",
+      videoUrl:"https://youtu.be/pl2SnZezJK0?si=B2gW4O6ztwNBBjwj"
     },
     {
       id: 14,
