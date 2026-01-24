@@ -221,7 +221,7 @@ function Experience() {
       <style>
         {`
           ::-webkit-scrollbar {
-            width: 6px;
+            width: 10px;
           }
           ::-webkit-scrollbar-track {
             background: #f3f4f6;
