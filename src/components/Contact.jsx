@@ -15,12 +15,35 @@ function Contact() {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      await axios.post("https://getform.io/f/bejryrva", data);
-      toast.success("Your message has been sent 🎉");
-      reset();
+      // Send to our secure backend API endpoint
+      const response = await axios.post("/.netlify/functions/contact", {
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      });
+
+      // Show success message from backend
+      if (response.data.success) {
+        toast.success(response.data.message || "Your message has been sent 🎉");
+        reset();
+      } else {
+        toast.error(response.data.error || "Something went wrong. Please try again.");
+      }
     } catch (error) {
-      console.log(error);
-      toast.error("Oops! Something went wrong.");
+      console.error("Contact form error:", error);
+      
+      // Handle different error scenarios
+      if (error.response) {
+        // Server responded with error status
+        const errorMessage = error.response.data?.error || "Failed to send message. Please try again.";
+        toast.error(errorMessage);
+      } else if (error.request) {
+        // Request was made but no response received
+        toast.error("Network error. Please check your connection and try again.");
+      } else {
+        // Something else went wrong
+        toast.error("Oops! Something went wrong. Please try again.");
+      }
     } finally {
       setLoading(false);
     }

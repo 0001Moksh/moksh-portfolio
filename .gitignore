@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Environment Variables - DO NOT COMMIT
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Netlify
+.netlify
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
