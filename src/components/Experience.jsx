@@ -228,12 +228,12 @@ function Experience() {
             border-radius: 10px;
           }
           ::-webkit-scrollbar-thumb {
-            background-color: #a45d48;
+            background-color: #8237a8;
             border-radius: 10px;
             border: 1px solid #f3f4f6;
           }
           ::-webkit-scrollbar-thumb:hover {
-            background-color: #a45d48;
+            background-color: #8237a8;
           }
         `}
       </style>
@@ -257,7 +257,7 @@ function Experience() {
           Over 3 years of experience in AI, ML, and web technologies. Skills grouped into simple categories for easy browsing.
         </motion.p>
         <motion.button
-          className="relative px-6 py-3 bg-primary-dark text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center space-x-2 font-medium"
+          className="relative px-6 py-3 border-2 rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center space-x-2 font-medium"
           onClick={() => setIsSkillsOpen(!isSkillsOpen)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -276,7 +276,7 @@ function Experience() {
               d="M4 4h6v6H4V4zM14 4h6v6h-6V4zM4 14h6v6H4v-6zM14 14h6v6h-6v-6z"
             />
           </svg>
-          <span>View All Skills</span>
+          <span >View All Skills</span>
           <motion.span
             className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full opacity-50"
             animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
@@ -302,12 +302,12 @@ function Experience() {
               exit="exit"
               style={{
                 scrollbarWidth: 'thin',
-                scrollbarColor: '#a45d48 #ffffff',
+                scrollbarColor: '#8237a8 #ffffff',
               }}
             >
               {/* Header */}
               <div className="flex justify-between items-center mb-6 sticky top-0 z-10 px-4 py-3 backdrop-blur-md rounded-2xl shadow-sm">
-                <h3 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-primary-dark">
+                <h3 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-primary ">
                   All Skills Overview
                 </h3>
                 <button

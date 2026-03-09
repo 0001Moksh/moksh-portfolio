@@ -340,8 +340,8 @@ function Project() {
             key={cat}
             onClick={() => setFilter(cat)}
             className={`px-5 py-2 text-sm font-medium rounded-full shadow-sm transition-all duration-300 ${filter === cat
-              ? "bg-primary text-white shadow-xl"
-              : "text-medium-gray hover:border-primary border border-muted"
+              ? "border-4 shadow-xl"
+              : "border hover:border-1"
               }`}
           >
             {cat.charAt(0).toUpperCase() + cat.slice(1)}

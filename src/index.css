@@ -8,14 +8,22 @@
    ============================ */
 :root {
 
-  /* Primary AI Purple */
-  --color-primary-dark: #5b3df5;
-  --color-primary-main: #7c5cff;
-  --color-primary-light: #a78bfa;
+/* ============================
+   PRIMARY AI PURPLE PALETTE
+   ============================ */
 
-  /* Secondary Accent */
-  --color-secondary-main: #8b5cf6;
-  --color-secondary-dark: #6d28d9;
+/* Primary AI Purple */
+--color-primary-dark: #4c2fd9;   /* deep purple shadow */
+--color-primary-main: #6a4cff;   /* main AI purple */
+--color-primary-light: #9b8cff;  /* soft glowing purple */
+
+/* Secondary Accent */
+--color-secondary-main: #7c5cff; /* hoodie style purple */
+--color-secondary-dark: #5b3df5; /* strong accent purple */
+
+/* Optional Glow Accent (for AI UI) */
+--color-accent-glow: #c4b5fd;
+--color-accent-soft: #ede9fe;
 
   /* Background Colors */
   --color-bg-primary: #0b0b0f;
@@ -71,6 +79,11 @@
     line-height: 1.6;
   }
 
+  button {
+    border-color: #5b3df5;
+    color: #ffffff;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     color: var(--color-white);
     font-weight: 600;
@@ -114,7 +127,6 @@
 
 
   /* BACKGROUND */
-
   .bg-primary { background-color: var(--color-primary-main); }
   .bg-primary-dark { background-color: var(--color-primary-dark); }
 

@@ -25,7 +25,7 @@ function Home() {
               <h1 className="mb-3">Hello, I'm a</h1>
               <span className="gradient-primary bg-clip-text text-3xl tracking-tight text-transparent">
                 <ReactTyped
-                  className="text-5xl text-primary-dark font-bold"
+                  className="text-5xl font-bold"
                   strings={["Developer", "Programmer", "Coder"]}
                   typeSpeed={40}
                   backSpeed={50}
@@ -92,8 +92,8 @@ function Home() {
 ].map((proj, i) => (
                     <div
                       key={i}
-                      className={`cursor-pointer px-5 py-2 border-2 border-primary-dark rounded-full ${
-                        i % 2 === 0 ? "bg-primary-dark text-white" : "text-primary-dark scale-110"
+                      className={`cursor-pointer px-5 py-2 border-2 rounded-full ${
+                        i % 2 === 0 ? "text-white" : "scale-110"
                       } hover:scale-105 hover:shadow-lg transition-transform duration-200 font-semibold`}
                     >
                       {proj}
