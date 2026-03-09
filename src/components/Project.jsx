@@ -327,8 +327,8 @@ function Project() {
   return (
     <div className="max-w-screen-2xl container mx-auto py-16">
       <div name="Project" className="px-4 md:px-20 text-center mb-12">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-gray-800">My Projects</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-dark">My Projects</h1>
+        <p className="text-lg text-light-gray max-w-2xl mx-auto">
           Explore my portfolio of innovative projects, featuring live demos, detailed overviews, and cutting-edge technologies.
         </p>
       </div>
@@ -340,8 +340,8 @@ function Project() {
             key={cat}
             onClick={() => setFilter(cat)}
             className={`px-5 py-2 text-sm font-medium rounded-full shadow-sm transition-all duration-300 ${filter === cat
-              ? "bg-indigo-600 text-white shadow-xl"
-              : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+              ? "bg-primary text-white shadow-xl"
+              : "text-medium-gray hover:border-primary border border-muted"
               }`}
           >
             {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -365,7 +365,7 @@ function Project() {
             variants={{ hidden: { opacity: 0, y: 50 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
           >
             <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2000}>
-              <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transform transition-all duration-500 p-5 flex flex-col justify-between relative overflow-hidden">
+              <div className="border border-muted rounded-2xl shadow-md hover:shadow-xl transform transition-all duration-500 p-5 flex flex-col justify-between relative overflow-hidden">
                 <div className="relative">
                   <img
                     src={logo}
@@ -377,7 +377,7 @@ function Project() {
                       setLightboxOpen(true);
                     }}
                   />
-                  <span className="absolute top-2 left-2 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                  <span className="absolute top-2 left-2 text-primary-dark px-3 py-1 rounded-full text-xs font-medium">
                     {category}
                   </span>
                 </div>
@@ -385,14 +385,14 @@ function Project() {
                 {overview && (
                   <button
                     onClick={() => setSelectedProject({ name, overview, liveDemoUrl, githubUrl, videoUrl: cardItem.find(p => p.name === name)?.videoUrl })}
-                    className="absolute top-2 right-2 text-gray-500 hover:text-indigo-600 text-2xl p-1 rounded-full bg-white/80 backdrop-blur-sm transition-colors duration-300"
+                    className="absolute -top-1 -right-1 text-light-gray hover:text-primary-dark text-2xl p-1 rounded-full backdrop-blur-sm transition-colors duration-300"
                   >
                     <AiOutlineInfoCircle />
                   </button>
                 )}
 
-                <h3 className="text-xl font-semibold mb-2 text-gray-800">{name}</h3>
-                <p className="text-gray-600 text-sm line-clamp-2 mb-4">{overview.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-dark">{name}</h3>
+                <p className="text-light-gray text-sm line-clamp-2 mb-4">{overview.description}</p>
 
                 <div className="flex justify-between gap-3 mt-auto">
                   {liveDemoUrl && (
@@ -400,7 +400,7 @@ function Project() {
                       href={liveDemoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 px-4 py-2 text-sm bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center gap-1"
+                      className="flex-1 px-4 py-2 text-sm bg-primary text-white rounded-lg shadow hover:bg-primary-dark transition-colors duration-300 flex items-center justify-center gap-1"
                     >
                       Live Demo
                     </a>
@@ -410,7 +410,7 @@ function Project() {
                       href={githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 px-4 py-2 text-sm bg-gray-800 text-white rounded-lg shadow hover:bg-gray-900 transition-colors duration-300 flex items-center justify-center gap-1"
+                      className="flex-1 px-4 py-2 text-sm bg-dark text-white rounded-lg shadow hover:bg-dark-gray transition-colors duration-300 flex items-center justify-center gap-1"
                     >
                       <FaGithub /> GitHub
                     </a>
@@ -425,7 +425,7 @@ function Project() {
       {visibleCount < filteredProjects.length && (
         <div
           className="w-full mx-0 mt-20 flex flex-col items-center justify-center
-      bg-transparent border-x border-b border-gray-800/40 
+      bg-transparent border-x border-b border-lighter-gray 
       rounded-b-[100px] md:rounded-b-[800px] py-10
       shadow-[inset_0_-15px_20px_-15px_rgba(0,0,0,0.3)]
       backdrop-blur-sm"
@@ -442,10 +442,10 @@ function Project() {
             className="
           relative flex items-center justify-center
           px-8 py-3 font-semibold text-white tracking-wide
-          bg-[#a45d48] hover:bg-[#a45d48]/90 
+          bg-primary-dark hover:bg-secondary-dark 
           rounded-tl-3xl rounded-br-3xl rounded-tr-md rounded-bl-md
           shadow-[0_4px_15px_rgba(0,0,0,0.3),_inset_0_0_10px_rgba(255,255,255,0.1)]
-          border border-gray-200/60 hover:border-gray-900/60
+          border border-gray-100/60 hover:border-dark-gray/60
           overflow-hidden transition-all duration-500 ease-in-out
         "
           >
@@ -458,7 +458,7 @@ function Project() {
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
             className="mt-4"
           >
-            <FiChevronDown size={38} className="text-[#a45d48]" />
+            <FiChevronDown size={38} className="text-primary-dark" />
           </motion.span>
         </div>
       )}
@@ -478,33 +478,33 @@ function Project() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="bg-white rounded-2xl p-8 max-w-md mx-4 text-left relative shadow-2xl overflow-y-auto max-h-[85vh]"
+              className="border-primary border-2 bg-dark rounded-2xl p-8 max-w-md mx-4 text-left relative shadow-2xl overflow-y-auto max-h-[85vh]"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-3xl font-bold transition-colors duration-200"
+                className="absolute top-4 right-4 text-light-gray hover:text-medium-gray text-3xl font-bold transition-colors duration-200"
               >
                 &times;
               </button>
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">{selectedProject.name}</h2>
-              <p className="text-gray-700 mb-6 leading-relaxed">{selectedProject.overview.description}</p>
+              <h2 className="text-3xl font-bold mb-4 text-dark">{selectedProject.name}</h2>
+              <p className="text-medium-gray mb-6 leading-relaxed">{selectedProject.overview.description}</p>
 
-              <h3 className="font-semibold text-lg mb-3 text-gray-800">Key Features:</h3>
+              <h3 className="font-semibold text-lg mb-3 text-dark-gray">Key Features:</h3>
               <ul className="list-disc list-inside mb-6 space-y-2">
                 {selectedProject.overview.features.map((f, i) => (
-                  <li key={i} className="text-gray-600">
+                  <li key={i} className="text-light-gray">
                     {f}
                   </li>
                 ))}
               </ul>
 
-              <h3 className="font-semibold text-lg mb-3 text-gray-800">Tech Stack:</h3>
+              <h3 className="font-semibold text-lg mb-3 text-dark-gray">Tech Stack:</h3>
               <div className="flex flex-wrap gap-2 mb-6">
                 {selectedProject.overview.techStack.map((tech, i) => (
                   <span
                     key={i}
-                    className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium"
+                    className="bg-primary/10 text-primary-dark px-3 py-1 rounded-full text-sm font-medium"
                   >
                     {tech}
                   </span>
@@ -517,7 +517,7 @@ function Project() {
                     href={selectedProject.liveDemoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-2 text-base bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md transition-colors duration-300"
+                    className="px-6 py-2 text-base bg-primary hover:bg-primary-dark text-white rounded-lg shadow-md transition-colors duration-300"
                   >
                     Live Demo
                   </a>
@@ -527,7 +527,7 @@ function Project() {
                     href={selectedProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-2 text-base bg-gray-800 hover:bg-gray-900 text-white rounded-lg shadow-md transition-colors duration-300 flex items-center gap-2"
+                    className="px-6 py-2 text-base bg-dark hover:bg-dark-gray text-white rounded-lg shadow-md transition-colors duration-300 flex items-center gap-2"
                   >
                     <FaGithub /> GitHub
                   </a>

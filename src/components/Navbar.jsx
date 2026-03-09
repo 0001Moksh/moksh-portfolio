@@ -51,7 +51,7 @@ function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-20 px-4 md:px-20 bg-white border-x border-b border-gray-800/40 rounded-b-[30px] md:rounded-b-[50px] shadow-[0_10px_20px_-15px_rgba(0,0,0,0.3)]"
+        className="fixed backdrop-blur-md  top-0 left-0 right-0 z-50 flex items-center justify-between h-20 px-4 md:px-20 border-x border-b border-lighter-gray rounded-b-[30px] md:rounded-b-[50px] shadow-[0_10px_20px_-15px_rgba(0,0,0,0.3)]"
       >
         {/* Logo */}
         <Link
@@ -68,28 +68,28 @@ function Navbar() {
             loading="lazy"
           />
           <div className="hidden sm:flex flex-col">
-            <h1 className="font-bold text-xl tracking-tight text-gray-900">
+            <h1 className="font-bold text-xl tracking-tight text-dark">
               Moksh
             </h1>
-            <p className="text-sm text-gray-500">AI-ML Engineer</p>
+            <p className="text-sm text-light-gray">AI-ML Engineer</p>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex space-x-8 text-gray-800 font-semibold items-center">
+        <ul className="hidden md:flex space-x-8 text-dark font-semibold items-center">
           {navItems.map(({ id, text }) => (
             <motion.li
               key={id}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative hover:text-[#a45d48] cursor-pointer transition-colors duration-300"
+              className="relative hover:text-primary-dark cursor-pointer transition-colors duration-300"
             >
               <Link
                 to={text}
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className="relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#a45d48] after:transition-all after:duration-300 hover:after:w-full"
+                className="relative text-white pb-1 after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
               >
                 {text}
               </Link>
@@ -118,7 +118,7 @@ function Navbar() {
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="md:hidden cursor-pointer text-gray-800"
+            className="md:hidden cursor-pointer text-dark"
             onClick={() => setMenu(true)}
           >
             <AiOutlineMenu size={28} />
@@ -135,24 +135,24 @@ function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className="fixed top-0 left-0 h-full w-72 bg-white shadow-2xl z-50 flex flex-col overflow-y-auto"
+              className="fixed top-0 left-0 h-full w-72 bg-dark shadow-2xl z-50 flex flex-col overflow-y-auto"
             >
               <div className="flex justify-between items-center p-6 border-b border-gray-100">
-                <h2 className="text-xl font-bold text-gray-900">Menu</h2>
+                <h2 className="text-xl font-bold text-dark">Menu</h2>
                 <IoCloseSharp
                   size={28}
-                  className="cursor-pointer text-gray-800"
+                  className="cursor-pointer text-dark"
                   onClick={() => setMenu(false)}
                 />
               </div>
-              <ul className="flex flex-col mt-8 space-y-6 p-6 text-gray-700 text-lg font-semibold">
+              <ul className="flex flex-col mt-8 space-y-6 p-6 text-medium-gray text-lg font-semibold">
                 {navItems.map(({ id, text }) => (
                   <motion.li
                     key={id}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: id * 0.1 }}
-                    className="hover:text-indigo-600 cursor-pointer transition-colors duration-300"
+                    className="hover:text-primary-dark-main cursor-pointer transition-colors duration-300"
                   >
                     <Link
                       onClick={() => setMenu(false)}
@@ -217,10 +217,10 @@ function Navbar() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-10 left-0 right-0 md:left-10 md:right-10 bottom-0 z-[100] flex flex-col backdrop-blur-xl shadow-2xl border border-gray-200 rounded-t-xl bg-white/90"
+              className="fixed top-10 left-0 right-0 md:left-10 md:right-10 bottom-0 z-[100] flex flex-col backdrop-blur-xl shadow-2xl border border-muted rounded-t-xl"
             >
               {/* Header */}
-              <div className="flex justify-between rounded-t-xl items-center px-6 py-4 bg-[#a45d48] text-white font-semibold text-lg shadow-md">
+              <div className="flex justify-between rounded-t-xl items-center px-6 py-4 bg-primary-dark text-white font-semibold text-lg shadow-md">
                 <span>CV Preview</span>
                 <IoCloseSharp
                   className="cursor-pointer text-2xl hover:rotate-90 transition-transform"
@@ -237,11 +237,11 @@ function Navbar() {
               ></iframe>
 
               {/* Footer */}
-              <div className="flex justify-center items-center py-4 bg-white backdrop-blur-md border-t border-gray-200">
+              <div className="flex justify-center items-center py-4 bg-dark backdrop-blur-md border-t border-muted">
                 <motion.a
                   href={downloadLink}
                   download
-                  className="px-6 py-2 bg-[#a45d48] text-white rounded-full font-semibold shadow-md hover:bg-[#8e4f3e] transition-all flex items-center space-x-2"
+                  className="px-6 py-2 bg-primary-dark text-white rounded-full font-semibold shadow-md hover:bg-secondary-dark transition-all flex items-center space-x-2"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -263,7 +263,7 @@ const StyledWrapper = styled.div`
     height: 40px;
     border-radius: 40px;
     border: 1px solid rgba(0, 0, 0, 1);
-    background-color: #a45d48;
+    background-color: var(--color-primary-main);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,7 +303,7 @@ const StyledWrapper = styled.div`
     font-size: 1em;
   }
   .bookmarkBtn:hover {
-    background-color: #a45944ff;
+    background-color: var(--color-primary-dark);
   }
   .bookmarkBtn:hover .IconContainer {
     width: 140px;

@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-orange-50 py-10 mt-10">
+      <footer className="py-10 mt-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ const Footer = () => {
           {/* SOCIAL MEDIA ICONS */}
           <div className="mt-8 space-y-6">
             <div>
-              <h2 className="font-bold text-center text-gray-800 mb-2">
+              <h2 className="font-bold text-center text-dark mb-2">
                 Available on
               </h2>
               <ul className="flex justify-center space-x-6">
@@ -44,7 +44,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <FaEnvelope className="text-2xl hover:scale-125 transition-transform duration-200" />
+                    <FaEnvelope className="text-2xl text-dark hover:scale-125 transition-transform duration-200" />
                   </a>
                 </li>
                 <li>
@@ -71,7 +71,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <FaGithub className="text-2xl text-gray-800 hover:scale-125 transition-transform duration-200" />
+                    <FaGithub className="text-2xl text-white hover:scale-125 transition-transform duration-200" />
                   </a>
                 </li>
                 {/* WhatsApp */}
@@ -89,11 +89,11 @@ const Footer = () => {
           </div>
 
           {/* Footer Text */}
-          <p className="text-sm text-gray-700 mt-6">
+          <p className="text-sm text-medium-gray mt-6">
             © {year} — Built with ❤️ by{" "}
             <a
               href="https://mokshbhardwaj.netlify.app"
-              className="text-blue-600 underline hover:text-blue-800"
+              className="text-primary-dark-main underline hover:text-primary-dark"
               target="_blank"
               rel="noopener noreferrer"
             >

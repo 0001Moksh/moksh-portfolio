@@ -216,21 +216,21 @@ function Experience() {
   return (
     <div
       name="Experience"
-      className="max-w-screen-xl mx-auto py-20 px-4 md:px-10 text-center bg-gradient-to-b from-white to-gray-50"
+      className="max-w-screen-xl mx-auto py-20 px-4 md:px-10 text-center"
     >
       <style>
         {`
           ::-webkit-scrollbar {
-            width: 10px;
+            width: 5px;
           }
           ::-webkit-scrollbar-track {
-            background: #f3f4f6;
+            background: transparent;
             border-radius: 10px;
           }
           ::-webkit-scrollbar-thumb {
             background-color: #a45d48;
             border-radius: 10px;
-            border: 2px solid #f3f4f6;
+            border: 1px solid #f3f4f6;
           }
           ::-webkit-scrollbar-thumb:hover {
             background-color: #a45d48;
@@ -238,7 +238,7 @@ function Experience() {
         `}
       </style>
       <motion.h1
-        className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-gray-800"
+        className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-dark"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -248,7 +248,7 @@ function Experience() {
       </motion.h1>
       <div className="relative flex flex-col sm:flex-row items-center justify-center mb-12 space-y-4 sm:space-y-0 sm:space-x-4">
         <motion.p
-          className="text-base sm:text-lg text-gray-600 max-w-md"
+          className="text-base sm:text-lg text-light-gray max-w-md"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -257,7 +257,7 @@ function Experience() {
           Over 3 years of experience in AI, ML, and web technologies. Skills grouped into simple categories for easy browsing.
         </motion.p>
         <motion.button
-          className="relative px-6 py-3 bg-[#a45d48] text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center space-x-2 font-medium"
+          className="relative px-6 py-3 bg-primary-dark text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center space-x-2 font-medium"
           onClick={() => setIsSkillsOpen(!isSkillsOpen)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -295,7 +295,7 @@ function Experience() {
           >
             <motion.div
               ref={modalRef}
-              className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 sm:p-8 max-w-7xl w-full max-h-[90vh] overflow-y-auto border border-gray-200/50 relative"
+              className=" backdrop-blur-lg rounded-3xl shadow-2xl p-6 sm:p-8 max-w-7xl w-full max-h-[90vh] overflow-y-auto border border-gray-200/50 relative"
               variants={modalVariant}
               initial="hidden"
               animate="visible"
@@ -306,12 +306,12 @@ function Experience() {
               }}
             >
               {/* Header */}
-              <div className="flex justify-between items-center mb-6 sticky top-0 z-10 px-4 py-3 bg-white/80 backdrop-blur-md rounded-2xl shadow-sm">
-                <h3 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-[#a45d48]">
+              <div className="flex justify-between items-center mb-6 sticky top-0 z-10 px-4 py-3 backdrop-blur-md rounded-2xl shadow-sm">
+                <h3 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-primary-dark">
                   All Skills Overview
                 </h3>
                 <button
-                  className="text-gray-600 hover:text-gray-600 transition-colors duration-200"
+                  className="text-light-gray hover:text-medium-gray transition-colors duration-200"
                   onClick={() => setIsSkillsOpen(false)}
                 >
                   <svg
@@ -341,12 +341,12 @@ function Experience() {
                 {allSkills.map((skill) => (
                   <motion.div
                     key={skill.id}
-                    className="flex flex-col items-center justify-center p-4 bg-white rounded-2xl shadow-md hover:shadow-gray-300 hover:bg-gray-50 transition-all duration-300 cursor-pointer border border-gray-100"
+                    className="flex flex-col items-center justify-center p-4 bg-white rounded-2xl shadow-md hover:shadow-gray-300 hover:bg-gray-100 transition-all duration-300 cursor-pointer border border-gray-100"
                     variants={skillItemVariant}
                     whileHover={{ scale: 1.1, y: -5 }}
                     title={`Proficient in ${skill.name}`}
                   >
-                    <div className="w-16 h-16 flex items-center justify-center mb-3 rounded-full shadow-md border border-gray-100 overflow-hidden bg-white">
+                    <div className="w-16 h-16 flex items-center justify-center mb-3 overflow-hidden bg-white">
                       <img
                         src={skill.logo}
                         alt={skill.name}
@@ -411,10 +411,10 @@ function Experience() {
                 style={{
                   backfaceVisibility: "hidden",
                   transform: "rotateY(180deg)",
-                  backgroundColor: "white", // Changed to white background
+                  backgroundColor: "dark", // Changed to white background
                 }}
               >
-                <h2 className="relative text-2xl font-bold text-gray-800 tracking-wide mb-4 border-b-2 border-gray-300 pb-2">
+                <h2 className="relative text-2xl font-bold tracking-wide mb-4 border-b-2 border-gray-300 pb-2">
                   {category.title}
                 </h2>
                 <div className="grid grid-cols-2 gap-4 place-items-center">

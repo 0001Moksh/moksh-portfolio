@@ -11,10 +11,10 @@ import {
 const aboutCards = [
   {
     id: 1,
-    icon: <FaGraduationCap className="text-cyan-600 text-2xl" />,
+    icon: <FaGraduationCap className="text-primary-dark-main text-2xl" />,
     title: "Education & Advanced Training",
     content: (
-      <ul className="list-disc ml-6 text-gray-700 space-y-2">
+      <ul className="list-disc ml-6 text-white-700 space-y-2">
         <li>
           <span className="font-semibold">B.Tech in Artificial Intelligence & Machine Learning</span>,
           MDU University — <span className="italic">2023–2027</span>
@@ -43,10 +43,10 @@ const aboutCards = [
   },
   {
     id: 2,
-    icon: <FaTools className="text-cyan-600 text-2xl" />,
+    icon: <FaTools className="text-primary-dark-main text-2xl" />,
     title: "AI, ML & Engineering Skillset",
     content: (
-      <p className="text-gray-700 leading-relaxed">
+      <p className="text-white-700 leading-relaxed">
         <span className="font-semibold">Programming & Backend:</span> Python, JavaScript,
         Flask, FastAPI, REST APIs <br />
         <span className="font-semibold">AI / ML Stack:</span> TensorFlow, Keras,
@@ -62,10 +62,10 @@ const aboutCards = [
   },
   {
     id: 3,
-    icon: <FaBriefcase className="text-cyan-600 text-2xl" />,
+    icon: <FaBriefcase className="text-primary-dark-main text-2xl" />,
     title: "Professional Experience & Projects",
     content: (
-      <ul className="list-disc ml-6 text-gray-700 space-y-2">
+      <ul className="list-disc ml-6 text-white-700 space-y-2">
         <li>
           <span className="font-semibold">
             Zoho Developer — Business Raiser (2024–Present):
@@ -92,10 +92,10 @@ const aboutCards = [
   },
   {
     id: 4,
-    icon: <FaAward className="text-cyan-600 text-2xl" />,
+    icon: <FaAward className="text-primary-dark-main text-2xl" />,
     title: "Achievements & Industry Recognition",
     content: (
-      <ul className="list-disc ml-6 text-gray-700 space-y-2">
+      <ul className="list-disc ml-6 text-white-700 space-y-2">
         <li>Recognized Zoho Creator Expert in low-code automation & AI workflows</li>
         <li>Amazon Smbhav Hackathon 2024 — Built sustainable AI-powered logistics solutions</li>
         <li>AI4Humanity Hackathon (NSUT) — Human-centric and ethical AI innovations</li>
@@ -105,10 +105,10 @@ const aboutCards = [
   },
   {
     id: 5,
-    icon: <FaBullseye className="text-cyan-600 text-2xl" />,
+    icon: <FaBullseye className="text-primary-dark-main text-2xl" />,
     title: "Mission, Vision & Philosophy",
     content: (
-      <p className="text-gray-700 leading-relaxed">
+      <p className="text-white-700 leading-relaxed">
         My mission is to design <span className="font-semibold">
           intelligent, ethical, and scalable AI systems
         </span>{" "}
@@ -132,11 +132,11 @@ export default function About() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-5xl font-bold mb-10 text-center text-gray-800">
+        <h1 className="text-5xl font-bold mb-10 text-center text-white-800">
           About Me
         </h1>
 
-        <p className="text-gray-700 text-justify mb-16 text-lg leading-relaxed">
+        <p className="text-white-700 text-justify mb-16 text-lg leading-relaxed">
           Hi, I’m{" "}
           <span className="font-semibold text-cyan-600">Moksh</span> — an{" "}
           <span className="font-semibold text-cyan-600">AI & ML Engineer</span> and{" "}
@@ -161,13 +161,13 @@ export default function About() {
               className="relative ml-6"
             >
               <div
-                className={`absolute -left-9 top-5 ${border} bg-white p-3 border-t-2 border-l-8 border-b-2 border-r-2 border-cyan-600 rounded-full shadow-lg`}
+                className={`absolute bg-dark -left-9 top-5 ${border} p-3 border-t-2 border-l-8 border-b-2 border-r-2 border-cyan-600 rounded-full shadow-lg`}
               >
                 {icon}
               </div>
 
-              <div className="bg-white p-6 border-2 border-l-4 border-t-4 border-cyan-600 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+              <div className="p-6 border-2 border-l-4 border-t-4 border-cyan-600 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                <h2 className="text-2xl font-semibold text-white-800 mb-3">
                   {title}
                 </h2>
                 <div>{content}</div>
@@ -177,7 +177,7 @@ export default function About() {
         </div>
       </motion.div>
 
-      <hr className="mt-20 border-gray-300" />
+      <hr className="mt-20 border-white-300" />
     </div>
   );
 }

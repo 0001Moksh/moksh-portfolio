@@ -14,18 +14,18 @@ function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-28"
+        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-36"
       >
         <div className="flex flex-col md:flex-row items-center md:items-start gap-24">
           {/* LEFT SECTION */}
           <div className="md:w-1/2 space-y-2 order-2 md:order-1">
-            <span className="text-xl text-gray-600 tracking-wide">Welcome In My Feed</span>
+            <span className="text-xl text-light-gray tracking-wide">Welcome In My Feed</span>
 
-            <div className="text-4xl md:text-5xl font-bold text-gray-900">
+            <div className="text-4xl md:text-5xl font-bold text-dark">
               <h1 className="mb-3">Hello, I'm a</h1>
-              <span className="bg-gradient-to-r from-[#ba4d17] via-[#fdbf53] to-[#ba4d17] bg-clip-text text-3xl tracking-tight text-transparent">
+              <span className="gradient-primary bg-clip-text text-3xl tracking-tight text-transparent">
                 <ReactTyped
-                  className="text-5xl text-[#a45d48] font-bold"
+                  className="text-5xl text-primary-dark font-bold"
                   strings={["Developer", "Programmer", "Coder"]}
                   typeSpeed={40}
                   backSpeed={50}
@@ -34,7 +34,7 @@ function Home() {
               </span>
             </div>
 
-            <p className="text-gray-700 text-justify leading-relaxed mt-6 text-base md:text-lg">
+            <p className="text-medium-gray text-justify leading-relaxed mt-6 text-base md:text-lg">
               I am a Machine Learning and AI enthusiast specializing in Python, Scikit-learn, Keras, and TensorFlow.
               I build intelligent models, optimize data workflows, and create scalable AI-driven solutions. I also
               integrate business automation with smart AI systems using Zoho.
@@ -43,7 +43,7 @@ function Home() {
             {/* SOCIAL MEDIA ICONS */}
             <div className="mt-8 py-8 space-y-6">
               <div>
-                <h2 className="font-bold text-center text-gray-800 mb-2">Available On</h2>
+                <h2 className="font-bold text-center text-dark mb-2">Available On</h2>
                 <ul className="flex justify-center space-x-6">
                   {[{
                     icon: <FaInstagram />,
@@ -52,7 +52,7 @@ function Home() {
                   },{
                     icon: <FaEnvelope />,
                     url: "mailto:mokshbhardwaj2333@gmail.com",
-                    color: "text-gray-800"
+                    color: "text-white"
                   },{
                     icon: <FaLinkedin />,
                     url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh",
@@ -64,7 +64,7 @@ function Home() {
                   },{
                     icon: <FaGithub />,
                     url: "https://github.com/0001Moksh",
-                    color: "text-gray-800"
+                    color: "text-white"
                   }].map((social, i) => (
                     <li key={i}>
                       <a
@@ -82,7 +82,7 @@ function Home() {
 
               {/* CURRENT PROJECTS */}
               <div>
-                <h2 className="font-bold text-center text-gray-800 mb-3">Currently Working On</h2>
+                <h2 className="font-bold text-center text-dark mb-3">Currently Working On</h2>
                 <div className="flex flex-wrap justify-center gap-3">
                   {[
   "Cloud-Native",
@@ -92,8 +92,8 @@ function Home() {
 ].map((proj, i) => (
                     <div
                       key={i}
-                      className={`cursor-pointer px-5 py-2 border-2 border-gray-800 rounded-full ${
-                        i % 2 === 0 ? "bg-gray-800 text-white" : "bg-white text-gray-800 scale-110"
+                      className={`cursor-pointer px-5 py-2 border-2 border-primary-dark rounded-full ${
+                        i % 2 === 0 ? "bg-primary-dark text-white" : "text-primary-dark scale-110"
                       } hover:scale-105 hover:shadow-lg transition-transform duration-200 font-semibold`}
                     >
                       {proj}
@@ -109,7 +109,7 @@ function Home() {
             <motion.img
               src={pic}
               alt="Profile"
-              className="shadow-2xl rounded-full md:w-[450px] md:h-[450px] object-cover border-4 border-gray-200"
+              className="shadow-2xl rounded-full md:w-[450px] md:h-[450px] object-cover border-4 border-gray-100"
               animate={{
                 y: [0, -10, 10, 0],
                 rotate: [0, 2, -2, 0],
@@ -124,7 +124,7 @@ function Home() {
           </div>
         </div>
       </motion.div>
-      <hr className="border-gray-300" />
+      <hr className="border-muted" />
     </>
   );
 }

@@ -2,9 +2,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-function Loader({ size = 18, color = '#e78924ff', speed = 1.2 }) {
+function Loader({ size = 18, color = 'var(--color-primary-main)', speed = 1.2 }) {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black/95 backdrop-blur-sm">
+    <div className="flex items-center justify-center min-h-screen bg-dark/95 backdrop-blur-sm">
       <div className="relative flex items-center justify-center">
         {/* Outer Rotating Halo */}
         <motion.div
