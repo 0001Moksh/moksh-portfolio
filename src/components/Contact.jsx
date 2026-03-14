@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import RevealSection from './RevealSection';
+import { SEOHelmet } from "../hooks/useSEO";
 
 function Contact() {
   const [loading, setLoading] = useState(false);
@@ -52,7 +53,8 @@ function Contact() {
   };
 
   return (
-    <div name="Contact" className="max-w-screen-2xl mx-auto px-4 md:px-20 py-16">
+    <section name="Contact" className="max-w-screen-2xl mx-auto px-4 md:px-20 py-16" aria-label="Contact section">
+      <SEOHelmet pageKey="contact" />
       <RevealSection className="w-full">
         <motion.div className="text-center mb-12 animate-reveal-up">
           {/* Line separator above title */}
@@ -61,7 +63,7 @@ function Contact() {
             style={{ marginTop: 0 }}
           />
           
-          <h1 className="text-5xl font-bold text-dark mb-3">Contact Me</h1>
+          <h2 className="text-5xl font-bold text-dark mb-3">Contact Me</h2>
           
           {/* Decorative line below title */}
           <motion.div 
@@ -146,7 +148,7 @@ function Contact() {
         </div>
       </RevealSection>
 
-    </div>
+    </section>
   );
 }
 

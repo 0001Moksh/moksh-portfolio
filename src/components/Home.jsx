@@ -6,197 +6,152 @@ import { ReactTyped } from "react-typed";
 import { motion } from "framer-motion";
 import RevealSection from "./RevealSection";
 import AnimatedCard from "./AnimatedCard";
+import { Link } from "react-scroll";
+import { SEOHelmet } from "../hooks/useSEO";
 
 function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
     <>
-      <motion.div
+      <SEOHelmet pageKey="home" />
+      <motion.main
         name="Home"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-36"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0 px-4 md:px-0"
+        role="main"
+        aria-label="Hero section"
       >
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-24">
-          {/* LEFT SECTION */}
-          <RevealSection variant="slideInLeft" className="md:w-1/2 space-y-2 order-2 md:order-1">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-xl text-light-gray tracking-wide animate-reveal-up"
-            >
-              Welcome In My Feed
-            </motion.span>
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+          <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-teal-600/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0.75s" }} />
+        </div>
 
-            <div className="text-4xl md:text-5xl font-bold text-dark">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="mb-3 animate-reveal-up stagger-2"
+        <div className="max-w-screen-2xl w-full">
+          
+          <div className="flex flex-col pt-24 pb-20 pl-20 lg:flex-row items-center lg:items-center gap-12 lg:gap-20">
+            {/* LEFT SECTION */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="lg:w-1/2 space-y-8 order-2 lg:order-1"
+            >
+              {/* Main Title */}
+              <motion.div variants={itemVariants} className="space-y-4">
+                <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight">
+                  <span>AI Engineer &</span>
+                  <br />
+                  <span className="text-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
+                    Full Stack Developer
+                  </span>
+                </h1>
+              </motion.div>
+
+              {/* Subtitle */}
+              <motion.p
+                variants={itemVariants}
+                className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-lg"
               >
-                Hello, I'm a
-              </motion.h1>
-              <span className="gradient-primary bg-clip-text text-3xl tracking-tight text-transparent">
+                Building intelligent systems with 3+ years of experience in <span className="text-purple-400 font-semibold">Machine Learning</span>, 
+                <span className="text-cyan-400 font-semibold"> Generative AI</span>, and 
+                <span className="text-teal-400 font-semibold"> Full-Stack Development</span>. 
+                Transforming ideas into production-ready applications.
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-4 pt-6"
+              >
+                <Link to="Project" smooth={true} duration={500}>
+                  <motion.button
+                    whileHover={{ scale: 1.05, y: -4 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl shadow-xl shadow-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/60 transition-all duration-300 border border-purple-400/30 backdrop-blur-sm cursor-pointer w-full sm:w-auto text-center"
+                  >
+                    View Projects ↗
+                  </motion.button>
+                </Link>
+                
+                <Link to="Contact" smooth={true} duration={500}>
+                  <motion.button
+                    whileHover={{ scale: 1.05, y: -4 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 bg-white/10 text-white font-bold rounded-xl shadow-lg border border-white/20 hover:border-purple-400/60 hover:bg-white/20 transition-all duration-300 backdrop-blur-sm cursor-pointer w-full sm:w-auto text-center"
+                  >
+                    Get In Touch ✉
+                  </motion.button>
+                </Link>
+              </motion.div>
+             
+            </motion.div>
+
+            {/* RIGHT SECTION - FLOATING IMAGE */}
+            <motion.div
+              variants={itemVariants}
+              className="lg:w-1/2 flex justify-center order-1 lg:order-2"
+            >
+              <AnimatedCard hoverScale={1.05} hover3D={true}>
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
+                  className="relative w-full max-w-sm"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
                 >
-                  <ReactTyped
-                    className="text-5xl font-bold text-gradient"
-                    strings={["Developer", "Programmer", "Coder"]}
-                    typeSpeed={40}
-                    backSpeed={50}
-                    loop={true}
+                  {/* Glow background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/40 to-cyan-600/40 rounded-3xl blur-3xl" />
+                  
+                  <motion.img
+                    src={pic}
+                    alt="Moksh Bhardwaj"
+                    className="relative w-full rounded-3xl rounded-full border-b-4 object-cover aspect-square"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    animate={{
+                      y: [0, -15, 15, 0],
+                      rotate: [0, 1, -1, 0],
+                    }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    whileHover={{ scale: 1.05, rotate: 3 }}
                   />
                 </motion.div>
-              </span>
-            </div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="text-medium-gray text-justify leading-relaxed mt-6 text-base md:text-lg animate-reveal-up stagger-3"
-            >
-              I am a Machine Learning and AI enthusiast specializing in Python, Scikit-learn, Keras, and TensorFlow.
-              I build intelligent models, optimize data workflows, and create scalable AI-driven solutions. I also
-              integrate business automation with smart AI systems using Zoho.
-            </motion.p>
-
-            {/* SOCIAL MEDIA ICONS */}
-            <div className="mt-8 space-y-6">
-              <div className="animate-reveal-up stagger-4">
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="font-bold text-center text-dark mb-2"
-                >
-                  Available On
-                </motion.h2>
-                <ul className="flex justify-center space-x-6 flex-wrap gap-3">
-                  {[{
-                    icon: <FaInstagram />,
-                    url: "https://www.instagram.com/moksh_bhardwaj23/",
-                    color: "text-rose",
-                    glow: "shadow-rose-lg"
-                  },{
-                    icon: <FaEnvelope />,
-                    url: "mailto:mokshbhardwaj2333@gmail.com",
-                    color: "text-gold-500",
-                    glow: "shadow-gold-lg"
-                  },{
-                    icon: <FaLinkedin />,
-                    url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh",
-                    color: "text-cyan",
-                    glow: "shadow-cyan-lg"
-                  },{
-                    icon: <IoLogoYoutube />,
-                    url: "https://www.youtube.com/@NexYugTech",
-                    color: "text-error",
-                    glow: "shadow-rose-lg"
-                  },{
-                    icon: <FaGithub />,
-                    url: "https://github.com/0001Moksh",
-                    color: "text-teal-500",
-                    glow: "shadow-teal-lg"
-                  }].map((social, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: 0.1 * i }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.3, rotateZ: 10 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <a
-                        href={social.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`${social.color} text-4xl transition-all duration-300 ${social.glow} rounded-full hover-lift`}
-                      >
-                        {social.icon}
-                      </a>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* CURRENT PROJECTS */}
-              <div className="animate-reveal-up stagger-5">
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="font-bold text-center text-dark mb-3"
-                >
-                  Currently Working On
-                </motion.h2>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {[
-  {text: "Cloud-Native", border: "border-teal-500"},
-  {text: "CI/CD", border: "border-gold-500"},
-  {text: "Product Engineering", border: "border-teal-500"},
-  {text: "AI Automation", border: "border-indigo"}
-].map((proj, i) => (
-                    <AnimatedCard key={i} hoverScale={1.08}>
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.05 * i }}
-                        viewport={{ once: true }}
-                        className={`cursor-pointer px-5 py-2 border-2 rounded-full glass-effect shadow-glow smooth-transition font-semibold text-white ${proj.border}`}
-                      >
-                        {proj.text}
-                      </motion.div>
-                    </AnimatedCard>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </RevealSection>
-
-          {/* RIGHT SECTION - FLOATING IMAGE */}
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end order-1">
-            <AnimatedCard hoverScale={1.05} hover3D={true}>
-              <motion.img
-                src={pic}
-                alt="Profile"
-                className="shadow-glow-lg rounded-full md:w-[450px] md:h-[450px] object-cover border-4 border-primary-main animate-glow-pulse"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                animate={{
-                  y: [0, -10, 10, 0],
-                  rotate: [0, 2, -2, 0],
-                  scale: [1, 1.05, 1, 1.05],
-                }}
-                whileHover={{
-                  scale: 1.08,
-                  borderColor: "var(--color-primary-light)"
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-            </AnimatedCard>
+              </AnimatedCard>
+            </motion.div>
           </div>
+           {/* Stats */}
+              <motion.div
+                variants={itemVariants}
+                className="grid grid-cols-3 gap-6 py-8 border-b border-t border-white/10"
+              >
+                {[
+                  { number: "15+", label: "Projects" },
+                  { number: "3+", label: "Years" },
+                  { number: "50+", label: "Technologies" }
+                ].map((stat, i) => (
+                  <div key={i} className="text-center">
+                    <p className="text-2xl md:text-3xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text">
+                      {stat.number}
+                    </p>
+                    <p className="text-sm text-gray-400">{stat.label}</p>
+                  </div>
+                ))}
+              </motion.div>
         </div>
-      </motion.div>
-      
+      </motion.main>
     </>
   );
 }

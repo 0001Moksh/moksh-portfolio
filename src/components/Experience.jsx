@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import RevealSection from './RevealSection';
+import { SEOHelmet } from "../hooks/useSEO";
 
 import html from "../assets/html.jpg";
 import css from "../assets/css.jpg";
@@ -197,7 +198,8 @@ function Experience() {
   };
 
   return (
-    <div name="Experience" className="bg-bg-primary relative overflow-hidden">
+    <section name="Experience" className="bg-bg-primary relative overflow-hidden" aria-label="Experience and skills section">
+      <SEOHelmet pageKey="experience" />
       <div className="max-w-screen-xl mx-auto px-6 pt-36 pb-24">
         <RevealSection>
           <div className="text-center mb-20">
@@ -205,9 +207,9 @@ function Experience() {
               <div className="w-3 h-3 rounded-full bg-primary animate-ping" />
               <span className="uppercase tracking-[6px] text-xs font-semibold text-primary">PRODUCTION AI STACK</span>
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold tracking-tighter text-white mb-4 text-gradient">
+            <h2 className="text-6xl md:text-7xl font-bold tracking-tighter text-white mb-4 text-gradient">
               Experience &amp; Skills
-            </h1>
+            </h2>
             <p className="text-muted text-xl max-w-2xl mx-auto">
               3+ years shipping intelligent systems. Every tool below has been battle-tested in real client projects.
             </p>
@@ -408,7 +410,7 @@ function Experience() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 }
 

@@ -33,9 +33,10 @@ function Navbar() {
   const navItems = [
     { id: 1, text: "Home" },
     { id: 2, text: "About" },
-    { id: 3, text: "Project" },
-    { id: 4, text: "Experience" },
-    { id: 5, text: "Contact" },
+    { id: 3, text: "Experience" },
+    { id: 4, text: "Project" },
+    // { id: 5, text: "Blog" },
+    { id: 6, text: "Contact" },
   ];
 
   // Google Drive CV Links

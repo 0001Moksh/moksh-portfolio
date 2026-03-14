@@ -1,0 +1,64 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /.next/
+Disallow: /.netlify/
+Disallow: /node_modules/
+
+# Specific crawler optimizations
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Slerpingbot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Gemini
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: DotBot
+Allow: /
+
+# Crawl delay settings (time in seconds)
+User-agent: *
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://mokshbhardwaj.netlify.app/sitemap.xml
