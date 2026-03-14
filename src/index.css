@@ -4,56 +4,56 @@
 
 /* ============================
    GLOBAL COLOR VARIABLES
-   LangGraph / AI Dark Theme
+   Black & White Only Theme
    ============================ */
 :root {
 
-/* ============================
-   PRIMARY AI PURPLE PALETTE
-   ============================ */
+  /* ============================
+     PRIMARY BLACK & WHITE PALETTE
+     ============================ */
 
-/* Primary AI Purple */
---color-primary-dark: #4c2fd9;   /* deep purple shadow */
---color-primary-main: #6a4cff;   /* main AI purple */
---color-primary-light: #9b8cff;  /* soft glowing purple */
+  /* Primary Colors - White & Black */
+  --color-primary-dark: #000000;     /* pure black */
+  --color-primary-main: #ffffff;     /* pure white */
+  --color-primary-light: #ffffff;    /* pure white */
 
-/* Secondary Accent */
---color-secondary-main: #7c5cff; /* hoodie style purple */
---color-secondary-dark: #5b3df5; /* strong accent purple */
+  /* Secondary Accent */
+  --color-secondary-main: #000000;   /* black */
+  --color-secondary-dark: #000000;   /* black */
 
-/* Optional Glow Accent (for AI UI) */
---color-accent-glow: #c4b5fd;
---color-accent-soft: #ede9fe;
+  /* Optional Glow Accent */
+  --color-accent-glow: #ffffff;      /* white */
+  --color-accent-soft: #ffffff;      /* white */
 
   /* Background Colors */
-  --color-bg-primary: #0b0b0f;
-  --color-bg-secondary: #111118;
-  --color-bg-tertiary: #1a1a25;
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0d0d0d;
+  --color-bg-tertiary: #1a1a1a;
 
   /* Neutral */
-  --color-dark: #0b0b0f;
-  --color-dark-gray: #1f1f2e;
-  --color-medium-gray: #6b7280;
-  --color-light-gray: #9ca3af;
-  --color-lighter-gray: #d1d5db;
+  --color-dark: #000000;
+  --color-dark-gray: #262626;
+  --color-medium-gray: #404040;
+  --color-light-gray: #a6a6a6;
+  --color-lighter-gray: #d4d4d4;
 
-  --color-gray-200: #2a2a38;
-  --color-gray-100: #1a1a25;
+  --color-gray-200: #2d2d2d;
+  --color-gray-100: #1a1a1a;
   --color-white: #ffffff;
 
   /* Status Colors */
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #3b82f6;
+  --color-success: #000000;
+  --color-warning: #333333;
+  --color-error: #000000;
+  --color-info: #404040;
 
   /* Text */
   --color-text-primary: #ffffff;
-  --color-text-secondary: #cbd5e1;
-  --color-text-muted: #9ca3af;
+  --color-text-secondary: #d4d4d4;
+  --color-text-muted: #a6a6a6;
 
   /* Borders */
-  --color-border: #2a2a38;
+  --color-border: #2d2d2d;
 }
 
 
@@ -80,7 +80,7 @@
   }
 
   button {
-    border-color: #5b3df5;
+    border-color: #ffffff;
     color: #ffffff;
   }
 
@@ -100,7 +100,7 @@
   }
 
   a:hover {
-    color: var(--color-primary-light);
+    color: var(--color-primary-main);
   }
 }
 
@@ -154,25 +154,25 @@
   .gradient-primary {
     background: linear-gradient(
       90deg,
-      #7c5cff,
-      #a78bfa
+      #000000,
+      #ffffff
     );
   }
 
   .gradient-ai {
     background: linear-gradient(
       135deg,
-      #5b3df5,
-      #7c5cff,
-      #a78bfa
+      #000000,
+      #404040,
+      #ffffff
     );
   }
 
   .gradient-dark {
     background: linear-gradient(
       135deg,
-      #0b0b0f,
-      #111118
+      #000000,
+      #0d0d0d
     );
   }
 
@@ -184,13 +184,13 @@
 
   .btn-primary {
     @apply px-6 py-2 rounded-lg text-white font-semibold;
-    background: linear-gradient(90deg,#7c5cff,#a78bfa);
+    background: linear-gradient(90deg, #000000, #404040);
     transition: all 0.3s ease;
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(124,92,255,0.35);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
   }
 
 
@@ -207,7 +207,7 @@
 
   .card:hover {
     border-color: var(--color-primary-main);
-    box-shadow: 0 10px 40px rgba(124,92,255,0.15);
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
   }
 
 
@@ -226,7 +226,7 @@
   .input-field:focus {
     @apply outline-none;
     border-color: var(--color-primary-main);
-    box-shadow: 0 0 0 2px rgba(124,92,255,0.3);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
   }
 
 }

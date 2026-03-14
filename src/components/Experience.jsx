@@ -229,12 +229,12 @@ function Experience() {
             border-radius: 10px;
           }
           ::-webkit-scrollbar-thumb {
-            background-color: #8237a8;
+            background-color: var(--color-medium-gray);
             border-radius: 10px;
-            border: 1px solid #f3f4f6;
+            border: 1px solid var(--color-lighter-gray);
           }
           ::-webkit-scrollbar-thumb:hover {
-            background-color: #8237a8;
+            background-color: var(--color-medium-gray);
           }
         `}
       </style>
@@ -317,7 +317,7 @@ function Experience() {
               exit="exit"
               style={{
                 scrollbarWidth: 'thin',
-                scrollbarColor: '#8237a8 #ffffff',
+                scrollbarColor: 'var(--color-medium-gray) var(--color-white)',
               }}
             >
               {/* Header */}

@@ -262,7 +262,7 @@ const StyledWrapper = styled.div`
     width: 160px;
     height: 40px;
     border-radius: 40px;
-    border: 1px solid rgba(0, 0, 0, 1);
+    border: 1px solid var(--color-white);
     background-color: var(--color-primary-main);
     display: flex;
     align-items: center;
@@ -277,8 +277,8 @@ const StyledWrapper = styled.div`
     left: 10px;
     width: 30px;
     height: 30px;
-    border: 1px solid rgba(255, 255, 255, 1);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), #ffffffff);
+    border: 1px solid var(--color-white);
+    background: linear-gradient(to bottom, var(--color-white), var(--color-white));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -288,7 +288,7 @@ const StyledWrapper = styled.div`
     transition: all 0.3s ease-in-out;
   }
   .icon {
-    color: #454545ff;
+    color: var(--color-primary-dark);
     transition: all 0.3s ease-in-out;
   }
   .text {

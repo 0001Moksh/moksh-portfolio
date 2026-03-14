@@ -449,14 +449,14 @@ function Project() {
             onClick={handleLoadMore}
             whileHover={{
               scale: 1.08,
-              boxShadow: "0 0 10px rgba(72, 71, 70, 0.6)",
+              boxShadow: "0 0 10px rgba(0, 0, 0, 0.6)",
             }}
             whileTap={{ scale: 0.96 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="
           relative flex items-center justify-center
           px-8 py-3 font-semibold text-white tracking-wide
-          bg-primary-dark hover:bg-secondary-dark 
+          hover:bg-secondary-dark 
           rounded-tl-3xl rounded-br-3xl rounded-tr-md rounded-bl-md
           shadow-[0_4px_15px_rgba(0,0,0,0.3),_inset_0_0_10px_rgba(255,255,255,0.1)]
           border border-gray-100/60 hover:border-dark-gray/60
@@ -551,7 +551,7 @@ function Project() {
                     href={selectedProject.videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-2 text-base bg-red-600 hover:bg-red-700 text-white rounded-lg shadow-md transition-colors duration-300"
+                    className="px-6 py-2 text-base bg-primary-dark hover:bg-secondary-dark text-white rounded-lg shadow-md transition-colors duration-300"
                   >
                     Watch Video
                   </a>

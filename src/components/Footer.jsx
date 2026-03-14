@@ -8,12 +8,12 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: FaInstagram, url: "https://www.instagram.com/moksh_bhardwaj23/", color: "text-pink-600", label: "Instagram" },
+    { icon: FaInstagram, url: "https://www.instagram.com/moksh_bhardwaj23/", color: "text-white", label: "Instagram" },
     { icon: FaEnvelope, url: "mailto:mokshbhardwaj2333@gmail.com", color: "text-white", label: "Email" },
-    { icon: FaLinkedin, url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh", color: "text-blue-700", label: "LinkedIn" },
-    { icon: IoLogoYoutube, url: "https://www.youtube.com/@NexYugTech", color: "text-red-600", label: "YouTube" },
+    { icon: FaLinkedin, url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh", color: "text-white", label: "LinkedIn" },
+    { icon: IoLogoYoutube, url: "https://www.youtube.com/@NexYugTech", color: "text-white", label: "YouTube" },
     { icon: FaGithub, url: "https://github.com/0001Moksh", color: "text-white", label: "GitHub" },
-    { icon: FaWhatsapp, url: "https://wa.me/918882563225?text=Hi%20Moksh,%20I%20am%20contacting%20you%20from%20your%20Portfolio%20website.", color: "text-green-500", label: "WhatsApp" },
+    { icon: FaWhatsapp, url: "https://wa.me/918882563225?text=Hi%20Moksh,%20I%20am%20contacting%20you%20from%20your%20Portfolio%20website.", color: "text-white", label: "WhatsApp" },
   ];
 
   return (
@@ -97,7 +97,7 @@ const Footer = () => {
                 className="text-primary-dark-main underline hover:text-primary-main smooth-transition font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ color: "#9b8cff" }}
+                whileHover={{ color: "var(--color-primary-light)" }}
               >
                 Moksh Bhardwaj
               </motion.a>

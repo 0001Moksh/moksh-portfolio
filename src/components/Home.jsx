@@ -87,7 +87,7 @@ function Home() {
                   {[{
                     icon: <FaInstagram />,
                     url: "https://www.instagram.com/moksh_bhardwaj23/",
-                    color: "text-pink-600"
+                    color: "text-white"
                   },{
                     icon: <FaEnvelope />,
                     url: "mailto:mokshbhardwaj2333@gmail.com",
@@ -95,11 +95,11 @@ function Home() {
                   },{
                     icon: <FaLinkedin />,
                     url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh",
-                    color: "text-blue-700"
+                    color: "text-white"
                   },{
                     icon: <IoLogoYoutube />,
                     url: "https://www.youtube.com/@NexYugTech",
-                    color: "text-red-600"
+                    color: "text-white"
                   },{
                     icon: <FaGithub />,
                     url: "https://github.com/0001Moksh",
@@ -152,7 +152,7 @@ function Home() {
                         transition={{ duration: 0.4, delay: 0.05 * i }}
                         viewport={{ once: true }}
                         className={`cursor-pointer px-5 py-2 border-2 rounded-full glass-effect shadow-glow smooth-transition font-semibold ${
-                          i % 2 === 0 ? "text-white border-cyan-600" : "text-white border-primary-main"
+                          i % 2 === 0 ? "text-white border-primary-main" : "text-white border-primary-main"
                         }`}
                       >
                         {proj}
@@ -181,7 +181,7 @@ function Home() {
                 }}
                 whileHover={{
                   scale: 1.08,
-                  borderColor: "#9b8cff"
+                  borderColor: "var(--color-primary-light)"
                 }}
                 transition={{
                   duration: 6,
