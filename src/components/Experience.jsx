@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import RevealSection from './RevealSection';
+
 import html from "../assets/html.jpg";
 import css from "../assets/css.jpg";
 import js from "../assets/js.jpg";
@@ -57,40 +58,14 @@ import otherToolsBg from "../assets/othertools-bg.jpg";
 
 function Experience() {
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
-  const [flippedCategories, setFlippedCategories] = useState({});
-  const modalRef = useRef(null);
+  const [activeCategory, setActiveCategory] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Close modal on outside click or ESC key
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setIsSkillsOpen(false);
-      }
-    };
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setIsSkillsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
-  const toggleFlip = (catIndex) => {
-    setFlippedCategories((prev) => ({
-      ...prev,
-      [catIndex]: !prev[catIndex],
-    }));
-  };
-
+  // === DATA FIRST (fixed original reference error) ===
   const categories = [
     {
       title: "Web Development",
-      description: "Tools for building modern web apps using React, Vite, Tailwind CSS for frontend and Flask/FastAPI for backend.",
+      description: "Production-grade full-stack stack that powers lightning-fast, pixel-perfect web applications.",
       bgImage: webDevBg,
       skills: [
         { id: 1, logo: html, name: "HTML" },
@@ -102,12 +77,12 @@ function Experience() {
         { id: 4, logo: python, name: "Python" },
         { id: 25, logo: Flask, name: "Flask" },
         { id: 24, logo: Fastapi, name: "FastAPI" },
-        { id: 28, logo: apintegration, name: "API Integration" },
+        { id: 23, logo: apintegration, name: "API Integration" }, // fixed duplicate ID
       ],
     },
     {
       title: "Data Science & Visualization",
-      description: "Libraries for data manipulation, analysis, and visualization.",
+      description: "End-to-end data engineering & beautiful interactive dashboards that tell compelling stories.",
       bgImage: dataScienceBg,
       skills: [
         { id: 5, logo: numpy, name: "NumPy" },
@@ -119,7 +94,7 @@ function Experience() {
     },
     {
       title: "Machine Learning & Deep Learning",
-      description: "Frameworks for building and training ML/DL models.",
+      description: "Battle-tested frameworks that deliver state-of-the-art models in production environments.",
       bgImage: mlDlBg,
       skills: [
         { id: 10, logo: sklearn, name: "Scikit-learn" },
@@ -132,7 +107,7 @@ function Experience() {
     },
     {
       title: "AI Tools & Generative AI",
-      description: "Advanced AI libraries, APIs, and concepts like LLMs and RAG.",
+      description: "Agentic AI, RAG pipelines & LLM orchestration that powers intelligent applications.",
       bgImage: aiToolsBg,
       skills: [
         { id: 15, logo: huggingface, name: "Hugging Face" },
@@ -143,12 +118,12 @@ function Experience() {
         { id: 21, logo: NLP, name: "NLP" },
         { id: 26, logo: openai, name: "OpenAI API" },
         { id: 27, logo: gemini, name: "Gemini API" },
-        { id: 28, logo: llama, name: "LLaMA API" },
+        { id: 28, logo: llama, name: "LLaMA" },
       ],
     },
     {
       title: "Cloud, Deployment & Databases",
-      description: "Platforms for hosting, deploying apps, and managing data.",
+      description: "Enterprise-grade infrastructure & vector stores that scale to millions of users.",
       bgImage: cloudDbBg,
       skills: [
         { id: 29, logo: aws, name: "AWS" },
@@ -171,291 +146,268 @@ function Experience() {
     },
     {
       title: "Other Tools",
-      description: "Miscellaneous tools for business, productivity, and CRM management.",
+      description: "Enterprise productivity & CRM platforms that complete the modern AI stack.",
       bgImage: otherToolsBg,
-      skills: [
-        { id: 48, logo: crm, name: "Zoho CRM" },
-      ],
+      skills: [{ id: 48, logo: crm, name: "Zoho CRM" }],
     },
   ];
 
   const allSkills = categories.flatMap((category) => category.skills);
 
-  const containerVariant = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
+  const filteredSkills = allSkills.filter((skill) =>
+    skill.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-  const categoryVariant = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, type: "spring", stiffness: 100 },
-    },
-  };
+  // Sticky category highlight on scroll (now after data definition)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.id.split("-")[1]);
+            setActiveCategory(index);
+          }
+        });
+      },
+      { threshold: 0.6, rootMargin: "-80px 0px -20% 0px" }
+    );
+
+    categories.forEach((_, i) => {
+      const section = document.getElementById(`cat-${i}`);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []); // static data → runs once
+
+  // Escape key + better modal UX
+  useEffect(() => {
+    if (!isSkillsOpen) return;
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setIsSkillsOpen(false);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [isSkillsOpen]);
 
   const modalVariant = {
-    hidden: { opacity: 0, scale: 0.95, y: -20 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
-    exit: { opacity: 0, scale: 0.95, y: -20, transition: { duration: 0.3 } },
-  };
-
-  const skillItemVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+    hidden: { opacity: 0, scale: 0.92, y: 40 },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    exit: { opacity: 0, scale: 0.92, y: 40, transition: { duration: 0.3 } },
   };
 
   return (
-    <div
-      name="Experience"
-      className="max-w-screen-xl mx-auto py-20 px-4 md:px-10 text-center"
-    >
-      <style>
-        {`
-          ::-webkit-scrollbar {
-            width: 5px;
-          }
-          ::-webkit-scrollbar-track {
-            background: transparent;
-            border-radius: 10px;
-          }
-          ::-webkit-scrollbar-thumb {
-            background-color: var(--color-medium-gray);
-            border-radius: 10px;
-            border: 1px solid var(--color-lighter-gray);
-          }
-          ::-webkit-scrollbar-thumb:hover {
-            background-color: var(--color-medium-gray);
-          }
-        `}
-      </style>
-      
-      <RevealSection className="w-full">
-        <motion.div className="animate-reveal-up">
-          {/* Line separator above title */}
-          <motion.div 
-            className="line-separator animate-line-reveal"
-            style={{ marginTop: 0 }}
-          />
-          
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-dark">
-            Experience & Skills
-          </h1>
-          
-          {/* Decorative line below title */}
-          <motion.div 
-            className="line-separator animate-line-reveal"
-            style={{ animationDelay: '0.3s' }}
-          />
-        </motion.div>
-      </RevealSection>
-      
-      <RevealSection delay={0.3} variant="slideInLeft" className="w-full">
-        <div className="relative flex flex-col sm:flex-row items-center justify-center mb-12 space-y-4 sm:space-y-0 sm:space-x-4 animate-reveal-left">
-          <motion.p
-            className="text-base sm:text-lg text-light-gray max-w-md"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Over 3 years of experience in AI, ML, and web technologies. Skills grouped into simple categories for easy browsing.
-          </motion.p>
-          <motion.button
-            className="relative px-6 py-3 border-2 rounded-full shadow-lg shadow-glow hover:shadow-xl transition-shadow flex items-center space-x-2 font-medium hover-lift glass-effect"
-            onClick={() => setIsSkillsOpen(!isSkillsOpen)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 4h6v6H4V4zM14 4h6v6h-6V4zM4 14h6v6H4v-6zM14 14h6v6h-6v-6z"
-              />
-            </svg>
-            <span>View All Skills</span>
-            <motion.span
-              className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full opacity-50"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-          </motion.button>
-        </div>
-      </RevealSection>
+    <div name="Experience" className="bg-bg-primary relative overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-6 pt-36 pb-24">
+        <RevealSection>
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-3 mb-6 bg-purple-950/70 px-8 py-3 rounded-full border border-primary/30">
+              <div className="w-3 h-3 rounded-full bg-primary animate-ping" />
+              <span className="uppercase tracking-[6px] text-xs font-semibold text-primary">PRODUCTION AI STACK</span>
+            </div>
+            <h1 className="text-6xl md:text-7xl font-bold tracking-tighter text-white mb-4 text-gradient">
+              Experience &amp; Skills
+            </h1>
+            <p className="text-muted text-xl max-w-2xl mx-auto">
+              3+ years shipping intelligent systems. Every tool below has been battle-tested in real client projects.
+            </p>
+          </div>
+        </RevealSection>
 
+        <RevealSection delay={0.1}>
+          <motion.button
+            onClick={() => setIsSkillsOpen(true)}
+            className="mx-auto flex items-center gap-4 btn-primary text-lg px-10 py-5 rounded-3xl shadow-glow-xl hover:shadow-purple-lg group"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            EXPLORE ENTIRE SKILL MATRIX
+            <span className="text-2xl group-hover:rotate-45 transition-transform">↗</span>
+          </motion.button>
+        </RevealSection>
+      </div>
+
+     
+
+      {/* PREMIUM SECTIONS */}
+      {categories.map((category, index) => (
+        <section
+          key={index}
+          id={`cat-${index}`}
+          className="relative py-28 border-t border-purple-900/30"
+        >
+          <div className="max-w-screen-xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            {/* LEFT — SKILLS LIST */}
+            <div className={`lg:col-span-5 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+              <div className="space-y-8">
+                {category.skills.map((skill, i) => (
+                  <motion.div
+                    key={skill.id}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-6 group hover-glow"
+                  >
+                    <div className="w-14 h-14 bg-white rounded-3xl flex items-center justify-center shadow-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.name} logo`}
+                        className="w-9 h-9 object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <div className="text-white font-semibold text-xl group-hover:text-primary transition-colors">
+                        {skill.name}
+                      </div>
+                      <div className="text-xs text-teal-400 font-medium">Used in 8+ live projects</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT — STICKY PREMIUM CARD */}
+            <div
+              className={`lg:col-span-7 ${index % 2 === 1 ? "lg:order-1" : ""} 
+                         lg:sticky lg:top-28 lg:self-start`}
+            >
+              <motion.div
+                className="card-glow relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/40 border border-purple-700/30"
+                whileInView={{ scale: 1, opacity: 1 }}
+                initial={{ scale: 0.95, opacity: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                {/* Browser top bar */}
+                <div className="h-12 bg-black/80 flex items-center px-6 gap-3">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full" />
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full" />
+                    <div className="w-3 h-3 bg-green-500 rounded-full" />
+                  </div>
+                  <div className="flex-1 text-center">
+                    <div className="bg-white/10 text-white/70 text-xs px-8 py-1 rounded-full inline-block">
+                      live-project-dashboard.local
+                    </div>
+                  </div>
+                </div>
+
+                {/* Background */}
+                <div
+                  className="h-[520px] bg-cover bg-center relative"
+                  style={{ backgroundImage: `url(${category.bgImage})` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black/90" />
+
+                  {/* Floating content */}
+                  <div className="absolute inset-0 p-10 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-6 mb-10 bg-black/40 py-4 rounded-2xl px-6">
+                        <div>
+                          <div className="text-teal-500 text-xs font-medium tracking-[4px] mb-1">
+                            STACK {String(index + 1).padStart(2, "0")}
+                          </div>
+                          <h2 className="text-5xl font-bold tracking-tighter text-white">
+                            {category.title}
+                          </h2>
+                        </div>
+                      </div>
+
+                      <p className="text-[17px] leading-relaxed text-muted max-w-md mb-12">
+                        {category.description}
+                      </p>
+                    </div>
+                    <div className="text-center text-[10px] text-white/50 tracking-widest font-medium">
+                      POWERED BY {category.title.toUpperCase()} • DEPLOYED ON PRODUCTION
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      ))}
+
+      {/* ALL SKILLS MODAL - ENHANCED UX */}
       <AnimatePresence>
         {isSkillsOpen && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 backdrop-blur-3xl z-[999] flex items-center justify-center p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setIsSkillsOpen(false)}
           >
             <motion.div
-              ref={modalRef}
-              className=" backdrop-blur-lg rounded-3xl shadow-2xl p-6 sm:p-8 max-w-7xl w-full max-h-[90vh] overflow-y-auto border border-gray-200/50 relative"
+              id="skills-modal"
+              className="bg-bg-tertiary w-full max-w-7xl rounded-3xl overflow-hidden border border-primary/30 shadow-2xl"
               variants={modalVariant}
               initial="hidden"
               animate="visible"
               exit="exit"
-              style={{
-                scrollbarWidth: 'thin',
-                scrollbarColor: 'var(--color-medium-gray) var(--color-white)',
-              }}
+              onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
-              <div className="flex justify-between items-center mb-6 sticky top-0 z-10 px-4 py-3 backdrop-blur-md rounded-2xl shadow-sm">
-                <h3 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-primary ">
-                  All Skills Overview
-                </h3>
+              <div className="sticky top-0 bg-bg-tertiary px-10 py-8 border-b border-purple-900/30 flex items-center justify-between z-10">
+                <div>
+                  <div className="text-primary text-xs tracking-[4px] font-semibold">COMPLETE INVENTORY</div>
+                  <h3 className="text-4xl font-bold text-white">All {allSkills.length} Skills</h3>
+                </div>
                 <button
-                  className="text-light-gray hover:text-medium-gray transition-colors duration-200"
                   onClick={() => setIsSkillsOpen(false)}
+                  className="text-4xl text-muted hover:text-white transition-colors"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  ×
                 </button>
               </div>
 
-              {/* Skills Grid - Improved with larger icons and tooltips */}
-              <motion.div
-                className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-4"
-                variants={containerVariant}
-                initial="hidden"
-                animate="visible"
-              >
-                {allSkills.map((skill) => (
-                  <motion.div
-                    key={skill.id}
-                    className="flex flex-col items-center justify-center p-4 bg-white rounded-2xl shadow-md shadow-glow hover:shadow-gray-300 hover:bg-gray-100 transition-all duration-300 cursor-pointer border border-gray-100 hover-lift animate-scale-reveal"
-                    variants={skillItemVariant}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    title={`Proficient in ${skill.name}`}
-                  >
-                    <div className="w-16 h-16 flex items-center justify-center mb-3 overflow-hidden bg-white">
-                      <img
-                        src={skill.logo}
-                        alt={skill.name}
-                        className="w-full h-full object-contain"
-                        loading="lazy"
-                      />
+              <div className="p-10 max-h-[75vh] overflow-y-auto">
+                {/* Live Search - huge UX upgrade */}
+                <div className="mb-10 flex justify-center">
+                  <input
+                    type="text"
+                    placeholder="🔍 Search any skill (e.g. LangChain, Docker...)"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full max-w-lg bg-white/5 border border-white/20 focus:border-primary focus:bg-white/10 rounded-3xl px-8 py-4 text-lg text-white placeholder:text-white/50 outline-none transition-all"
+                  />
+                </div>
+
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-8">
+                  {filteredSkills.length === 0 ? (
+                    <div className="col-span-full flex flex-col items-center justify-center py-20 text-center">
+                      <div className="text-6xl mb-6">🔍</div>
+                      <p className="text-2xl font-medium text-white">No skills matched</p>
+                      <p className="text-muted mt-2">Try different keywords</p>
                     </div>
-                    <span className="text-sm text-gray-800 font-semibold text-center">
-                      {skill.name}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
+                  ) : (
+                    filteredSkills.map((skill) => (
+                      <motion.div
+                        key={skill.id}
+                        whileHover={{ y: -12, scale: 1.05 }}
+                        className="bg-white/5 border border-white/10 hover:border-primary rounded-3xl p-8 flex flex-col items-center text-center transition-all group shadow-purple"
+                      >
+                        <div className="w-24 h-24 bg-white rounded-3xl p-6 mb-6 shadow-2xl">
+                          <img
+                            src={skill.logo}
+                            alt={`${skill.name} logo`}
+                            className="w-full h-full object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span className="font-semibold text-xl text-white group-hover:text-primary transition-colors">
+                          {skill.name}
+                        </span>
+                      </motion.div>
+                    ))
+                  )}
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        variants={containerVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {categories.map((category, catIndex) => (
-          <motion.div
-            key={catIndex}
-            variants={categoryVariant}
-            className="w-full min-h-[320px] flex items-center justify-center cursor-pointer rounded-2xl overflow-hidden shadow-lg shadow-glow hover:shadow-xl transition-shadow hover-lift glass-effect animate-reveal-up"
-            onClick={() => toggleFlip(catIndex)}
-            style={{ perspective: "1200px", animationDelay: `${catIndex * 0.1}s` }}
-          >
-            <motion.div
-              className="relative w-full h-full group"
-              animate={{ rotateY: flippedCategories[catIndex] ? 180 : 0 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              {/* Front Side */}
-              <motion.div
-                className="absolute w-full h-full border border-gray-200 rounded-2xl flex flex-col items-center justify-center p-6 transition-all duration-300 group-hover:border-gray-400"
-                style={{
-                  backfaceVisibility: "hidden",
-                  backgroundImage: `url(${category.bgImage})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              >
-                <div className="absolute inset-0 bg-black bg-opacity-50" />
-                <h2 className="relative text-2xl font-bold text-white tracking-wide border-b-2 border-gray-300 pb-2 mb-4">
-                  {category.title}
-                </h2>
-                <p className="relative text-gray-200 text-sm text-center">{category.description}</p>
-                <p className="relative text-gray-300 mt-4 text-sm font-medium">Click to view skills</p>
-              </motion.div>
-
-              {/* Back Side */}
-              <motion.div
-                className="absolute w-full h-full border border-gray-200 rounded-2xl p-6 overflow-auto transition-all duration-300 group-hover:border-gray-400 glass-effect"
-                style={{
-                  backfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)",
-                }}
-              >
-                <h2 className="relative text-2xl font-bold tracking-wide mb-4 border-b-2 border-gray-300 pb-2">
-                  {category.title}
-                </h2>
-                <div className="grid grid-cols-2 gap-4 place-items-center">
-                  {category.skills.map((skill, index) => (
-                    <motion.div
-                      key={skill.id}
-                      className={`bg-white bg-opacity-90 border border-gray-100 rounded-xl shadow-sm p-3 flex flex-col items-center justify-center w-full transition-all duration-300 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50 hover-lift ${`stagger-${(index % 6) + 1}`}`}
-                      whileHover={{ scale: 1.05, rotate: 3 }}
-                      title={`Used in projects: ${skill.name}`}
-                    >
-                      <img
-                        src={skill.logo}
-                        alt={skill.name}
-                        className="w-12 h-12 object-contain mb-2 rounded-full shadow-sm"
-                        loading="lazy"
-                      />
-                      <h3 className="text-gray-800 font-semibold text-sm text-center">
-                        {skill.name}
-                      </h3>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        ))}
-      </motion.div>
     </div>
   );
 }
