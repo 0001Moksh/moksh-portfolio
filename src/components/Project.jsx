@@ -348,7 +348,7 @@ function Project() {
       </div>
 
       {/* Category Filter */}
-      <div className="flex justify-center mb-8 flex-wrap gap-2">
+      <div className="flex justify-center mb-8 mx-20 flex-wrap gap-2">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -414,7 +414,7 @@ function Project() {
                       href={liveDemoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 px-4 py-2 text-sm bg-primary text-white rounded-lg shadow hover:bg-primary-dark transition-colors duration-300 flex items-center justify-center gap-1"
+                      className="flex-1 px-4 py-2 text-sm bg-primary-dark hover:bg-primary-dark text-white border-2 border-white rounded-lg shadow transition-colors duration-300 flex items-center justify-center gap-1"
                     >
                       Live Demo
                     </a>
@@ -531,7 +531,7 @@ function Project() {
                     href={selectedProject.liveDemoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-2 text-base bg-primary hover:bg-primary-dark text-white rounded-lg shadow-md transition-colors duration-300"
+                    className="px-6 py-2 text-base bg-primary-dark hover:bg-primary-dark text-white border-2 border-white rounded-lg shadow-md transition-colors duration-300"
                   >
                     Live Demo
                   </a>

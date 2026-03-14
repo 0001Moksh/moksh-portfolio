@@ -241,7 +241,7 @@ function Navbar() {
                 <motion.a
                   href={downloadLink}
                   download
-                  className="px-6 py-2 bg-primary-dark text-white rounded-full font-semibold shadow-md hover:bg-secondary-dark transition-all flex items-center space-x-2"
+                  className="btn-teal px-6 py-2 rounded-full font-semibold shadow-md flex items-center space-x-2"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

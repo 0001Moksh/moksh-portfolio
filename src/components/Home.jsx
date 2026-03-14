@@ -83,27 +83,32 @@ function Home() {
                 >
                   Available On
                 </motion.h2>
-                <ul className="flex justify-center space-x-6">
+                <ul className="flex justify-center space-x-6 flex-wrap gap-3">
                   {[{
                     icon: <FaInstagram />,
                     url: "https://www.instagram.com/moksh_bhardwaj23/",
-                    color: "text-white"
+                    color: "text-rose",
+                    glow: "shadow-rose-lg"
                   },{
                     icon: <FaEnvelope />,
                     url: "mailto:mokshbhardwaj2333@gmail.com",
-                    color: "text-white"
+                    color: "text-gold-500",
+                    glow: "shadow-gold-lg"
                   },{
                     icon: <FaLinkedin />,
                     url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh",
-                    color: "text-white"
+                    color: "text-cyan",
+                    glow: "shadow-cyan-lg"
                   },{
                     icon: <IoLogoYoutube />,
                     url: "https://www.youtube.com/@NexYugTech",
-                    color: "text-white"
+                    color: "text-error",
+                    glow: "shadow-rose-lg"
                   },{
                     icon: <FaGithub />,
                     url: "https://github.com/0001Moksh",
-                    color: "text-white"
+                    color: "text-teal-500",
+                    glow: "shadow-teal-lg"
                   }].map((social, i) => (
                     <motion.li
                       key={i}
@@ -118,7 +123,7 @@ function Home() {
                         href={social.url}
                         target="_blank"
                         rel="noreferrer"
-                        className={`${social.color} text-4xl hover:brightness-400 transition-all duration-300 shadow-glow rounded-full`}
+                        className={`${social.color} text-4xl transition-all duration-300 ${social.glow} rounded-full hover-lift`}
                       >
                         {social.icon}
                       </a>
@@ -140,10 +145,10 @@ function Home() {
                 </motion.h2>
                 <div className="flex flex-wrap justify-center gap-3">
                   {[
-  "Cloud-Native",
-  "CI/CD",
-  "Product Engineering",
-  "AI Automation"
+  {text: "Cloud-Native", border: "border-teal-500"},
+  {text: "CI/CD", border: "border-gold-500"},
+  {text: "Product Engineering", border: "border-teal-500"},
+  {text: "AI Automation", border: "border-indigo"}
 ].map((proj, i) => (
                     <AnimatedCard key={i} hoverScale={1.08}>
                       <motion.div
@@ -151,11 +156,9 @@ function Home() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.05 * i }}
                         viewport={{ once: true }}
-                        className={`cursor-pointer px-5 py-2 border-2 rounded-full glass-effect shadow-glow smooth-transition font-semibold ${
-                          i % 2 === 0 ? "text-white border-primary-main" : "text-white border-primary-main"
-                        }`}
+                        className={`cursor-pointer px-5 py-2 border-2 rounded-full glass-effect shadow-glow smooth-transition font-semibold text-white ${proj.border}`}
                       >
-                        {proj}
+                        {proj.text}
                       </motion.div>
                     </AnimatedCard>
                   ))}

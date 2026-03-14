@@ -125,7 +125,7 @@ function Contact() {
               disabled={loading}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className={`w-full py-3 px-6 rounded-xl text-white font-semibold text-lg gradient-primary hover:shadow-lg shadow-lg transition-all duration-300 smooth-transition ${loading ? "opacity-70 cursor-not-allowed" : "hover-lift"}`}
+              className={`btn-gold w-full py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300 smooth-transition ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
             >
               {loading ? (
                 <motion.span className="flex items-center justify-center gaps-2">
