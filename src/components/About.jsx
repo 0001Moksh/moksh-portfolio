@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import RevealSection from './RevealSection';
 import {
   FaGraduationCap,
@@ -12,10 +12,10 @@ import {
 const aboutCards = [
   {
     id: 1,
-    icon: <FaGraduationCap className="text-primary-dark-main text-2xl" />,
+    icon: <FaGraduationCap className="text-primary-dark-main text-3xl" />,
     title: "Education & Advanced Training",
     content: (
-      <ul className="list-disc ml-6 text-white-700 space-y-2">
+      <ul className="list-disc ml-6 text-white-700 space-y-3 text-[15px] leading-relaxed">
         <li>
           <span className="font-semibold">B.Tech in Artificial Intelligence & Machine Learning</span>,
           MDU University — <span className="italic">2023–2027</span>
@@ -29,13 +29,14 @@ const aboutCards = [
             href="https://nexyugtech.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline text-white"
+            className="underline text-primary hover:text-primary-dark-main transition-colors"
           >
             (NexYug Tech, 2025)
           </a>
         </li>
         <li>
-          Practical exposure to <span className="font-semibold">
+          Practical exposure to{" "}
+          <span className="font-semibold">
             Generative AI, LLMs, LangChain, RAG pipelines, NLP & Computer Vision
           </span>
         </li>
@@ -44,29 +45,39 @@ const aboutCards = [
   },
   {
     id: 2,
-    icon: <FaTools className="text-primary-dark-main text-2xl" />,
+    icon: <FaTools className="text-primary-dark-main text-3xl" />,
     title: "AI, ML & Engineering Skillset",
     content: (
-      <p className="text-white-700 leading-relaxed">
-        <span className="font-semibold">Programming & Backend:</span> Python, JavaScript,
-        Flask, FastAPI, REST APIs <br />
-        <span className="font-semibold">AI / ML Stack:</span> TensorFlow, Keras,
-        Scikit-learn, OpenCV, NumPy, Pandas, Matplotlib, Seaborn <br />
-        <span className="font-semibold">GenAI Systems:</span> LLMs, RAG architectures,
-        LangChain, Prompt Engineering, AI Agents <br />
-        <span className="font-semibold">Automation & CRM:</span> Zoho CRM, Zoho Creator,
-        Deluge, Zapier, Workflow Automation <br />
-        <span className="font-semibold">Deployment:</span> Model serving, API integration,
-        full-stack AI product deployment
-      </p>
+      <div className="text-white-700 leading-relaxed text-[15px] space-y-4">
+        <div>
+          <span className="font-semibold text-white block mb-1">Programming & Backend:</span>
+          Python, JavaScript, Flask, FastAPI, REST APIs
+        </div>
+        <div>
+          <span className="font-semibold text-white block mb-1">AI / ML Stack:</span>
+          TensorFlow, Keras, Scikit-learn, OpenCV, NumPy, Pandas, Matplotlib, Seaborn
+        </div>
+        <div>
+          <span className="font-semibold text-white block mb-1">GenAI Systems:</span>
+          LLMs, RAG architectures, LangChain, Prompt Engineering, AI Agents
+        </div>
+        <div>
+          <span className="font-semibold text-white block mb-1">Automation & CRM:</span>
+          Zoho CRM, Zoho Creator, Deluge, Zapier, Workflow Automation
+        </div>
+        <div>
+          <span className="font-semibold text-white block mb-1">Deployment:</span>
+          Model serving, API integration, full-stack AI product deployment
+        </div>
+      </div>
     ),
   },
   {
     id: 3,
-    icon: <FaBriefcase className="text-primary-dark-main text-2xl" />,
+    icon: <FaBriefcase className="text-primary-dark-main text-3xl" />,
     title: "Professional Experience & Projects",
     content: (
-      <ul className="list-disc ml-6 text-white-700 space-y-2">
+      <ul className="list-disc ml-6 text-white-700 space-y-3 text-[15px] leading-relaxed">
         <li>
           <span className="font-semibold">
             Zoho Developer — Business Raiser (2024–Present):
@@ -93,10 +104,10 @@ const aboutCards = [
   },
   {
     id: 4,
-    icon: <FaAward className="text-primary-dark-main text-2xl" />,
+    icon: <FaAward className="text-primary-dark-main text-3xl" />,
     title: "Achievements & Industry Recognition",
     content: (
-      <ul className="list-disc ml-6 text-white-700 space-y-2">
+      <ul className="list-disc ml-6 text-white-700 space-y-3 text-[15px] leading-relaxed">
         <li>Recognized Zoho Creator Expert in low-code automation & AI workflows</li>
         <li>Amazon Smbhav Hackathon 2024 — Built sustainable AI-powered logistics solutions</li>
         <li>AI4Humanity Hackathon (NSUT) — Human-centric and ethical AI innovations</li>
@@ -106,11 +117,12 @@ const aboutCards = [
   },
   {
     id: 5,
-    icon: <FaBullseye className="text-primary-dark-main text-2xl" />,
+    icon: <FaBullseye className="text-primary-dark-main text-3xl" />,
     title: "Mission, Vision & Philosophy",
     content: (
-      <p className="text-white-700 leading-relaxed">
-        My mission is to design <span className="font-semibold">
+      <p className="text-white-700 leading-relaxed text-[15px]">
+        My mission is to design{" "}
+        <span className="font-semibold text-white">
           intelligent, ethical, and scalable AI systems
         </span>{" "}
         that solve real-world problems. I focus on combining AI, ML, and automation
@@ -124,75 +136,85 @@ const aboutCards = [
 
 export default function About() {
   return (
-    <div
-      name="About"
-      className="max-w-screen-xl container mx-auto px-4 md:px-16 mt-20"
-    >
-      <RevealSection className="w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* Line separator reveal above title */}
-          <motion.div 
-            className="line-separator animate-line-reveal"
-            style={{ marginTop: 0 }}
-          />
-          
-          <h1 className="text-5xl font-bold mb-10 text-center text-white-800 animate-reveal-up">
-            About Me
-          </h1>
-          
-          {/* Decorative line below title */}
-          <motion.div 
-            className="line-separator animate-line-reveal"
-            style={{ animationDelay: '0.3s' }}
-          />
+    <div name="About" className="bg-bg-primary relative overflow-hidden py-24">
+      <div className="max-w-screen-xl mx-auto px-6">
+        <RevealSection>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            {/* Premium separator */}
+            <motion.div
+              className="inline-flex items-center gap-3 mb-6 bg-purple-950/70 px-8 py-3 rounded-full border border-primary/30"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+            >
+              <div className="w-3 h-3 rounded-full bg-primary animate-ping" />
+              <span className="uppercase tracking-[6px] text-xs font-semibold text-primary">MY JOURNEY</span>
+            </motion.div>
 
-          <p className="text-white-700 text-justify mb-16 text-lg leading-relaxed animate-reveal-up stagger-1">
-            Hi, I'm{" "}
-            <span className="font-semibold text-white">Moksh</span> — an{" "}
-            <span className="font-semibold text-white">AI & ML Engineer</span> and{" "}
-            <span className="font-semibold text-white">Zoho Developer</span>{" "}
-            passionate about building intelligent systems that scale.
-            With <span className="font-semibold">2+ years of hands-on experience</span> in
-            Artificial Intelligence, Machine Learning, Generative AI, NLP, Computer
-            Vision, and full-stack development, I specialize in transforming complex
-            problems into practical, production-ready AI solutions.
-          </p>
+            <h1 className="text-6xl md:text-7xl font-bold tracking-tighter text-white mb-4 text-gradient">
+              About Me
+            </h1>
 
-          {/* Timeline */}
-          <div className="relative border-l-4 border-primary-main ml-6 space-y-12">
-            {aboutCards.map(({ id, icon, title, content, border }, index) => (
-              <motion.div
-                key={id}
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 150 }}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className={`relative ml-6 animate-reveal-up ${`stagger-${(index % 6) + 1}`}`}
-              >
-                <div
-                  className={`absolute bg-dark -left-20 top-5 ${border} p-3 border-t-2 border-l-8 border-b-2 border-r-2 border-primary-main rounded-full shadow-lg shadow-glow hover-lift`}
+            <p className="text-muted text-xl max-w-2xl mx-auto">
+              Hi, I’m <span className="font-semibold text-white">Moksh</span> — an AI & ML Engineer and Zoho Developer.
+              Turning complex problems into production-ready intelligent systems.
+            </p>
+          </motion.div>
+        </RevealSection>
+
+        {/* Enhanced Vertical Timeline - Best UX */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Continuous glowing line */}
+          <div className="absolute left-8 top-10 bottom-10 w-[3px] bg-gradient-to-b from-primary via-purple-500 to-primary rounded-full z-0" />
+
+          {aboutCards.map((card, index) => (
+            <motion.div
+              key={card.id}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+              whileHover={{ x: 10 }}
+              className="relative mb-20 last:mb-0 group"
+            >
+              {/* Icon Circle - Always visible & glowing on hover */}
+              <div className="absolute left-6 -translate-x-1/2 top-6 z-20">
+                <motion.div
+                  whileHover={{ scale: 1.15, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-16 h-16 bg-bg-tertiary border-4 border-primary rounded-full flex items-center justify-center shadow-2xl shadow-primary/50 group-hover:shadow-purple-lg transition-all"
                 >
-                  {icon}
-                </div>
+                  {card.icon}
+                </motion.div>
+              </div>
 
-                <div className="p-6 border-2 border-l-4 border-t-4 border-primary-main rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 glass-effect hover-lift">
-                  <h2 className="text-2xl font-semibold text-white-800 mb-3 animate-reveal-up stagger-1">
-                    {title}
-                  </h2>
-                  <div className="animate-reveal-up stagger-2">{content}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </RevealSection>
+              {/* Card Content */}
+              <div className="ml-20 bg-bg-tertiary border border-primary/30 rounded-3xl p-8 md:p-10 shadow-xl hover:shadow-2xl hover:border-primary transition-all duration-500">
+                <h2 className="text-3xl font-bold text-white mb-6 tracking-tighter">
+                  {card.title}
+                </h2>
+                <div className="text-white-700">{card.content}</div>
+              </div>
 
-      
+              {/* Decorative year badge (for first & third card only as example) */}
+              {index === 0 && (
+                <div className="absolute -top-4 right-8 bg-primary text-black text-xs font-bold px-5 py-1 rounded-full shadow-glow">
+                  2023–2027
+                </div>
+              )}
+              {index === 2 && (
+                <div className="absolute -top-4 right-8 bg-primary text-black text-xs font-bold px-5 py-1 rounded-full shadow-glow">
+                  2024–Present
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
