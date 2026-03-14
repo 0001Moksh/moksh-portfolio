@@ -61,7 +61,7 @@ function Project() {
       },
       githubUrl: "https://github.com/0001Moksh/aushadhi-360",
       liveDemoUrl: "https://aushadhi-360.vercel.app/",
-      videoUrl:"https://youtu.be/pl2SnZezJK0?si=B2gW4O6ztwNBBjwj"
+      videoUrl: "https://youtu.be/pl2SnZezJK0?si=B2gW4O6ztwNBBjwj"
     },
     {
       id: 14,
@@ -327,7 +327,21 @@ function Project() {
   return (
     <div className="max-w-screen-2xl container mx-auto py-16">
       <div name="Project" className="px-4 md:px-20 text-center mb-12">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-dark">My Projects</h1>
+        {/* Line separator above title */}
+        <motion.div
+          className="line-separator animate-line-reveal"
+          style={{ marginTop: 0 }}
+        />
+
+        <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-dark">
+          My Projects
+        </h1>
+
+        {/* Decorative line below title */}
+        <motion.div
+          className="line-separator animate-line-reveal"
+          style={{ animationDelay: '0.3s' }}
+        />
         <p className="text-lg text-light-gray max-w-2xl mx-auto">
           Explore my portfolio of innovative projects, featuring live demos, detailed overviews, and cutting-edge technologies.
         </p>

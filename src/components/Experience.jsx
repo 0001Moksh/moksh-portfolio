@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import RevealSection from './RevealSection';
 import html from "../assets/html.jpg";
 import css from "../assets/css.jpg";
 import js from "../assets/js.jpg";
@@ -237,53 +238,67 @@ function Experience() {
           }
         `}
       </style>
-      <motion.h1
-        className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-dark"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        Experience & Skills
-      </motion.h1>
-      <div className="relative flex flex-col sm:flex-row items-center justify-center mb-12 space-y-4 sm:space-y-0 sm:space-x-4">
-        <motion.p
-          className="text-base sm:text-lg text-light-gray max-w-md"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Over 3 years of experience in AI, ML, and web technologies. Skills grouped into simple categories for easy browsing.
-        </motion.p>
-        <motion.button
-          className="relative px-6 py-3 border-2 rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center space-x-2 font-medium"
-          onClick={() => setIsSkillsOpen(!isSkillsOpen)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 4h6v6H4V4zM14 4h6v6h-6V4zM4 14h6v6H4v-6zM14 14h6v6h-6v-6z"
-            />
-          </svg>
-          <span >View All Skills</span>
-          <motion.span
-            className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full opacity-50"
-            animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+      
+      <RevealSection className="w-full">
+        <motion.div className="animate-reveal-up">
+          {/* Line separator above title */}
+          <motion.div 
+            className="line-separator animate-line-reveal"
+            style={{ marginTop: 0 }}
           />
-        </motion.button>
-      </div>
+          
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-dark">
+            Experience & Skills
+          </h1>
+          
+          {/* Decorative line below title */}
+          <motion.div 
+            className="line-separator animate-line-reveal"
+            style={{ animationDelay: '0.3s' }}
+          />
+        </motion.div>
+      </RevealSection>
+      
+      <RevealSection delay={0.3} variant="slideInLeft" className="w-full">
+        <div className="relative flex flex-col sm:flex-row items-center justify-center mb-12 space-y-4 sm:space-y-0 sm:space-x-4 animate-reveal-left">
+          <motion.p
+            className="text-base sm:text-lg text-light-gray max-w-md"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Over 3 years of experience in AI, ML, and web technologies. Skills grouped into simple categories for easy browsing.
+          </motion.p>
+          <motion.button
+            className="relative px-6 py-3 border-2 rounded-full shadow-lg shadow-glow hover:shadow-xl transition-shadow flex items-center space-x-2 font-medium hover-lift glass-effect"
+            onClick={() => setIsSkillsOpen(!isSkillsOpen)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 4h6v6H4V4zM14 4h6v6h-6V4zM4 14h6v6H4v-6zM14 14h6v6h-6v-6z"
+              />
+            </svg>
+            <span>View All Skills</span>
+            <motion.span
+              className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full opacity-50"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </motion.button>
+        </div>
+      </RevealSection>
 
       <AnimatePresence>
         {isSkillsOpen && (
@@ -341,7 +356,7 @@ function Experience() {
                 {allSkills.map((skill) => (
                   <motion.div
                     key={skill.id}
-                    className="flex flex-col items-center justify-center p-4 bg-white rounded-2xl shadow-md hover:shadow-gray-300 hover:bg-gray-100 transition-all duration-300 cursor-pointer border border-gray-100"
+                    className="flex flex-col items-center justify-center p-4 bg-white rounded-2xl shadow-md shadow-glow hover:shadow-gray-300 hover:bg-gray-100 transition-all duration-300 cursor-pointer border border-gray-100 hover-lift animate-scale-reveal"
                     variants={skillItemVariant}
                     whileHover={{ scale: 1.1, y: -5 }}
                     title={`Proficient in ${skill.name}`}
@@ -376,9 +391,9 @@ function Experience() {
           <motion.div
             key={catIndex}
             variants={categoryVariant}
-            className="w-full min-h-[320px] flex items-center justify-center cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            className="w-full min-h-[320px] flex items-center justify-center cursor-pointer rounded-2xl overflow-hidden shadow-lg shadow-glow hover:shadow-xl transition-shadow hover-lift glass-effect animate-reveal-up"
             onClick={() => toggleFlip(catIndex)}
-            style={{ perspective: "1200px" }}
+            style={{ perspective: "1200px", animationDelay: `${catIndex * 0.1}s` }}
           >
             <motion.div
               className="relative w-full h-full group"
@@ -407,21 +422,20 @@ function Experience() {
 
               {/* Back Side */}
               <motion.div
-                className="absolute w-full h-full border border-gray-200 rounded-2xl p-6 overflow-auto transition-all duration-300 group-hover:border-gray-400"
+                className="absolute w-full h-full border border-gray-200 rounded-2xl p-6 overflow-auto transition-all duration-300 group-hover:border-gray-400 glass-effect"
                 style={{
                   backfaceVisibility: "hidden",
                   transform: "rotateY(180deg)",
-                  backgroundColor: "dark", // Changed to white background
                 }}
               >
                 <h2 className="relative text-2xl font-bold tracking-wide mb-4 border-b-2 border-gray-300 pb-2">
                   {category.title}
                 </h2>
                 <div className="grid grid-cols-2 gap-4 place-items-center">
-                  {category.skills.map((skill) => (
+                  {category.skills.map((skill, index) => (
                     <motion.div
                       key={skill.id}
-                      className="bg-white bg-opacity-90 border border-gray-100 rounded-xl shadow-sm p-3 flex flex-col items-center justify-center w-full transition-all duration-300 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                      className={`bg-white bg-opacity-90 border border-gray-100 rounded-xl shadow-sm p-3 flex flex-col items-center justify-center w-full transition-all duration-300 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50 hover-lift ${`stagger-${(index % 6) + 1}`}`}
                       whileHover={{ scale: 1.05, rotate: 3 }}
                       title={`Used in projects: ${skill.name}`}
                     >
@@ -442,14 +456,6 @@ function Experience() {
           </motion.div>
         ))}
       </motion.div>
-
-      <motion.hr
-        className="mt-16 border-gray-200 w-3/4 mx-auto"
-        initial={{ width: 0 }}
-        whileInView={{ width: "75%" }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      />
     </div>
   );
 }
