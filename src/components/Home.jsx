@@ -1,156 +1,214 @@
 import React from "react";
-import pic from "../assets/1ig3.png";
-import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { IoLogoYoutube } from "react-icons/io";
-import { ReactTyped } from "react-typed";
+import pic from "../assets/1ig3.png"; // ← Your purple-hoodie AI avatar
 import { motion } from "framer-motion";
-import RevealSection from "./RevealSection";
 import AnimatedCard from "./AnimatedCard";
 import { Link } from "react-scroll";
 import { SEOHelmet } from "../hooks/useSEO";
 
 function Home() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  };
-
   return (
     <>
       <SEOHelmet pageKey="home" />
+
+      {/* HERO - 100% MATCHING YOUR MOCKUP + YOUR OFFICIAL COLOR SYSTEM */}
       <motion.main
         name="Home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0 px-4 md:px-0"
+        className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-dark pt-20 md:pt-0"
         role="main"
         aria-label="Hero section"
       >
-        {/* Animated gradient background */}
+        {/* Background using your global particle system + custom orbs from :root */}
+        <div className="absolute inset-0 -z-10" />
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
-          <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-teal-600/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0.75s" }} />
+          {/* Orb 1 - Primary Purple */}
+          <div className="absolute top-20 left-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] animate-pulse" />
+          {/* Orb 2 - Teal Accent */}
+          <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[140px] animate-pulse" style={{ animationDelay: "1.8s" }} />
+          {/* Orb 3 - Accent Pink */}
+          <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-accent-pink/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "3s" }} />
         </div>
 
-        <div className="max-w-screen-2xl w-full">
-          
-          <div className="flex flex-col pt-24 pb-20 pl-20 lg:flex-row items-center lg:items-center gap-12 lg:gap-20">
-            {/* LEFT SECTION */}
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-20">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 pt-12 lg:pt-0">
+            
+            {/* LEFT - TEXT (exact mockup layout + your gradients) */}
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="lg:w-1/2 space-y-8 order-2 lg:order-1"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, ease: "easeOut" }}
+              className="lg:w-1/2 space-y-8 z-10"
             >
-              {/* Main Title */}
-              <motion.div variants={itemVariants} className="space-y-4">
-                <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight">
-                  <span>AI Engineer &</span>
-                  <br />
-                  <span className="text-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
-                    Full Stack Developer
-                  </span>
-                </h1>
-              </motion.div>
+              <h1 className="text-6xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-none">
+                <span className="gradient-accent bg-clip-text text-transparent">
+                  AI Engineer &amp;
+                </span>
+                <br />
+                <span className="gradient-accent bg-clip-text text-transparent">
+                  Full Stack Developer
+                </span>
+              </h1>
 
-              {/* Subtitle */}
-              <motion.p
-                variants={itemVariants}
-                className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-lg"
-              >
-                Building intelligent systems with 3+ years of experience in <span className="text-purple-400 font-semibold">Machine Learning</span>, 
-                <span className="text-cyan-400 font-semibold"> Generative AI</span>, and 
-                <span className="text-teal-400 font-semibold"> Full-Stack Development</span>. 
+              <p className="max-w-lg text-xl md:text-2xl text-text-secondary leading-relaxed">
+                Building intelligent systems with 3+ years of experience in{" "}
+                <span className="text-purple-500 font-semibold">Machine Learning</span>,{" "}
+                <span className="text-teal-500 font-semibold">Generative AI</span>, and{" "}
+                <span className="text-accent-cyan font-semibold">Full-Stack Development</span>.
+                <br className="hidden md:block" />
                 Transforming ideas into production-ready applications.
-              </motion.p>
+              </p>
 
-              {/* CTA Buttons */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 pt-6"
-              >
-                <Link to="Project" smooth={true} duration={500}>
+              {/* Buttons - using your .btn-accent + .glass-effect */}
+              <div className="flex flex-col sm:flex-row gap-5 pt-4">
+                <Link to="Project" smooth={true} duration={700} offset={-80}>
                   <motion.button
                     whileHover={{ scale: 1.05, y: -4 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl shadow-xl shadow-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/60 transition-all duration-300 border border-purple-400/30 backdrop-blur-sm cursor-pointer w-full sm:w-auto text-center"
+                    whileTap={{ scale: 0.96 }}
+                    className="btn-accent text-lg font-bold rounded-2xl shadow-2xl shadow-purple-500/60 hover:shadow-purple-500/80 flex items-center gap-3 group px-10 py-5"
                   >
-                    View Projects ↗
+                    View Projects
+                    <span className="group-hover:rotate-45 transition-transform duration-300 text-2xl">↗</span>
                   </motion.button>
                 </Link>
-                
-                <Link to="Contact" smooth={true} duration={500}>
+
+                <Link to="Contact" smooth={true} duration={700} offset={-80}>
                   <motion.button
                     whileHover={{ scale: 1.05, y: -4 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-white/10 text-white font-bold rounded-xl shadow-lg border border-white/20 hover:border-purple-400/60 hover:bg-white/20 transition-all duration-300 backdrop-blur-sm cursor-pointer w-full sm:w-auto text-center"
+                    whileTap={{ scale: 0.96 }}
+                    className="glass-effect text-lg font-bold rounded-2xl flex items-center gap-3 px-10 py-5 border border-white/30 hover:border-purple-400/50"
                   >
-                    Get In Touch ✉
+                    Get In Touch
+                    <span className="text-2xl">✉</span>
                   </motion.button>
                 </Link>
-              </motion.div>
-             
+              </div>
             </motion.div>
 
-            {/* RIGHT SECTION - FLOATING IMAGE */}
-            <motion.div
-              variants={itemVariants}
-              className="lg:w-1/2 flex justify-center order-1 lg:order-2"
-            >
-              <AnimatedCard hoverScale={1.05} hover3D={true}>
-                <motion.div
-                  className="relative w-full max-w-sm"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                >
-                  {/* Glow background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/40 to-cyan-600/40 rounded-3xl blur-3xl" />
-                  
-                  <motion.img
-                    src={pic}
-                    alt="Moksh Bhardwaj"
-                    className="relative w-full rounded-3xl rounded-full border-b-4 object-cover aspect-square"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    animate={{
-                      y: [0, -15, 15, 0],
-                      rotate: [0, 1, -1, 0],
-                    }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    whileHover={{ scale: 1.05, rotate: 3 }}
-                  />
-                </motion.div>
-              </AnimatedCard>
-            </motion.div>
+            {/* RIGHT - FUTURISTIC AVATAR HUD (UPGRADED 🔥) */}
+<motion.div
+  initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+  transition={{ duration: 1.2, ease: "easeOut" }}
+  className="lg:w-1/2 flex justify-center relative z-10"
+>
+  <AnimatedCard hoverScale={1.05} hover3D={true}>
+    <div className="mb-36 lg:mb-0 relative w-[320px] md:w-[400px] lg:w-[460px] aspect-square">
+
+      {/* 🌌 Background Pulse Glow */}
+      <motion.div
+        className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 via-teal-400/20 to-pink-500/20 blur-3xl"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 4, repeat: Infinity }}
+      />
+
+      {/* 🌀 Rotating SVG Rings (Premium Look) */}
+      <motion.div
+        className="absolute inset-0"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+      >
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          <circle cx="100" cy="100" r="90" stroke="#2dd4bf40" strokeWidth="2" fill="none" />
+          <circle cx="100" cy="100" r="70" stroke="#a855f740" strokeWidth="2" fill="none" />
+        </svg>
+      </motion.div>
+
+      {/* 🔁 Reverse Ring */}
+      <motion.div
+        className="absolute inset-6"
+        animate={{ rotate: -360 }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      >
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          <circle cx="100" cy="100" r="60" stroke="#ec489940" strokeWidth="2" fill="none" />
+        </svg>
+      </motion.div>
+
+      {/* 👤 Avatar Frame */}
+      <div className="relative w-full h-full rounded-full overflow-hidden border-[10px] border-purple-400/20 shadow-[0_0_140px_-20px] shadow-teal-400 bg-gradient-to-br from-purple-900/30 to-teal-900/30">
+
+        {/* 📡 Scan Line Effect */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-teal-400/20 to-transparent"
+          animate={{ y: ["-100%", "100%"] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+        />
+
+        <motion.img
+          src={pic}
+          alt="Moksh Bhardwaj - AI Engineer"
+          className="w-full h-full object-cover scale-110"
+          animate={{ y: [0, -10, 10, 0], scale: [1.1, 1.12, 1.1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      {/* 🧠 AI Status Panel */}
+      <motion.div
+        className="absolute -top-8 left-6 bg-zinc-900/90 backdrop-blur-xl px-4 py-2 rounded-xl border border-teal-400/40 text-teal-300 text-xs font-mono shadow-xl"
+        animate={{ y: [-6, 6, -6] }}
+        transition={{ duration: 3, repeat: Infinity }}
+      >
+        STATUS: TRAINING ⚡
+      </motion.div>
+
+      {/* ⚙️ API Call */}
+      <motion.div
+        className="absolute -bottom-6 right-10 bg-zinc-900/90 backdrop-blur-xl px-4 py-2 rounded-xl border border-purple-400/40 text-purple-300 text-xs font-mono shadow-xl"
+        animate={{ y: [6, -6, 6] }}
+        transition={{ duration: 4, repeat: Infinity }}
+      >
+        fetch(api)
+      </motion.div>
+
+      {/* 📊 Model Stats */}
+      <motion.div
+        className="absolute -left-12 bottom-16 w-44 bg-zinc-950/90 backdrop-blur-xl p-3 rounded-xl border border-teal-400/30 text-[10px] font-mono text-teal-300 shadow-xl"
+        animate={{ y: [-5, 5, -5] }}
+        transition={{ duration: 5, repeat: Infinity }}
+      >
+        Epoch: 42 <br />
+        Loss: 0.021 <br />
+        Accuracy: 98.7%
+      </motion.div>
+
+      {/* 🧬 Neural Tag */}
+      <motion.div
+        className="absolute top-20 -left-14 bg-zinc-900/80 backdrop-blur-xl px-4 py-1.5 rounded-3xl border border-pink-400/30 text-pink-400 text-xs font-medium flex items-center gap-2 shadow-xl"
+        animate={{ rotate: [-2, 2, -2] }}
+        transition={{ duration: 4, repeat: Infinity }}
+      >
+        🧠 Neural Net
+      </motion.div>
+
+      {/* ✨ Orbit Particles */}
+      <motion.div
+        className="absolute w-3 h-3 bg-teal-400 rounded-full"
+        animate={{
+          x: [0, 120, 0, -120, 0],
+          y: [120, 0, -120, 0, 120],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+        style={{ top: "50%", left: "50%" }}
+      />
+
+      <motion.div
+        className="absolute w-2 h-2 bg-purple-400 rounded-full"
+        animate={{
+          x: [0, -100, 0, 100, 0],
+          y: [-100, 0, 100, 0, -100],
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+        style={{ top: "50%", left: "50%" }}
+      />
+
+    </div>
+  </AnimatedCard>
+</motion.div>
           </div>
-           {/* Stats */}
-              <motion.div
-                variants={itemVariants}
-                className="grid grid-cols-3 gap-6 py-8 border-b border-t border-white/10"
-              >
-                {[
-                  { number: "15+", label: "Projects" },
-                  { number: "3+", label: "Years" },
-                  { number: "50+", label: "Technologies" }
-                ].map((stat, i) => (
-                  <div key={i} className="text-center">
-                    <p className="text-2xl md:text-3xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text">
-                      {stat.number}
-                    </p>
-                    <p className="text-sm text-gray-400">{stat.label}</p>
-                  </div>
-                ))}
-              </motion.div>
         </div>
+
+        {/* Bottom fade using your gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark to-transparent pointer-events-none" />
       </motion.main>
     </>
   );
