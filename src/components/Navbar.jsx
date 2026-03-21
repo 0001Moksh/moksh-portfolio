@@ -136,7 +136,7 @@ function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className="fixed top-0 left-0 h-full w-72 bg-dark shadow-2xl z-50 flex flex-col overflow-y-auto"
+              className="fixed top-0 left-0 h-full w-72 shadow-2xl z-50 flex flex-col overflow-y-auto"
             >
               <div className="flex justify-between items-center p-6 border-b border-gray-100">
                 <h2 className="text-xl font-bold text-dark">Menu</h2>

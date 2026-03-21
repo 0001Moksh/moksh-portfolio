@@ -18,7 +18,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="py-10 mt-10 border-t-2 border-dashed" style={{borderImage: "linear-gradient(90deg, #a855f7, #20c997, #f59e0b, #f43f5e) 1"}}>
+      <footer className="py-10 bg-dark mt-10 border-t-2 border-dashed" style={{borderImage: "linear-gradient(90deg, #a855f7, #20c997, #f59e0b, #f43f5e) 1"}}>
         <RevealSection variant="fadeIn">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

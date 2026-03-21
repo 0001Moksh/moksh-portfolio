@@ -13,7 +13,7 @@ function Home() {
       {/* HERO - 100% MATCHING YOUR MOCKUP + YOUR OFFICIAL COLOR SYSTEM */}
       <motion.main
         name="Home"
-        className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-dark pt-20 md:pt-0"
+        className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 md:pt-0"
         role="main"
         aria-label="Hero section"
       >
@@ -29,7 +29,7 @@ function Home() {
         </div>
 
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-20">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 pt-12 lg:pt-0">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 pt-12 lg:pt-10">
             
             {/* LEFT - TEXT (exact mockup layout + your gradients) */}
             <motion.div
@@ -38,7 +38,7 @@ function Home() {
               transition={{ duration: 1.1, ease: "easeOut" }}
               className="lg:w-1/2 space-y-8 z-10"
             >
-              <h1 className="text-6xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-none">
+              <h1 className="text-6xl md:text-6xl lg:text-[60px] font-black tracking-tighter leading-none">
                 <span className="gradient-accent bg-clip-text text-transparent">
                   AI Engineer &amp;
                 </span>
@@ -157,7 +157,7 @@ function Home() {
         animate={{ y: [6, -6, 6] }}
         transition={{ duration: 4, repeat: Infinity }}
       >
-        fetch(api)
+        End to End Project... 200 OK ✅
       </motion.div>
 
       {/* 📊 Model Stats */}
@@ -177,7 +177,16 @@ function Home() {
         animate={{ rotate: [-2, 2, -2] }}
         transition={{ duration: 4, repeat: Infinity }}
       >
-        🧠 Neural Net
+        🤖 Gen AI
+      </motion.div>
+      
+      {/* 🧬 Neural Tag */}
+      <motion.div
+        className="absolute top-20 -right-14 bg-zinc-900/80 backdrop-blur-xl px-4 py-1.5 rounded-3xl border border-pink-400/30 text-pink-400 text-xs font-medium flex items-center gap-2 shadow-xl"
+        animate={{ rotate: [-2, 2, -2] }}
+        transition={{ duration: 4, repeat: Infinity }}
+      >
+        🧠 Neural Network
       </motion.div>
 
       {/* ✨ Orbit Particles */}
