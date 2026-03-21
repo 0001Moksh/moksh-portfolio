@@ -33,7 +33,7 @@ function Navbar() {
   const navItems = [
     { id: 1, text: "Home" },
     { id: 2, text: "About" },
-    { id: 3, text: "Experience" },
+    { id: 3, text: "Skills" },
     { id: 4, text: "Project" },
     // { id: 5, text: "Blog" },
     { id: 6, text: "Contact" },

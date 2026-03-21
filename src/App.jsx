@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home"
 import About from "./components/About"
 import Contact from "./components/Contact"
-import Experience from "./components/Experience"
+import Skills from "./components/Skills"
 import Project from "./components/Project";
 import Blog from "./components/Blog";
 import Footer from "./components/Footer";
@@ -17,7 +17,7 @@ function App(){
     <Navbar/>
     <Home/>
     <About/>
-    <Experience/>
+    <Skills/>
     <Project/>
     <Blog/>
     <Contact/>

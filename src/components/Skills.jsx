@@ -57,7 +57,7 @@ import aiToolsBg from "../assets/aitools-bg.jpg";
 import cloudDbBg from "../assets/clouddb-bg.jpg";
 import otherToolsBg from "../assets/othertools-bg.jpg";
 
-function Experience() {
+function Skills() {
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
@@ -208,7 +208,7 @@ function Experience() {
               <span className="uppercase tracking-[6px] text-xs font-semibold text-primary">PRODUCTION AI STACK</span>
             </div>
             <h2 className="text-6xl md:text-7xl font-bold tracking-tighter text-white mb-4 text-gradient">
-              Experience &amp; Skills
+              Technical Skills
             </h2>
             <p className="text-muted text-xl max-w-2xl mx-auto">
               3+ years shipping intelligent systems. Every tool below has been battle-tested in real client projects.
@@ -414,4 +414,4 @@ function Experience() {
   );
 }
 
-export default Experience;
+export default Skills;
