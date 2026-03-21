@@ -124,11 +124,11 @@ function Home() {
       </motion.div>
 
       {/* 👤 Avatar Frame */}
-      <div className="relative w-full h-full rounded-full overflow-hidden border-[10px] border-purple-400/20 shadow-[0_0_140px_-20px] shadow-teal-400 bg-gradient-to-br from-purple-900/30 to-teal-900/30">
+      <div className="relative w-full h-full rounded-full overflow-hidden border-[10px] border-purple-400/20">
 
         {/* 📡 Scan Line Effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-transparent via-teal-400/20 to-transparent"
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-teal-400/90 to-transparent"
           animate={{ y: ["-100%", "100%"] }}
           transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
         />
