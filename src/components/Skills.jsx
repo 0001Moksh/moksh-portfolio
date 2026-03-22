@@ -60,11 +60,11 @@ import otherToolsBg from "../assets/othertools-bg.jpg";
 /* ─── per-category accent config (gold-purple luxury palette) ─── */
 const CATEGORY_ACCENTS = [
   { color: "#ffffff", glow: "rgba(245,158,11,0.35)", border: "rgba(245,158,11,0.4)", label: "text-amber-400", tag: "FULL-STACK" },
-  { color: "#a855f7", glow: "rgba(168,85,247,0.35)",  border: "rgba(168,85,247,0.4)", label: "text-purple-400", tag: "ANALYTICS" },
-  { color: "#d97706", glow: "rgba(217,119,6,0.35)",   border: "rgba(217,119,6,0.4)",  label: "text-amber-500", tag: "ML / DL" },
-  { color: "#c084fc", glow: "rgba(192,132,252,0.35)", border: "rgba(192,132,252,0.4)",label: "text-purple-300", tag: "GEN-AI" },
-  { color: "#fbbf24", glow: "rgba(251,191,36,0.35)",  border: "rgba(251,191,36,0.4)", label: "text-yellow-400", tag: "INFRA" },
-  { color: "#7c3aed", glow: "rgba(124,58,237,0.35)",  border: "rgba(124,58,237,0.4)", label: "text-violet-400", tag: "TOOLS" },
+  { color: "#a855f7", glow: "rgba(168,85,247,0.35)", border: "rgba(168,85,247,0.4)", label: "text-purple-400", tag: "ANALYTICS" },
+  { color: "#d97706", glow: "rgba(217,119,6,0.35)", border: "rgba(217,119,6,0.4)", label: "text-amber-500", tag: "ML / DL" },
+  { color: "#c084fc", glow: "rgba(192,132,252,0.35)", border: "rgba(192,132,252,0.4)", label: "text-purple-300", tag: "GEN-AI" },
+  { color: "#fbbf24", glow: "rgba(251,191,36,0.35)", border: "rgba(251,191,36,0.4)", label: "text-yellow-400", tag: "INFRA" },
+  { color: "#7c3aed", glow: "rgba(124,58,237,0.35)", border: "rgba(124,58,237,0.4)", label: "text-violet-400", tag: "TOOLS" },
 ];
 
 function Skills() {
@@ -79,15 +79,15 @@ function Skills() {
       description: "Production-grade full-stack stack that powers lightning-fast, pixel-perfect web applications.",
       bgImage: webDevBg,
       skills: [
-        { id: 1,  logo: html,          name: "HTML" },
-        { id: 2,  logo: css,           name: "CSS" },
-        { id: 3,  logo: js,            name: "JavaScript" },
-        { id: 45, logo: react,         name: "React" },
-        { id: 46, logo: vite,          name: "Vite" },
-        { id: 47, logo: tailwind,      name: "Tailwind CSS" },
-        { id: 4,  logo: python,        name: "Python" },
-        { id: 25, logo: Flask,         name: "Flask" },
-        { id: 24, logo: Fastapi,       name: "FastAPI" },
+        { id: 1, logo: html, name: "HTML" },
+        { id: 2, logo: css, name: "CSS" },
+        { id: 3, logo: js, name: "JavaScript" },
+        { id: 45, logo: react, name: "React" },
+        { id: 46, logo: vite, name: "Vite" },
+        { id: 47, logo: tailwind, name: "Tailwind CSS" },
+        { id: 4, logo: python, name: "Python" },
+        { id: 25, logo: Flask, name: "Flask" },
+        { id: 24, logo: Fastapi, name: "FastAPI" },
         { id: 23, logo: apintegration, name: "API Integration" },
       ],
     },
@@ -96,11 +96,11 @@ function Skills() {
       description: "End-to-end data engineering & beautiful interactive dashboards that tell compelling stories.",
       bgImage: dataScienceBg,
       skills: [
-        { id: 5, logo: numpy,      name: "NumPy" },
-        { id: 6, logo: pandas,     name: "Pandas" },
+        { id: 5, logo: numpy, name: "NumPy" },
+        { id: 6, logo: pandas, name: "Pandas" },
         { id: 7, logo: Matplotlib, name: "Matplotlib" },
-        { id: 8, logo: Sea,        name: "Seaborn" },
-        { id: 9, logo: scipy,      name: "SciPy" },
+        { id: 8, logo: Sea, name: "Seaborn" },
+        { id: 9, logo: scipy, name: "SciPy" },
       ],
     },
     {
@@ -108,12 +108,12 @@ function Skills() {
       description: "Battle-tested frameworks that deliver state-of-the-art models in production environments.",
       bgImage: mlDlBg,
       skills: [
-        { id: 10, logo: sklearn,     name: "Scikit-learn" },
-        { id: 11, logo: opencv,      name: "OpenCV" },
-        { id: 12, logo: tensorflow,  name: "TensorFlow" },
-        { id: 13, logo: keras,       name: "Keras" },
-        { id: 14, logo: pytorch,     name: "PyTorch" },
-        { id: 22, logo: neuralnets,  name: "Neural Networks" },
+        { id: 10, logo: sklearn, name: "Scikit-learn" },
+        { id: 11, logo: opencv, name: "OpenCV" },
+        { id: 12, logo: tensorflow, name: "TensorFlow" },
+        { id: 13, logo: keras, name: "Keras" },
+        { id: 14, logo: pytorch, name: "PyTorch" },
+        { id: 22, logo: neuralnets, name: "Neural Networks" },
       ],
     },
     {
@@ -122,14 +122,14 @@ function Skills() {
       bgImage: aiToolsBg,
       skills: [
         { id: 15, logo: huggingface, name: "Hugging Face" },
-        { id: 17, logo: langchain,   name: "LangChain" },
-        { id: 18, logo: genai,       name: "GenAI" },
-        { id: 19, logo: llm,         name: "LLM" },
-        { id: 20, logo: rag,         name: "RAG" },
-        { id: 21, logo: NLP,         name: "NLP" },
-        { id: 26, logo: openai,      name: "OpenAI API" },
-        { id: 27, logo: gemini,      name: "Gemini API" },
-        { id: 28, logo: llama,       name: "LLaMA" },
+        { id: 17, logo: langchain, name: "LangChain" },
+        { id: 18, logo: genai, name: "GenAI" },
+        { id: 19, logo: llm, name: "LLM" },
+        { id: 20, logo: rag, name: "RAG" },
+        { id: 21, logo: NLP, name: "NLP" },
+        { id: 26, logo: openai, name: "OpenAI API" },
+        { id: 27, logo: gemini, name: "Gemini API" },
+        { id: 28, logo: llama, name: "LLaMA" },
       ],
     },
     {
@@ -137,22 +137,22 @@ function Skills() {
       description: "Enterprise-grade infrastructure & vector stores that scale to millions of users.",
       bgImage: cloudDbBg,
       skills: [
-        { id: 29, logo: aws,       name: "AWS" },
-        { id: 30, logo: gcp,       name: "GCP" },
-        { id: 31, logo: azure,     name: "Azure" },
-        { id: 44, logo: docker,    name: "Docker" },
-        { id: 32, logo: github,    name: "GitHub" },
-        { id: 33, logo: vercel,    name: "Vercel" },
-        { id: 34, logo: netlify,   name: "Netlify" },
-        { id: 35, logo: render,    name: "Render" },
-        { id: 36, logo: firebase,  name: "Firebase" },
+        { id: 29, logo: aws, name: "AWS" },
+        { id: 30, logo: gcp, name: "GCP" },
+        { id: 31, logo: azure, name: "Azure" },
+        { id: 44, logo: docker, name: "Docker" },
+        { id: 32, logo: github, name: "GitHub" },
+        { id: 33, logo: vercel, name: "Vercel" },
+        { id: 34, logo: netlify, name: "Netlify" },
+        { id: 35, logo: render, name: "Render" },
+        { id: 36, logo: firebase, name: "Firebase" },
         { id: 37, logo: streamlit, name: "Streamlit" },
-        { id: 38, logo: mongodb,   name: "MongoDB" },
-        { id: 39, logo: mysql,     name: "MySQL" },
-        { id: 40, logo: vectordb,  name: "Vector DB" },
-        { id: 41, logo: faiss,     name: "FAISS" },
-        { id: 42, logo: chromadb,  name: "ChromaDB" },
-        { id: 43, logo: pinecone,  name: "Pinecone" },
+        { id: 38, logo: mongodb, name: "MongoDB" },
+        { id: 39, logo: mysql, name: "MySQL" },
+        { id: 40, logo: vectordb, name: "Vector DB" },
+        { id: 41, logo: faiss, name: "FAISS" },
+        { id: 42, logo: chromadb, name: "ChromaDB" },
+        { id: 43, logo: pinecone, name: "Pinecone" },
       ],
     },
     {
@@ -201,9 +201,9 @@ function Skills() {
   }, [isSkillsOpen]);
 
   const modalVariant = {
-    hidden:  { opacity: 0, scale: 0.9,  y: 50 },
-    visible: { opacity: 1, scale: 1,    y: 0,  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
-    exit:    { opacity: 0, scale: 0.92, y: 40, transition: { duration: 0.3 } },
+    hidden: { opacity: 0, scale: 0.9, y: 50 },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+    exit: { opacity: 0, scale: 0.92, y: 40, transition: { duration: 0.3 } },
   };
 
   return (
@@ -232,11 +232,11 @@ function Skills() {
         }} />
       </div>
 
-      <div className="max-w-screen-xl mx-auto px-6 pt-32 pb-24 relative z-10">
+      <div className="max-w-screen-xl mx-auto px-6 pt-32 relative z-10">
         <RevealSection>
           <div name="Skills" className="text-center  mb-10">
             {/* Gold crown badge */}
-            <div  className="inline-flex items-center gap-3 mb-8" style={{
+            <div className="inline-flex items-center gap-3 mb-8" style={{
               background: "linear-gradient(135deg, rgba(245,158,11,0.12), rgba(168,85,247,0.12))",
               border: "1px solid rgba(245,158,11,0.3)",
               borderRadius: "9999px",
@@ -288,8 +288,8 @@ function Skills() {
           <div className="grid grid-cols-3 gap-6 mb-16 max-w-2xl mx-auto">
             {[
               { value: `${allSkills.length}+`, label: "Technologies" },
-              { value: "3+",                  label: "Years Experience" },
-              { value: "10+",                  label: "Live Projects" },
+              { value: "3+", label: "Years Experience" },
+              { value: "10+", label: "Live Projects" },
             ].map((stat, i) => (
               <div key={i} style={{
                 textAlign: "center",
@@ -367,7 +367,6 @@ function Skills() {
               position: "relative",
               padding: "7rem 0",
               overflowX: "clip",
-              borderTop: `1px solid rgba(245,158,11,0.1)`,
             }}
           >
             {/* faint section number watermark */}
@@ -456,7 +455,7 @@ function Skills() {
                           <div style={{ color: "#fff", fontWeight: 700, fontSize: "1.05rem", letterSpacing: "-0.01em" }}>
                             {skill.name}
                           </div>
-                          
+
                         </div>
 
                         {/* trailing arrow */}
@@ -496,31 +495,30 @@ function Skills() {
                       display: "flex", alignItems: "center", padding: "0 24px", gap: 16,
                     }}>
                       <div style={{ display: "flex", gap: 7 }}>
-                        {["#ef4444","#ffffff","#10b981"].map((c) => (
+                        {["#ef4444", "#ffffff", "#10b981"].map((c) => (
                           <div key={c} style={{ width: 11, height: 11, background: c, borderRadius: "50%" }} />
                         ))}
                       </div>
                       <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
-                        <div style={{
-                          background: "rgba(255,255,255,0.08)",
-                          borderRadius: 9999,
-                          padding: "4px 28px",
-                          fontSize: "0.72rem", color: "rgba(255,255,255,0.5)",
-                          border: "1px solid rgba(255,255,255,0.08)",
-                        }}>
-                          live-project-dashboard.local
-                        </div>
+                       <div style={{
+                              fontSize: "0.65rem", fontWeight: 700,
+                              letterSpacing: "0.4em", color: accent.color, marginBottom: 10,
+                            }}>
+                              STACK {String(index + 1).padStart(2, "0")} · {accent.tag}
+                            </div>
                       </div>
                     </div>
 
                     {/* bg image */}
-                    <div style={{
-                      height: 520,
-                      backgroundImage: `url(${category.bgImage})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      position: "relative",
-                    }}>
+                    <div
+                      className="h-[120px] lg:h-[520px]"
+                      style={{
+                        backgroundImage: `url(${category.bgImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        position: "relative",
+                      }}
+                    >
                       {/* layered overlay */}
                       <div style={{
                         position: "absolute", inset: 0,
@@ -535,18 +533,13 @@ function Skills() {
                       {/* floating content */}
                       <div style={{
                         position: "absolute", inset: 0,
-                        padding: "40px 44px",
+                        padding: "20px 20px",
                         display: "flex", flexDirection: "column", justifyContent: "space-between",
                       }}>
                         <div>
                           {/* stack number + title */}
                           <div style={{ marginBottom: 28 }}>
-                            <div style={{
-                              fontSize: "0.65rem", fontWeight: 700,
-                              letterSpacing: "0.4em", color: accent.color, marginBottom: 10,
-                            }}>
-                              STACK {String(index + 1).padStart(2, "0")} · {accent.tag}
-                            </div>
+                            
                             <h2 style={{
                               fontSize: "clamp(2rem, 4vw, 3rem)",
                               fontWeight: 800, lineHeight: 1.1,
@@ -557,66 +550,61 @@ function Skills() {
                               {category.title}
                             </h2>
                           </div>
-
-                          {/* gold rule */}
-                          <div style={{
-                            width: 60, height: 2, marginBottom: 24,
-                            background: `linear-gradient(90deg, ${accent.color}, transparent)`,
-                          }} />
-
-                          <p style={{
-                            fontSize: "1rem", lineHeight: 1.7,
-                            color: "rgba(255,255,255,0.65)", maxWidth: 380,
-                            marginBottom: 36,
-                          }}>
-                            {category.description}
-                          </p>
-
-                          {/* pill count */}
-                          <div style={{
-                            display: "inline-flex", alignItems: "center", gap: 10,
-                            padding: "8px 20px",
-                            borderRadius: 9999,
-                            background: `linear-gradient(135deg, ${accent.color}22, rgba(168,85,247,0.15))`,
-                            border: `1px solid ${accent.border}`,
-                          }}>
-                            <span style={{ color: accent.color, fontSize: "0.85rem", fontWeight: 700 }}>
-                              {category.skills.length}
-                            </span>
-                            <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.78rem" }}>
-                              technologies mastered
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* bottom row: skill icon strip */}
-                        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                          {category.skills.slice(0, 6).map((skill) => (
-                            <motion.div
-                              key={skill.id}
-                              whileHover={{ y: -4, scale: 1.1 }}
+                          <div className="hidden lg:flex gap-2 flex-wrap">
+                            
+                            <p
                               style={{
-                                width: 42, height: 42, background: "rgba(255,255,255,0.95)",
-                                borderRadius: 10, padding: 6,
-                                boxShadow: `0 4px 12px ${accent.glow}`,
-                                display: "flex", alignItems: "center", justifyContent: "center",
-                              }}
-                            >
-                              <img src={skill.logo} alt={skill.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} loading="lazy" />
-                            </motion.div>
-                          ))}
-                          {category.skills.length > 6 && (
-                            <div style={{
-                              width: 42, height: 42,
-                              background: `linear-gradient(135deg, ${accent.color}33, rgba(168,85,247,0.2))`,
-                              border: `1px solid ${accent.border}`,
-                              borderRadius: 10,
-                              display: "flex", alignItems: "center", justifyContent: "center",
-                              color: accent.color, fontSize: "0.7rem", fontWeight: 700,
-                            }}>
-                              +{category.skills.length - 6}
-                            </div>
-                          )}
+                                fontSize: "1rem", lineHeight: 1.7,
+                                color: "rgba(255,255,255,0.65)", maxWidth: 380,
+                                marginBottom: 36,
+                              }}>
+                              {category.description}
+                            </p>
+                          </div>
+
+                          {/* bottom row: skill icon strip */}
+                          <div className="hidden lg:flex gap-2 flex-wrap">
+                            {category.skills.slice(0, 6).map((skill) => (
+                              <motion.div
+                                key={skill.id}
+                                whileHover={{ y: -4, scale: 1.1 }}
+                                style={{
+                                  width: 42,
+                                  height: 42,
+                                  background: "rgba(255,255,255,0.95)",
+                                  borderRadius: 10,
+                                  padding: 6,
+                                  boxShadow: `0 4px 12px ${accent.glow}`,
+                                }}
+                                className="flex items-center justify-center"
+                              >
+                                <img
+                                  src={skill.logo}
+                                  alt={skill.name}
+                                  className="w-full h-full object-contain"
+                                  loading="lazy"
+                                />
+                              </motion.div>
+                            ))}
+
+                            {category.skills.length > 6 && (
+                              <div
+                                className="hidden lg:flex items-center justify-center"
+                                style={{
+                                  width: 42,
+                                  height: 42,
+                                  background: `linear-gradient(135deg, ${accent.color}33, rgba(168,85,247,0.2))`,
+                                  border: `1px solid ${accent.border}`,
+                                  borderRadius: 10,
+                                  color: accent.color,
+                                  fontSize: "0.7rem",
+                                  fontWeight: 700,
+                                }}
+                              >
+                                +{category.skills.length - 6}
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
