@@ -421,7 +421,7 @@ function Project() {
             onClick={handleLoadMore}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold shadow-lg shadow-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/60 transition-all duration-300 border border-purple-400/30 backdrop-blur-sm"
+            className="px-10 py-4 rounded-xl text-white font-bold shadow-lg shadow-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/60 transition-all duration-300 border border-purple-400/30 backdrop-blur-sm"
           >
             Load More Projects
           </motion.button>
