@@ -393,7 +393,7 @@ function Skills() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
                 {/* LEFT — SKILLS LIST */}
-                <div className={`lg:col-span-5 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                <div className={`order-2 lg:col-span-5 ${index % 2 === 1 ? "lg:order-2" : "lg:order-1"}`}>
                   {/* section label */}
                   <div style={{
                     display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 28,
@@ -468,7 +468,7 @@ function Skills() {
 
                 {/* RIGHT — PREMIUM STICKY CARD */}
                 <div
-                  className={`lg:col-span-7 ${index % 2 === 1 ? "lg:order-1" : ""}`}
+                  className={`order-1 lg:col-span-7 ${index % 2 === 1 ? "lg:order-1" : "lg:order-2"}`}
                   style={{ position: "sticky", top: "7rem", alignSelf: "start", height: "fit-content" }}
                 >
                   <motion.div
