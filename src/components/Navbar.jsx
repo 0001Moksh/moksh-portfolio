@@ -264,7 +264,7 @@ const StyledWrapper = styled.div`
     height: 40px;
     border-radius: 40px;
     border: 1px solid var(--color-white);
-    background-color: var(--color-primary-main);
+    background-color: var(--color-dark);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -278,7 +278,6 @@ const StyledWrapper = styled.div`
     left: 10px;
     width: 30px;
     height: 30px;
-    border: 1px solid var(--color-white);
     background: linear-gradient(to bottom, var(--color-white), var(--color-white));
     border-radius: 50%;
     display: flex;

@@ -232,11 +232,11 @@ function Skills() {
         }} />
       </div>
 
-      <div name="Skills"  className="max-w-screen-xl mx-auto px-6 pt-36 pb-24 relative z-10">
+      <div className="max-w-screen-xl mx-auto px-6 pt-32 pb-24 relative z-10">
         <RevealSection>
-          <div  className="text-center mb-20">
+          <div name="Skills" className="text-center  mb-10">
             {/* Gold crown badge */}
-            <div className="inline-flex items-center gap-3 mb-8" style={{
+            <div  className="inline-flex items-center gap-3 mb-8" style={{
               background: "linear-gradient(135deg, rgba(245,158,11,0.12), rgba(168,85,247,0.12))",
               border: "1px solid rgba(245,158,11,0.3)",
               borderRadius: "9999px",

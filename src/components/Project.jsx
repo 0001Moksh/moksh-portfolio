@@ -328,9 +328,9 @@ function Project() {
   const handleLoadMore = () => setVisibleCount((p) => p + 6);
 
   return (
-    <section className="max-w-screen-2xl container mx-auto py-16" aria-label="Projects section">
+    <section name="Project" className="max-w-screen-2xl container mx-auto py-16" aria-label="Projects section">
       <SEOHelmet pageKey="projects" />
-      <div name="Project" className="px-4 md:px-20 text-center mb-12">
+      <div className="px-4 md:px-20 text-center mb-12">
         {/* Line separator above title */}
         <motion.div
           className="line-separator animate-line-reveal"
