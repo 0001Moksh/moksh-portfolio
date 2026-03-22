@@ -337,7 +337,16 @@ function Project() {
           style={{ marginTop: 0 }}
         />
 
-        <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-wide text-dark">
+        <h2 style={{
+          fontSize: "clamp(3rem, 8vw, 3.5rem)",
+          fontWeight: 800,
+          lineHeight: 1.05,
+          letterSpacing: "-0.03em",
+          background: "linear-gradient(135deg, #ffffff 0%, #ffffff 30%, #a855f7 70%, #d8b4fe 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          marginBottom: "1.5rem",
+        }}>
           My Projects
         </h2>
 
@@ -351,7 +360,7 @@ function Project() {
         </p>
       </div>
 
-  
+
 
       {/* Category Filter */}
       <motion.div
@@ -361,17 +370,16 @@ function Project() {
         transition={{ delay: 0.2 }}
         className="flex justify-center mb-12 flex-wrap gap-3 px-4"
       >
-        {[ ...categories].map((cat) => (
+        {[...categories].map((cat) => (
           <motion.button
             key={cat}
             onClick={() => setFilter(cat)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
-              filter === cat
-                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/40 border border-purple-400/50"
-                : "bg-white/10 text-gray-300 border border-white/20 hover:border-purple-400/50 hover:bg-white/20"
-            }`}
+            className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${filter === cat
+              ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/40 border border-purple-400/50"
+              : "bg-white/10 text-gray-300 border border-white/20 hover:border-purple-400/50 hover:bg-white/20"
+              }`}
           >
             {cat.charAt(0).toUpperCase() + cat.slice(1)}
           </motion.button>
@@ -407,12 +415,12 @@ function Project() {
       </motion.div>
 
       {visibleCount < filteredProjects.length && (
-        
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
- className="w-full mx-0 mt-20 flex flex-col items-center justify-center
+          className="w-full mx-0 mt-20 flex flex-col items-center justify-center
       bg-transparent border-x border-b border-lighter-gray 
       rounded-b-[100px] md:rounded-b-[800px] py-10
       shadow-[inset_0_-15px_20px_-15px_rgba(0,0,0,0.3)]
@@ -425,7 +433,7 @@ function Project() {
           >
             Load More Projects
           </motion.button>
-           <motion.span
+          <motion.span
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
             className="mt-4"
@@ -540,6 +548,7 @@ function Project() {
             </motion.div>
           </motion.div>
         )}
+
       </AnimatePresence>
 
       {/* Lightbox */}
@@ -551,6 +560,7 @@ function Project() {
           plugins={[Captions, Thumbnails]}
         />
       )}
+
     </section>
   );
 }

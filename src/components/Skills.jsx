@@ -500,12 +500,12 @@ function Skills() {
                         ))}
                       </div>
                       <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
-                       <div style={{
-                              fontSize: "0.65rem", fontWeight: 700,
-                              letterSpacing: "0.4em", color: accent.color, marginBottom: 10,
-                            }}>
-                              STACK {String(index + 1).padStart(2, "0")} · {accent.tag}
-                            </div>
+                        <div style={{
+                          fontSize: "0.65rem", fontWeight: 700,
+                          letterSpacing: "0.4em", color: accent.color, marginBottom: 10,
+                        }}>
+                          STACK {String(index + 1).padStart(2, "0")} · {accent.tag}
+                        </div>
                       </div>
                     </div>
 
@@ -539,7 +539,7 @@ function Skills() {
                         <div>
                           {/* stack number + title */}
                           <div style={{ marginBottom: 28 }}>
-                            
+
                             <h2 style={{
                               fontSize: "clamp(2rem, 4vw, 3rem)",
                               fontWeight: 800, lineHeight: 1.1,
@@ -551,7 +551,7 @@ function Skills() {
                             </h2>
                           </div>
                           <div className="hidden lg:flex gap-2 flex-wrap">
-                            
+
                             <p
                               style={{
                                 fontSize: "1rem", lineHeight: 1.7,
@@ -870,6 +870,17 @@ function Skills() {
           </motion.div>
         )}
       </AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="w-full mx-0 flex flex-col items-center justify-center
+      bg-transparent border-x border-b border-lighter-gray 
+      rounded-b-[100px] md:rounded-b-[800px] py-10
+      shadow-[inset_0_-15px_20px_-15px_rgba(0,0,0,0.3)]
+      backdrop-blur-sm"        >
+        <br /><br /><br /><br />
+      </motion.div>
     </section>
   );
 }
