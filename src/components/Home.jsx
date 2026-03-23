@@ -62,52 +62,60 @@ function Home() {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-4">
+
                 {/* Primary */}
                 <Link to="Project" smooth duration={700} offset={-80}>
                   <motion.button
-                    whileHover={{ scale: 1.07, y: -3 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="relative px-8 py-3 rounded-xl font-semibold text-white 
+                    className="w-full justify-center text-sm sm:text-base
+        px-4 sm:px-8 py-3 rounded-xl font-semibold text-white 
         bg-gradient-to-r from-purple-500 to-cyan-500 
         shadow-lg shadow-purple-500/40 hover:shadow-purple-500/70 
         transition-all duration-300 flex items-center gap-2"
                   >
                     Explore Work
-                    <span className="text-xl group-hover:translate-x-1 transition">→</span>
+                    <span className="text-lg sm:text-xl">→</span>
                   </motion.button>
                 </Link>
 
                 {/* Secondary */}
                 <Link to="Contact" smooth duration={700} offset={-80}>
                   <motion.button
-                    whileHover={{ scale: 1.07, y: -3 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 rounded-xl font-semibold text-white 
+                    className="w-full justify-center text-sm sm:text-base
+        px-4 sm:px-8 py-3 rounded-xl font-semibold text-white 
         border border-white/20 bg-white/5 backdrop-blur-md
         hover:border-purple-400 hover:bg-white/10
         transition-all duration-300 flex items-center gap-2"
                   >
-                    Let’s Connect
-                    <span className="text-xl">✉</span>
+                    Let's Connect
+                    <span className="text-lg sm:text-xl">✉</span>
                   </motion.button>
                 </Link>
+
               </div>
 
               {/* Stats / Highlights */}
-              <div className="flex gap-8 pt-6 text-lg text-gray-400">
+              <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 text-center">
+
                 <div>
-                  <p className="text-3xl font-bold text-white">3+</p>
-                  <p>Years Experience</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-white">3+</p>
+                  <p className="text-xs sm:text-base text-gray-400">Years Experience</p>
                 </div>
+
                 <div>
-                  <p className="text-3xl font-bold text-white">10+</p>
-                  <p>Projects Built</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-white">10+</p>
+                  <p className="text-xs sm:text-base text-gray-400">Projects Built</p>
                 </div>
+
                 <div>
-                  <p className="text-3xl font-bold text-white">AI</p>
-                  <p>Specialization</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-white">AI</p>
+                  <p className="text-xs sm:text-base text-gray-400">Specialization</p>
                 </div>
+
               </div>
             </motion.div>
 

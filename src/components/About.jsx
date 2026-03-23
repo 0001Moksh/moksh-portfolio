@@ -244,27 +244,7 @@ export default function About() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 0.18, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            style={{
-              position: "absolute",
-              transform: "translateX(-50%)",
-              width: "full",
-              maxWidth: 1200,
-              top: -120,
-              pointerEvents: "none",
-
-              // 🔥 Glow effect
-              filter: "drop-shadow(0 40px 40px rgb(0, 0, 0))",
-
-              // 🔥 Soft blending
-              opacity: 0.18,
-              mixBlendMode: "screen",
-
-              // 🔥 smooth edge fade
-              maskImage:
-                "linear-gradient(to top, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0.23) 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to top, rgba(0,0,0,1) 40%, rgb(0, 0, 0) 100%)",
-            }}
+            className="frame-img"
           />
 
           <motion.div initial="hidden" animate={inView ? "show" : "hidden"} style={{ textAlign: "center", marginBottom: "1.5rem" }}>
