@@ -9,6 +9,7 @@ import {
   SiOpenai, SiMongodb, SiPostgresql,
 } from "react-icons/si";
 import profileImage from "../assets/profile.png";
+import hrWhiteFrame from "../assets/hr_white_frame.png";
 
 /* ─── Animated counter ──────────────────────────────────────────────────────── */
 function Counter({ to, suffix = "" }) {
@@ -227,20 +228,55 @@ export default function About() {
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(168,85,247,0.18) 1px,transparent 1px)", backgroundSize: "40px 40px", maskImage: "radial-gradient(ellipse at 50% 50%,black 35%,transparent 78%)" }} />
       </div>
 
-      <div style={{ position: "relative", zIndex: 10, maxWidth: 1200, margin: "0 auto", padding: "0 2rem" }}>
+      <div style={{ position: "relative", zIndex: 10, maxWidth: "full", margin: "0 auto", padding: "0 2rem" }}>
+
 
         {/* ══ HEADER ═══════════════════════════════════════════════════════════ */}
-        <motion.div initial="hidden" animate={inView ? "show" : "hidden"} style={{ textAlign: "center", marginBottom: "4.5rem" }}>
-          <motion.h2 variants={fade(1)} style={{ fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: "clamp(2.6rem,5.5vw,5rem)", lineHeight: 1.05, marginBottom: "1rem" }}>
-            <span style={{ color: "#ffffff" }}>Crafting </span>
-            <span style={{ background: "linear-gradient(135deg,#a855f7 0%,#ec4899 45%,#2dd4bf 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Intelligent</span>
-            <br />
-            <span style={{ color: "#ffffff" }}>Systems </span>
-            <span style={{ color: "rgba(255,255,255,0.1)", fontStyle: "italic" }}>that matter</span>
-          </motion.h2>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="w-full mx-0 flex flex-col items-center justify-center">
 
+          <motion.img
+            src={hrWhiteFrame}
+            alt="bg white frame"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 0.18, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{
+              position: "absolute",
+              transform: "translateX(-50%)",
+              width: "full",
+              maxWidth: 1200,
+              top: -120,
+              pointerEvents: "none",
 
-          <motion.div variants={fade(0)} style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: "1.2rem" }}>
+              // 🔥 Glow effect
+              filter: "drop-shadow(0 40px 40px rgb(0, 0, 0))",
+
+              // 🔥 Soft blending
+              opacity: 0.18,
+              mixBlendMode: "screen",
+
+              // 🔥 smooth edge fade
+              maskImage:
+                "linear-gradient(to top, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0.23) 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to top, rgba(0,0,0,1) 40%, rgb(0, 0, 0) 100%)",
+            }}
+          />
+
+          <motion.div initial="hidden" animate={inView ? "show" : "hidden"} style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+            <motion.h2 variants={fade(1)} style={{ fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: "clamp(2.6rem,5.5vw,5rem)", lineHeight: 1.05, marginBottom: "1rem" }}>
+              <span style={{ color: "#ffffff" }}>Crafting </span>
+              <span style={{ background: "linear-gradient(135deg,#a855f7 0%,#ec4899 45%,#2dd4bf 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Intelligent</span>
+              <br />
+              <span style={{ color: "#ffffff" }}>Systems </span>
+              <span style={{ color: "rgba(246, 246, 246, 0.37)", fontStyle: "italic" }}>that matter</span>
+            </motion.h2>
+          </motion.div>
+          <motion.div variants={fade(0)} style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: "3.2rem" }}>
             <div style={{ height: 1, width: 40, background: "linear-gradient(90deg,transparent,#a855f7)" }} />
             <motion.p variants={fade(2)} style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.85rem", color: "#475569", maxWidth: 440, margin: "0 auto" }}>
               <TypeWriter strings={["AI & ML Engineer", "Full-Stack Developer", "Generative AI Specialist", "LLM Architect"]} />
@@ -292,36 +328,36 @@ export default function About() {
 
             {/* Bio */}
             <motion.div
-  variants={fade(3)}
-  style={{ borderRadius: 22, padding: "2rem", background: "rgba(6,3,14,0.88)", border: "1px solid rgba(168,85,247,0.17)", backdropFilter: "blur(20px)", position: "relative", overflow: "hidden" }}
->
-  <div style={{ position: "absolute", top: 0, left: 0, width: 200, height: 200, borderRadius: "50%", background: "radial-gradient(circle,rgba(168,85,247,0.12) 0%,transparent 70%)", filter: "blur(24px)", pointerEvents: "none" }} />
+              variants={fade(3)}
+              style={{ borderRadius: 22, padding: "2rem", background: "rgba(6,3,14,0.88)", border: "1px solid rgba(168,85,247,0.17)", backdropFilter: "blur(20px)", position: "relative", overflow: "hidden" }}
+            >
+              <div style={{ position: "absolute", top: 0, left: 0, width: 200, height: 200, borderRadius: "50%", background: "radial-gradient(circle,rgba(168,85,247,0.12) 0%,transparent 70%)", filter: "blur(24px)", pointerEvents: "none" }} />
 
-  <div style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.67rem", color: "rgba(168,85,247,0.5)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: "1rem" }}>// biography</div>
+              <div style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.67rem", color: "rgba(168,85,247,0.5)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: "1rem" }}>// biography</div>
 
-  <p style={{ color: "#94a3b8", lineHeight: 1.9, fontSize: "0.975rem", marginBottom: "0.9rem", position: "relative" }}>
-    I'm an{" "}
-    <span style={{ background: "linear-gradient(90deg,#a855f7,#ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", fontWeight: 700 }}>AI & ML Engineer</span>
-    {" "}pursuing my B.Tech at DPG ITM (Batch 2027), obsessed with building intelligent systems, automation, and driving real-world impact.
-  </p>
-  
-  <p style={{ color: "#64748b", lineHeight: 1.85, fontSize: "0.95rem", position: "relative" }}>
-    Specialising in{" "}
-    <span style={{ color: "#2dd4bf", fontWeight: 600 }}>Generative AI</span>, LLM orchestration, RAG pipelines &amp; multi-agent architectures — with{" "}
-    <span style={{ color: "#fbbf24", fontWeight: 600 }}>15+ production AI apps</span>{" "}
-    shipped and hands-on experience leading technical teams. My mission is to bridge cutting-edge research with scalable web architectures to build solutions that{" "}
-    <em style={{ color: "#a855f7" }}>actually move the needle.</em>
-  </p>
+              <p style={{ color: "#94a3b8", lineHeight: 1.9, fontSize: "0.975rem", marginBottom: "0.9rem", position: "relative" }}>
+                I'm an{" "}
+                <span style={{ background: "linear-gradient(90deg,#a855f7,#ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", fontWeight: 700 }}>AI & ML Engineer</span>
+                {" "}pursuing my B.Tech at DPG ITM (Batch 2027), obsessed with building intelligent systems, automation, and driving real-world impact.
+              </p>
 
-  <div style={{ display: "flex", gap: "0.8rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
-    <a href="#contact" className="btn-primary" style={{ padding: "0.6rem 1.5rem", fontSize: "0.85rem", borderRadius: 12, fontWeight: 700 }}>
-      Hire Me →
-    </a>
-    <a href="https://github.com/0001Moksh" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ padding: "0.6rem 1.4rem", fontSize: "0.85rem", borderRadius: 12, display: "inline-flex", alignItems: "center", gap: 6 }}>
-      <FaGithub /> GitHub
-    </a>
-  </div>
-</motion.div>
+              <p style={{ color: "#64748b", lineHeight: 1.85, fontSize: "0.95rem", position: "relative" }}>
+                Specialising in{" "}
+                <span style={{ color: "#2dd4bf", fontWeight: 600 }}>Generative AI</span>, LLM orchestration, RAG pipelines &amp; multi-agent architectures — with{" "}
+                <span style={{ color: "#fbbf24", fontWeight: 600 }}>15+ production AI apps</span>{" "}
+                shipped and hands-on experience leading technical teams. My mission is to bridge cutting-edge research with scalable web architectures to build solutions that{" "}
+                <em style={{ color: "#a855f7" }}>actually move the needle.</em>
+              </p>
+
+              <div style={{ display: "flex", gap: "0.8rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
+                <a href="#contact" className="btn-primary" style={{ padding: "0.6rem 1.5rem", fontSize: "0.85rem", borderRadius: 12, fontWeight: 700 }}>
+                  Hire Me →
+                </a>
+                <a href="https://github.com/0001Moksh" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ padding: "0.6rem 1.4rem", fontSize: "0.85rem", borderRadius: 12, display: "inline-flex", alignItems: "center", gap: 6 }}>
+                  <FaGithub /> GitHub
+                </a>
+              </div>
+            </motion.div>
 
 
             {/* Stats */}
@@ -380,7 +416,7 @@ export default function About() {
             bg-transparent border-x border-b border-lighter-gray 
             rounded-b-[100px] md:rounded-b-[800px] py-10
             shadow-[inset_0_-15px_20px_-15px_rgba(0,0,0,0.3)]
-            backdrop-blur-sm"        >
+            backdrop-blur-sm">
         {/* ══ CLOSING CTA ═══════════════════════════════════════════════════════ */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
