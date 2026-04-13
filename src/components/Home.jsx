@@ -107,7 +107,7 @@ function Home() {
                 </div>
 
                 <div>
-                  <p className="text-2xl sm:text-3xl font-bold text-white">10+</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-white">15+</p>
                   <p className="text-xs sm:text-base text-gray-400">Projects Built</p>
                 </div>
 

@@ -31,6 +31,8 @@ import Symptoms_to_Medicine from "../assets/Symptoms_to_Medicine.png";
 import import_medicine from "../assets/Import_Medicine.png";
 import Seema_iq from "../assets/seema_iq_logo.png";
 import Aushadhi360 from "../assets/aushadhi360.png";
+import Deva_Admin from "../assets/deva-admin.png";
+import Deva_BI from "../assets/deva-bi.png";
 
 function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -41,6 +43,76 @@ function Project() {
   const modalRef = useRef(null);
 
   const cardItem = [
+    {
+      id: 18,
+      logo: Deva_BI,
+      name: "Deva AI: Business Insight Creator",
+      category: "AI & Productivity",
+      overview: {
+        description:
+          "A fully autonomous AI-powered Business Intelligence agent that transforms raw datasets into actionable insights, visualizations, and predictive analytics using Agentic workflows and LLM reasoning.",
+        features: [
+          "Autonomous CSV ingestion with metadata extraction (shape, nulls, duplicates)",
+          "LangGraph-based agentic workflows for multi-step data analysis",
+          "Dynamic dashboard with charts (bar, line, scatter, heatmap, pie)",
+          "Context-aware conversational AI over uploaded datasets",
+          "Predictive forecasting and trend analysis using ML",
+          "One-click PDF report generation from dashboard",
+          "Asynchronous email feedback system using background tasks",
+          "Secure sandboxed data processing with in-memory session handling"
+        ],
+        techStack: [
+          "React.js (Vite)",
+          "FastAPI",
+          "Python",
+          "Pandas",
+          "Recharts",
+          "Framer Motion",
+          "LangChain",
+          "LangGraph",
+          "LangSmith",
+          "Groq API (LLaMA 3.1 / Mixtral)",
+          "Uvicorn",
+          "SMTP"
+        ],
+      },
+      githubUrl: "https://github.com/0001Moksh/AI-Agent-For-Business-Insights",
+      liveDemoUrl: "https://deva-ai-business-insight-creator.vercel.app",
+      videoUrl: "https://www.linkedin.com/posts/moksh-bhardwaj_ai-machinelearning-dataanalytics-ugcPost-7448963248583995392-DM9j"
+    },
+    {
+      id: 17,
+      logo: Deva_Admin,
+      name: "Deva: AI Admin Chatbot",
+      category: "AI & Education",
+      overview: {
+        description:
+          "An AI-powered Admin Assistant designed for academic project management, enabling administrators to manage students, supervisors, teams, and projects using natural language with an Agentic architecture.",
+        features: [
+          "Natural language-based CRUD operations for Students, Supervisors, Teams & Projects",
+          "Agentic workflow using LangGraph for multi-step reasoning and task execution",
+          "Interactive UI actions (dropdown selection & confirmation prompts)",
+          "Dynamic team creation, project assignment & supervisor workload handling",
+          "Fail-safe deletion system with confirmation UI for secure operations",
+          "Real-time analytics (total students, supervisors, active projects)",
+          "Session-based conversational memory for continuous admin workflows",
+          "Custom action parser converting LLM outputs into UI components"
+        ],
+        techStack: [
+          "React.js",
+          "FastAPI",
+          "PostgreSQL",
+          "LangChain",
+          "LangGraph",
+          "LangSmith",
+          "Groq API (LLaMA 3.3 70B)",
+          "WebSockets",
+          "psycopg2"
+        ],
+      },
+      githubUrl: "https://github.com/0001Moksh/deva-ai-agent",
+      videoUrl: "https://www.linkedin.com/posts/moksh-bhardwaj_deva-ai-academic-admin-assistant-deva-ugcPost-7449148819079856128-Gnkh"
+    },
     {
       id: 15,
       logo: Aushadhi360,
@@ -276,11 +348,8 @@ function Project() {
         ],
         techStack: ["Python", "PyQt5", "Google Gemini"],
       },
-      liveDemoUrl:
-        "https://www.linkedin.com/posts/dpg-institute-of-technology-and-management_dpgitm-voiceassistant-aiassistant-ugcPost-7329051618228822016-u8MJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
       videoUrl:
         "https://www.linkedin.com/posts/dpg-institute-of-technology-and-management_dpgitm-voiceassistant-aiassistant-ugcPost-7329051618228822016-u8MJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
-
     },
     {
       id: 2,

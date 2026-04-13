@@ -55,6 +55,8 @@ import dataScienceBg from "../assets/datascience-bg.jpg";
 import mlDlBg from "../assets/mldl-bg.jpg";
 import aiToolsBg from "../assets/aitools-bg.jpg";
 import cloudDbBg from "../assets/clouddb-bg.jpg";
+import langgraph from "../assets/langgraph.png";
+import langsmith from "../assets/langsmith.png";
 import otherToolsBg from "../assets/othertools-bg.jpg";
 
 /* ─── per-category accent config (gold-purple luxury palette) ─── */
@@ -123,10 +125,12 @@ function Skills() {
       skills: [
         { id: 15, logo: huggingface, name: "Hugging Face" },
         { id: 17, logo: langchain, name: "LangChain" },
-        { id: 18, logo: genai, name: "GenAI" },
-        { id: 19, logo: llm, name: "LLM" },
-        { id: 20, logo: rag, name: "RAG" },
-        { id: 21, logo: NLP, name: "NLP" },
+        { id: 18, logo: langgraph, name: "LangGraph" },
+        { id: 19, logo: langsmith, name: "LangSmith" },
+        { id: 20, logo: genai, name: "GenAI" },
+        { id: 21, logo: llm, name: "LLM" },
+        { id: 22, logo: rag, name: "RAG" },
+        { id: 23, logo: NLP, name: "NLP" },
         { id: 26, logo: openai, name: "OpenAI API" },
         { id: 27, logo: gemini, name: "Gemini API" },
         { id: 28, logo: llama, name: "LLaMA" },
@@ -289,7 +293,7 @@ function Skills() {
             {[
               { value: `${allSkills.length}+`, label: "Technologies" },
               { value: "3+", label: "Years Experience" },
-              { value: "10+", label: "Live Projects" },
+              { value: "15+", label: "Live Projects" },
             ].map((stat, i) => (
               <div key={i} style={{
                 textAlign: "center",

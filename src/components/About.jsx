@@ -258,7 +258,7 @@ export default function About() {
           </motion.div>
           <motion.div variants={fade(0)} style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: "3.2rem" }}>
             <div style={{ height: 1, width: 40, background: "linear-gradient(90deg,transparent,#a855f7)" }} />
-            <motion.p variants={fade(2)} style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.85rem", color: "#475569", maxWidth: 440, margin: "0 auto" }}>
+            <motion.p variants={fade(2)} style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.85rem", color: "#ffffff", maxWidth: 440, margin: "0 auto" }}>
               <TypeWriter strings={["AI & ML Engineer", "Full-Stack Developer", "Generative AI Specialist", "LLM Architect"]} />
             </motion.p>
             <div style={{ height: 1, width: 40, background: "linear-gradient(90deg,#a855f7,transparent)" }} />
