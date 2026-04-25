@@ -53,7 +53,7 @@ function Contact() {
   };
 
   return (
-    <section name="Contact" className="max-w-screen-2xl mx-auto px-4 md:px-20 py-16" aria-label="Contact section">
+    <section id="contact" name="Contact" className="max-w-screen-2xl mx-auto px-4 md:px-20 py-16" aria-label="Contact section">
       <SEOHelmet pageKey="contact" />
       <RevealSection className="w-full">
         <motion.div className="text-center mb-12 animate-reveal-up">

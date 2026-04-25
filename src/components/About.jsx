@@ -259,7 +259,7 @@ export default function About() {
           <motion.div variants={fade(0)} style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: "3.2rem" }}>
             <div style={{ height: 1, width: 40, background: "linear-gradient(90deg,transparent,#a855f7)" }} />
             <motion.p variants={fade(2)} style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.85rem", color: "#ffffff", maxWidth: 440, margin: "0 auto" }}>
-              <TypeWriter strings={["AI & ML Engineer", "Full-Stack Developer", "Generative AI Specialist", "LLM Architect"]} />
+              <TypeWriter strings={["Generative AI Engineer", "Full-Stack AI Engineer", "LLM Application Builder", "Agentic Systems Architect"]} />
             </motion.p>
             <div style={{ height: 1, width: 40, background: "linear-gradient(90deg,#a855f7,transparent)" }} />
           </motion.div>
@@ -317,7 +317,7 @@ export default function About() {
 
               <p style={{ color: "#94a3b8", lineHeight: 1.9, fontSize: "0.975rem", marginBottom: "0.9rem", position: "relative" }}>
                 I'm an{" "}
-                <span style={{ background: "linear-gradient(90deg,#a855f7,#ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", fontWeight: 700 }}>AI & ML Engineer</span>
+                <span style={{ background: "linear-gradient(90deg,#a855f7,#ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", fontWeight: 700 }}>Generative AI &amp; Full-Stack AI Engineer</span>
                 {" "}pursuing my B.Tech at DPG ITM (Batch 2027), obsessed with building intelligent systems, automation, and driving real-world impact.
               </p>
 
@@ -330,9 +330,6 @@ export default function About() {
               </p>
 
               <div style={{ display: "flex", gap: "0.8rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
-                <a href="#contact" className="btn-primary" style={{ padding: "0.6rem 1.5rem", fontSize: "0.85rem", borderRadius: 12, fontWeight: 700 }}>
-                  Hire Me →
-                </a>
                 <a href="https://github.com/0001Moksh" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ padding: "0.6rem 1.4rem", fontSize: "0.85rem", borderRadius: 12, display: "inline-flex", alignItems: "center", gap: 6 }}>
                   <FaGithub /> GitHub
                 </a>

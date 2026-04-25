@@ -171,7 +171,7 @@ function Home() {
 
                     <motion.img
                       src={pic}
-                      alt="Moksh Bhardwaj - AI Engineer"
+                      alt="Moksh Bhardwaj - Generative AI & Full-Stack AI Engineer"
                       className="w-full h-full object-cover scale-110"
                       animate={{ y: [0, -10, 10, 0], scale: [1.1, 1.12, 1.1] }}
                       transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}

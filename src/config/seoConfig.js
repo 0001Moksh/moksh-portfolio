@@ -4,13 +4,13 @@
 export const seoConfig = {
   // Base metadata
   baseUrl: "https://mokshbhardwaj.netlify.app",
-  siteName: "Moksh Bhardwaj | AI Engineer & Full Stack Developer",
+  siteName: "Moksh Bhardwaj | Generative AI & Full-Stack AI Engineer",
   
   // Person/Author Schema
   author: {
     name: "Moksh Bhardwaj",
-    jobTitle: "AI Engineer & Full Stack Developer",
-    description: "Building intelligent AI systems and scalable web applications with 3+ years of experience in Machine Learning, Generative AI, and Full Stack Development.",
+    jobTitle: "Generative AI & Full-Stack AI Engineer",
+    description: "Building production-grade AI agents and scalable full-stack AI products with 3+ years of experience in LLM engineering, RAG systems, and end-to-end development.",
     email: "mokshbhardwaj2333@gmail.com",
     sameAs: [
       "https://github.com/0001Moksh",
@@ -24,33 +24,33 @@ export const seoConfig = {
   // Pages with metadata
   pages: {
     home: {
-      title: "Moksh Bhardwaj | AI Engineer & Full Stack Developer Portfolio",
-      description: "Discover Moksh Bhardwaj's portfolio featuring AI/ML projects, full-stack development, and production-ready applications built with modern technologies.",
+      title: "Moksh Bhardwaj | Generative AI & Full-Stack AI Engineer",
+      description: "Discover Moksh Bhardwaj's portfolio featuring AI agents, LLM applications, and full-stack AI products built for production use.",
       keywords: [
-        "AI Engineer",
-        "Full Stack Developer",
-        "Machine Learning",
-        "React Developer",
-        "Python Developer",
+        "Generative AI Engineer",
+        "Full-Stack AI Engineer",
+        "LLM Engineer",
+        "RAG Developer",
+        "AI Agent Developer",
         "Generative AI",
-        "Data Science",
-        "Web Development"
+        "Full-Stack Development",
+        "AI Product Development"
       ],
     },
     about: {
-      title: "About Moksh Bhardwaj | AI Engineer with 3+ Years Experience",
-      description: "Learn about Moksh Bhardwaj's background, education, skills, and mission to build intelligent AI systems that solve real-world problems.",
+      title: "About Moksh Bhardwaj | Generative AI & Full-Stack AI Engineer",
+      description: "Learn about Moksh Bhardwaj's background, education, and mission to build LLM-powered products and scalable AI systems for real-world impact.",
       keywords: [
         "Moksh Bhardwaj background",
-        "AI engineer experience",
-        "ML specialist",
-        "Full stack developer",
+        "Generative AI engineer experience",
+        "LLM specialist",
+        "Full-stack AI engineer",
         "Zoho developer certified"
       ],
     },
     projects: {
-      title: "AI & Full Stack Projects | Moksh Bhardwaj Portfolio",
-      description: "Explore 15+ projects including AI chatbots, machine learning models, web applications, and full-stack solutions built with React, Python, Flask, and more.",
+      title: "Generative AI & Full-Stack AI Projects | Moksh Bhardwaj",
+      description: "Explore 15+ projects including AI agents, LLM applications, RAG systems, and full-stack AI solutions built with React, Python, Flask, and modern toolchains.",
       keywords: [
         "AI projects",
         "Machine learning projects",
@@ -72,18 +72,18 @@ export const seoConfig = {
       ],
     },
     contact: {
-      title: "Contact Moksh Bhardwaj | AI Engineer & Developer",
-      description: "Get in touch with Moksh Bhardwaj for project inquiries, collaborations, or discussions about AI, machine learning, and web development.",
+      title: "Contact Moksh Bhardwaj | Generative AI & Full-Stack AI Engineer",
+      description: "Get in touch with Moksh Bhardwaj for project inquiries, collaborations, or discussions about AI agents, LLM systems, and full-stack AI products.",
       keywords: [
         "contact",
-        "hire AI engineer",
+        "hire generative AI engineer",
         "collaboration",
         "project inquiry"
       ],
     },
     blog: {
       title: "Blog | AI & Web Development Articles by Moksh Bhardwaj",
-      description: "Read articles and insights on AI, machine learning, web development, and technology trends from AI engineer Moksh Bhardwaj.",
+      description: "Read articles and insights on generative AI, LLM engineering, full-stack AI architecture, and practical production workflows.",
       keywords: [
         "AI blog",
         "machine learning articles",
