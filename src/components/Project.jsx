@@ -496,18 +496,30 @@ function Project() {
       backdrop-blur-sm"        >
           <motion.button
             onClick={handleLoadMore}
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 rounded-xl text-white font-bold shadow-lg shadow-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/60 transition-all duration-300 border border-purple-400/30 backdrop-blur-sm"
+            whileTap={{ scale: 0.97, y: 1 }}
+            className="group relative px-9 py-4 rounded-3xl font-semibold text-lg
+             bg-white/10 backdrop-blur-xl
+             border border-white/20
+             text-white shadow-2xl shadow-black/60
+             hover:bg-white/15 hover:border-white/30
+             transition-all duration-300
+             flex items-center gap-3 overflow-hidden"
           >
-            Load More Projects
+            {/* Inner Soft Glow */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-white/20 to-transparent opacity-30" />
+
+            {/* Shine Effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent 
+                  -translate-x-full group-hover:-translate-x-0 transition-transform duration-700" />
+
+            <span className="relative z-10">Explore More</span>
           </motion.button>
           <motion.span
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
             className="mt-4"
           >
-            <FiChevronDown size={38} className="text-primary-dark" />
+            <FiChevronDown size={58} className="text-white" />
           </motion.span>
         </motion.div>
       )}

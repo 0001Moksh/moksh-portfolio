@@ -37,7 +37,7 @@ function Home() {
               className="lg:w-1/2 flex justify-center relative z-10"
             >
               <AnimatedCard hoverScale={1.05} hover3D={true}>
-                <div className="mb-36 lg:mb-0 relative w-[320px] md:w-[400px] lg:w-[460px] aspect-square">
+                <div className="relative w-[320px] md:w-[400px] lg:w-[460px] aspect-square">
 
                   {/* 🌌 Background Pulse Glow */}
                   <motion.div
@@ -194,12 +194,11 @@ function Home() {
                 {/* Primary */}
                 <Link to="Project" smooth duration={700} offset={-80}>
                   <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-full justify-center text-sm sm:text-base
         px-4 sm:px-8 py-3 rounded-xl font-semibold text-white 
-        bg-gradient-to-r from-purple-500 to-cyan-500 
-        shadow-lg shadow-purple-500/40 hover:shadow-purple-500/70 
+        border border-white/20 bg-white/5 backdrop-blur-md
+        hover:border-purple-400 hover:bg-white/10
         transition-all duration-300 flex items-center gap-2"
                   >
                     Explore Work
@@ -210,7 +209,6 @@ function Home() {
                 {/* Secondary */}
                 <Link to="Contact" smooth duration={700} offset={-80}>
                   <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-full justify-center text-sm sm:text-base
         px-4 sm:px-8 py-3 rounded-xl font-semibold text-white 
