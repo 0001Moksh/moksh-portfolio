@@ -8,12 +8,12 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: FaInstagram, url: "https://www.instagram.com/moksh_bhardwaj23/", label: "Instagram", color: "hover:text-pink-500", shadow: "hover:shadow-pink-500/50" },
-    { icon: FaEnvelope, url: "mailto:mokshbhardwaj2333@gmail.com", label: "Email", color: "hover:text-amber-400", shadow: "hover:shadow-amber-400/50" },
-    { icon: FaLinkedin, url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh", label: "LinkedIn", color: "hover:text-sky-500", shadow: "hover:shadow-sky-500/50" },
-    { icon: IoLogoYoutube, url: "https://www.youtube.com/@NexYugTech", label: "YouTube", color: "hover:text-red-600", shadow: "hover:shadow-red-600/50" },
-    { icon: FaGithub, url: "https://github.com/0001Moksh", label: "GitHub", color: "hover:text-gray-200", shadow: "hover:shadow-gray-400/50" },
-    { icon: FaWhatsapp, url: "https://wa.me/918882563225?text=Hi%20Moksh,%20I%20am%20contacting%20you%20from%20your%20Portfolio%20website.", label: "WhatsApp", color: "hover:text-emerald-500", shadow: "hover:shadow-emerald-500/50" },
+    { icon: FaInstagram, url: "https://www.instagram.com/moksh_bhardwaj23/", label: "Instagram", color: "text-pink-400 hover:text-pink-600", shadow: "hover:shadow-pink-500/50" },
+    { icon: FaEnvelope, url: "mailto:mokshbhardwaj2333@gmail.com", label: "Email", color: "text-white hover:text-white", shadow: "hover:shadow-white/500", shadow: "hover:shadow-red-600/50" },
+    { icon: FaLinkedin, url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh", label: "LinkedIn", color: "text-sky-400 hover:text-sky-600", shadow: "hover:shadow-sky-500/50" },
+    { icon: IoLogoYoutube, url: "https://www.youtube.com/@NexYugTech", label: "YouTube", color: "text-red-400 hover:text-red-600", shadow: "hover:shadow-red-600/50" },
+    { icon: FaGithub, url: "https://github.com/0001Moksh", label: "GitHub", color: "text-gray-400 hover:text-gray-200", shadow: "hover:shadow-gray-400/50" },
+    { icon: FaWhatsapp, url: "https://wa.me/918882563225?text=Hi%20Moksh,%20I%20am%20contacting%2  you%2  from%2  your%2  Portfolio%2  website.", label: "WhatsApp", color: "text-emerald-400 hover:text-emerald-600", shadow: "hover:shadow-emerald-500/50" },
   ];
 
   return (
@@ -61,11 +61,11 @@ const Footer = () => {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={social.label}
-                    className={`block p-5 rounded-2xl bg-zinc-900/70 border border-zinc-800 transition-all duration-300 hover:border-zinc-600 ${social.color} ${social.shadow}`}
+                    className={`block p-3 transition-all duration-300 hover:border-zinc-600 ${social.color} ${social.shadow}`}
                   >
                     <IconComponent className="text-4xl transition-all duration-300 group-hover:scale-110" />
                   </a>
-                  <p className="text-xs text-zinc-500 mt-3 tracking-widest font-mono text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-xs text-zinc-500 tracking-widest font-mono text-center opacity-0 group-hover:opacity-100 transition-opacity">
                     {social.label.toUpperCase()}
                   </p>
                 </motion.div>
@@ -86,7 +86,7 @@ const Footer = () => {
               whileHover={{ scale: 1.05 }}
               className="group flex items-center gap-2 text-sm uppercase tracking-[3px] text-zinc-400 hover:text-white transition-colors font-medium"
             >
-              ↑ BACK TO TOP
+              ↑ BACK TO TOP ↑
             </motion.a>
 
             {/* Strong Separator Line */}
