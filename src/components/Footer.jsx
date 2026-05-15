@@ -14,12 +14,12 @@ const Footer = () => {
     { icon: FaEnvelope, url: "mailto:mokshbhardwaj2333@gmail.com", label: "Email", color: "text-white hover:text-white", shadow: "hover:shadow-red-600/50" },
     { icon: FaLinkedin, url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh", label: "LinkedIn", color: "text-sky-400 hover:text-sky-600", shadow: "hover:shadow-sky-500/50" },
     { icon: IoLogoYoutube, url: "https://www.youtube.com/@NexYugTech", label: "YouTube", color: "text-red-400 hover:text-red-600", shadow: "hover:shadow-red-600/50" },
-    { icon: FaTelegramPlane, url: "https://t.me/Deva0001_bot", label: "Deva", color: "text-cyan-400 hover:text-cyan-600", shadow: "hover:shadow-cyan-500/50" },
+    { icon: FaTelegramPlane, url: "https://t.me/Deva0001_bot", label: "Telegram", color: "text-cyan-400 hover:text-cyan-600", shadow: "hover:shadow-cyan-500/50" },
     { icon: FaXTwitter, url: "https://x.com/moksh2333", label: "X", color: "text-white hover:text-zinc-300", shadow: "hover:shadow-zinc-500/50" },
     { icon: SiKaggle, url: "https://www.kaggle.com/mokshbhardwaj01", label: "Kaggle", color: "text-blue-400 hover:text-blue-500", shadow: "hover:shadow-blue-500/50" },
     { icon: SiHuggingface, url: "https://huggingface.co/moksh0987654", label: "Hugging_Face", color: "text-yellow-400 hover:text-yellow-500", shadow: "hover:shadow-yellow-500/50" },
     { icon: FaGithub, url: "https://github.com/0001Moksh", label: "GitHub", color: "text-gray-400 hover:text-gray-200", shadow: "hover:shadow-gray-400/50" },
-    { icon: FaWhatsapp, url: "https://wa.me/918882563225?text=Hi%20Moksh,%20I%20am%20contacting%2  you%2  from%2  your%2  Portfolio%2  website.", label: "WhatsApp", color: "text-emerald-400 hover:text-emerald-600", shadow: "hover:shadow-emerald-500/50" },
+    { icon: FaWhatsapp, url: "https://wa.me/918882563225?text=Hi%20Moksh,%20I%20am%20contacting%20you%20from%20your%20Portfolio%20website", label: "WhatsApp", color: "text-emerald-400 hover:text-emerald-600", shadow: "hover:shadow-emerald-500/50" },
   ];
 
   return (
