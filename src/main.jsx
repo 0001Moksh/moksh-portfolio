@@ -9,10 +9,10 @@ function Main() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // simulate 1.5s loading delay
+    // Keep a short loading phase without forcing a long startup delay.
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 450);
 
     return () => clearTimeout(timer);
   }, []);

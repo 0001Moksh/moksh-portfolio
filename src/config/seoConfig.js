@@ -16,7 +16,11 @@ export const seoConfig = {
       "https://github.com/0001Moksh",
       "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh",
       "https://www.instagram.com/moksh_bhardwaj23/",
-      "https://www.youtube.com/@NexYugTech"
+      "https://www.youtube.com/@NexYugTech",
+      "https://t.me/Deva0001_bot",
+      "https://x.com/moksh2333",
+      "https://www.kaggle.com/mokshbhardwaj01",
+      "https://huggingface.co/moksh0987654"
     ],
     image: "https://mokshbhardwaj.netlify.app/profile-image.jpg",
   },

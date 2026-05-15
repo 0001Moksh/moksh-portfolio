@@ -228,7 +228,7 @@ export default function About() {
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(168,85,247,0.18) 1px,transparent 1px)", backgroundSize: "40px 40px", maskImage: "radial-gradient(ellipse at 50% 50%,black 35%,transparent 78%)" }} />
       </div>
 
-      <div style={{ position: "relative", zIndex: 10, maxWidth: "full", margin: "0 auto", padding: "0 2rem" }}>
+      <div style={{ position: "relative", zIndex: 10, maxWidth: "100%", margin: "0 auto", padding: "0 2rem" }}>
 
 
         {/* ══ HEADER ═══════════════════════════════════════════════════════════ */}

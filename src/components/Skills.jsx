@@ -71,7 +71,6 @@ const CATEGORY_ACCENTS = [
 
 function Skills() {
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterCategory, setFilterCategory] = useState("All");
 
@@ -177,25 +176,6 @@ function Skills() {
     return matchesSearch && matchesCat;
   });
 
-  /* Intersection observer for sticky nav highlight */
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveCategory(parseInt(entry.target.id.split("-")[1]));
-          }
-        });
-      },
-      { threshold: 0.5, rootMargin: "-80px 0px -20% 0px" }
-    );
-    categories.forEach((_, i) => {
-      const el = document.getElementById(`cat-${i}`);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
-
   /* ESC to close modal */
   useEffect(() => {
     if (!isSkillsOpen) return;
@@ -215,16 +195,16 @@ function Skills() {
       <SEOHelmet pageKey="experience" />
 
       {/* ── Luxury ambient background orbs ── */}
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <div style={{
           position: "absolute", top: "10%", left: "5%",
-          width: 600, height: 600, borderRadius: "50%",
+          width: "min(70vw, 600px)", height: "min(70vw, 600px)", borderRadius: "50%",
           background: "radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%)",
           filter: "blur(40px)",
         }} />
         <div style={{
           position: "absolute", bottom: "20%", right: "5%",
-          width: 700, height: 700, borderRadius: "50%",
+          width: "min(78vw, 700px)", height: "min(78vw, 700px)", borderRadius: "50%",
           background: "radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%)",
           filter: "blur(50px)",
         }} />
@@ -289,7 +269,7 @@ function Skills() {
 
         {/* ── Stats row ── */}
         <RevealSection delay={0.05}>
-          <div className="grid grid-cols-3 gap-6 mb-16 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 max-w-2xl mx-auto">
             {[
               { value: `${allSkills.length}+`, label: "Technologies" },
               { value: "3+", label: "Years Experience" },

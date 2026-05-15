@@ -12,7 +12,7 @@ function Home() {
       {/* HERO - 100% MATCHING YOUR MOCKUP + YOUR OFFICIAL COLOR SYSTEM */}
       <motion.main
         name="Home"
-        className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 md:pt-0"
+        className="relative min-h-screen min-h-[100svh] flex flex-col justify-center overflow-x-clip overflow-y-hidden pt-20 md:pt-0"
         role="main"
         aria-label="Hero section"
       >
@@ -20,11 +20,11 @@ function Home() {
         <div className="absolute inset-0 -z-10" />
         <div className="absolute inset-0 -z-10">
           {/* Orb 1 - Primary Purple */}
-          <div className="absolute top-20 left-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute top-20 left-4 sm:left-20 w-56 h-56 sm:w-96 sm:h-96 bg-purple-600/10 rounded-full blur-[120px] animate-pulse hidden sm:block" />
           {/* Orb 2 - Teal Accent */}
-          <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[140px] animate-pulse" style={{ animationDelay: "1.8s" }} />
+          <div className="absolute bottom-20 -right-16 sm:right-20 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] bg-teal-500/10 rounded-full blur-[140px] animate-pulse hidden sm:block" style={{ animationDelay: "1.8s" }} />
           {/* Orb 3 - Accent Pink */}
-          <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-accent-pink/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "3s" }} />
+          <div className="absolute top-1/3 right-0 sm:right-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-accent-pink/10 rounded-full blur-[100px] animate-pulse hidden sm:block" style={{ animationDelay: "3s" }} />
         </div>
 
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-20">
@@ -37,7 +37,7 @@ function Home() {
               className="lg:w-1/2 flex justify-center relative z-10"
             >
               <AnimatedCard hoverScale={1.05} hover3D={true}>
-                <div className="relative w-[320px] md:w-[400px] lg:w-[460px] aspect-square">
+                <div className="relative w-[min(82vw,320px)] md:w-[400px] lg:w-[460px] aspect-square">
 
                   {/* 🌌 Background Pulse Glow */}
                   <motion.div
@@ -86,7 +86,7 @@ function Home() {
                       loop
                       muted
                       playsInline
-                      preload="auto"
+                      preload="metadata"
                       aria-label="Moksh Bhardwaj - Generative AI & Full-Stack AI Engineer"
                       transition={{repeat: Infinity, ease: "easeInOut" }}
                     />
@@ -94,7 +94,7 @@ function Home() {
 
                   {/* 🧠 AI Status Panel */}
                   <motion.div
-                    className="absolute -top-8 left-6 bg-zinc-900/90 backdrop-blur-xl px-4 py-2 rounded-xl border border-teal-400/40 text-teal-300 text-xs font-mono shadow-xl"
+                    className="absolute hidden sm:block -top-8 left-6 bg-zinc-900/90 backdrop-blur-xl px-4 py-2 rounded-xl border border-teal-400/40 text-teal-300 text-xs font-mono shadow-xl"
                     transition={{ duration: 3, repeat: Infinity }}
                   >
                     STATUS: TRAINING ⚡
@@ -102,7 +102,7 @@ function Home() {
 
                   {/* ⚙️ API Call */}
                   <motion.div
-                    className="absolute -bottom-6 right-10 bg-zinc-900/90 backdrop-blur-xl px-4 py-2 rounded-xl border border-purple-400/40 text-purple-300 text-xs font-mono shadow-xl"
+                    className="absolute hidden sm:block -bottom-6 right-10 bg-zinc-900/90 backdrop-blur-xl px-4 py-2 rounded-xl border border-purple-400/40 text-purple-300 text-xs font-mono shadow-xl"
                     transition={{ duration: 4, repeat: Infinity }}
                   >
                     End to End Project... 200 OK ✅
@@ -120,7 +120,7 @@ function Home() {
 
                   {/* 🧬 Neural Tag */}
                   <motion.div
-                    className="absolute top-20 -left-10 bg-zinc-900/80 backdrop-blur-xl px-4 py-1.5 rounded-3xl border border-pink-400/30 text-pink-400 text-xs font-medium flex items-center gap-2 shadow-xl"
+                    className="absolute hidden md:flex top-20 -left-10 bg-zinc-900/80 backdrop-blur-xl px-4 py-1.5 rounded-3xl border border-pink-400/30 text-pink-400 text-xs font-medium items-center gap-2 shadow-xl"
                     transition={{ duration: 4, repeat: Infinity }}
                   >
                     🤖 Gen AI
@@ -128,7 +128,7 @@ function Home() {
 
                   {/* 🧬 Neural Tag */}
                   <motion.div
-                    className="absolute top-20 -right-10 bg-zinc-900/80 backdrop-blur-xl px-4 py-1.5 rounded-3xl border border-pink-400/30 text-pink-400 text-xs font-medium flex items-center gap-2 shadow-xl"
+                    className="absolute hidden md:flex top-20 -right-10 bg-zinc-900/80 backdrop-blur-xl px-4 py-1.5 rounded-3xl border border-pink-400/30 text-pink-400 text-xs font-medium items-center gap-2 shadow-xl"
                     transition={{ duration: 4, repeat: Infinity }}
                   >
                     🧠 Neural Network
@@ -178,7 +178,7 @@ function Home() {
               </h1>
 
               {/* Subtext */}
-              <p className="max-w-xl text-lg md:text-sm text-gray-300 leading-relaxed">
+              <p className="max-w-xl text-base md:text-lg text-gray-300 leading-relaxed">
                 I design and develop <span className="text-purple-400 md:text-lg font-semibold">AI-powered systems </span>
                 and scalable web applications using{" "}
                 <span className="text-cyan-400  md:text-lg font-semibold">Machine Learning</span>,{" "}

@@ -1,14 +1,14 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home"
-import About from "./components/About"
-import Contact from "./components/Contact"
-import Skills from "./components/Skills"
-import Project from "./components/Project";
-import Certificates from "./components/Certificates";
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
+const Skills = lazy(() => import("./components/Skills"));
+const Project = lazy(() => import("./components/Project"));
+const Certificates = lazy(() => import("./components/Certificates"));
 import Footer from "./components/Footer";
 import SchemaInjector from "./components/SchemaInjector";
-import { Toaster, ToastIcon } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 function App(){
   return (
@@ -16,11 +16,13 @@ function App(){
     <SchemaInjector />
     <Navbar/>
     <Home/>
-    <About/>
-    <Skills/>
-    <Project/>
-    <Certificates/>
-    <Contact/>
+    <Suspense fallback={null}>
+      <About/>
+      <Skills/>
+      <Project/>
+      <Certificates/>
+      <Contact/>
+    </Suspense>
     <Footer/>
     <Toaster/>
     </>  )

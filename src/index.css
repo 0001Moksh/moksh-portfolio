@@ -169,6 +169,9 @@
 
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   body {
@@ -178,6 +181,20 @@
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  img,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
   }
 
   body::before {
@@ -207,9 +224,10 @@
       10px 40px,
       30px 20px,
       15px 35px;
-    animation: particleFlow 20s linear infinite;
+    animation: particleFlow 32s linear infinite;
     pointer-events: none;
     z-index: 1;
+    will-change: opacity;
   }
 
   @keyframes particleFlow {
@@ -277,8 +295,31 @@
   /* 📱 Mobile */
   @media (max-width: 768px) {
     .frame-img {
-      width: 400vw;
-      top: -30vw;
+      width: min(150vw, 780px);
+      top: -18vw;
+      opacity: 0.14;
+    }
+
+    body::before {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    body::before {
+      display: none;
     }
   }
 

@@ -21,14 +21,14 @@ function Navbar() {
     };
     document.addEventListener("keydown", handleEscape);
 
-    // Disable background scroll when preview is open
-    document.body.style.overflow = showPreview ? "hidden" : "auto";
+    // Disable background scroll when mobile menu or preview modal is open
+    document.body.style.overflow = menu || showPreview ? "hidden" : "";
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     };
-  }, [showPreview]);
+  }, [menu, showPreview]);
 
   const navItems = [
     { id: 1, text: "Home" },
@@ -136,7 +136,7 @@ function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className="fixed top-0 left-0 h-full w-72  backdrop-blur-3xl shadow-2xl z-50 flex flex-col overflow-y-auto"
+              className="fixed top-0 left-0 h-full w-[min(85vw,18rem)] backdrop-blur-3xl shadow-2xl z-50 flex flex-col overflow-y-auto"
             >
               <div className="flex justify-between items-center p-6 border-b border-gray-100">
                 <h2 className="text-xl font-bold text-dark">Menu</h2>
