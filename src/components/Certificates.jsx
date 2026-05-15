@@ -75,7 +75,6 @@ export default function Certificates() {
   const stats = useMemo(() => [
     { value: `${certificateItems.length || 0}+`, label: "Certificates" },
     { value: "100%", label: "Image Support" },
-    { value: "Auto", label: "Smart Titles" },
   ], [certificateItems.length]);
 
   const visibleCertificates = showAll ? certificateItems : certificateItems.slice(0, 6);
@@ -117,7 +116,7 @@ export default function Certificates() {
         </RevealSection>
 
         <RevealSection delay={0.05}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-14">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto mb-14">
             {stats.map((stat) => (
               <div
                 key={stat.label}

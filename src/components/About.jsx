@@ -217,7 +217,7 @@ export default function About() {
         @keyframes ring-spin   { to{transform:rotate(360deg)} }
         @keyframes pulse-dot   { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
         @media(max-width:900px){ .about-grid{grid-template-columns:1fr!important} .timeline-grid{grid-template-columns:1fr!important} }
-        @media(max-width:600px){ .stats-row{grid-template-columns:1fr!important} }
+        @media(max-width:600px){ .stats-row{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:.55rem!important} }
       `}</style>
 
       {/* ── Ambient BG ── */}
@@ -345,13 +345,13 @@ export default function About() {
                   key={s.label}
                   variants={fade(i + 4)}
                   whileHover={{ y: -6, boxShadow: `0 16px 40px ${s.glow}` }}
-                  style={{ borderRadius: 18, padding: "1.3rem 0.9rem", textAlign: "center", background: "rgba(6,3,14,0.92)", border: `1px solid ${s.color}25`, backdropFilter: "blur(12px)", position: "relative", overflow: "hidden", transition: "all 0.3s ease", cursor: "default" }}
+                  style={{ borderRadius: 18, padding: "1rem 0.7rem", textAlign: "center", background: "rgba(6,3,14,0.92)", border: `1px solid ${s.color}25`, backdropFilter: "blur(12px)", position: "relative", overflow: "hidden", transition: "all 0.3s ease", cursor: "default" }}
                 >
                   <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 50% 0%,${s.glow} 0%,transparent 65%)`, pointerEvents: "none", opacity: 0.55 }} />
-                  <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: "2.3rem", lineHeight: 1, color: s.color, marginBottom: 5 }}>
+                  <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: "clamp(1.25rem, 4.8vw, 2.3rem)", lineHeight: 1, color: s.color, marginBottom: 5 }}>
                     <Counter to={s.num} suffix={s.suffix} />
                   </div>
-                  <div style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.63rem", color: "#475569", lineHeight: 1.4 }}>{s.label}</div>
+                  <div style={{ fontFamily: "'DM Mono',monospace", fontSize: "clamp(0.5rem, 2vw, 0.63rem)", color: "#475569", lineHeight: 1.35 }}>{s.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -410,14 +410,47 @@ export default function About() {
             <span style={{ color: "#fff" }}>Let's create the </span>
             <span style={{ background: "linear-gradient(135deg,#a855f7,#ec4899,#2dd4bf)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>future of AI</span>
           </h3>
-          <div style={{ display: "flex", justifyContent: "center", gap: "0.85rem", flexWrap: "wrap" }}>
-            <a href="#contact" className="btn-primary" style={{ padding: "0.75rem 2rem", fontSize: "0.9rem", borderRadius: 14, fontWeight: 700 }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "0.85rem",
+              flexWrap: "wrap",
+            }}
+            className="hero-buttons"
+          >
+            <a
+              href="#contact"
+              className="btn-primary"
+              style={{
+                padding: "0.75rem 2rem",
+                fontSize: "0.9rem",
+                borderRadius: 14,
+                fontWeight: 700,
+              }}
+            >
               Let's Connect →
             </a>
 
-            <a href="#projects" className="btn-ghost" style={{ padding: "0.75rem 2rem", fontSize: "0.9rem", borderRadius: 14 }}>
+            <a
+              href="#projects"
+              className="btn-ghost"
+              style={{
+                padding: "0.75rem 2rem",
+                fontSize: "0.9rem",
+                borderRadius: 14,
+              }}
+            >
               View Projects
             </a>
+
+            <style>{`
+    @media (max-width: 768px) {
+      .hero-buttons {
+        padding: 0.5rem; /* p-2 for mobile */
+      }
+    }
+  `}</style>
           </div>
         </motion.div>
       </motion.div>

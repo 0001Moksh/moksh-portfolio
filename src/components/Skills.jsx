@@ -269,7 +269,7 @@ function Skills() {
 
         {/* ── Stats row ── */}
         <RevealSection delay={0.05}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 mb-16 max-w-2xl mx-auto">
             {[
               { value: `${allSkills.length}+`, label: "Technologies" },
               { value: "3+", label: "Years Experience" },
@@ -277,17 +277,17 @@ function Skills() {
             ].map((stat, i) => (
               <div key={i} style={{
                 textAlign: "center",
-                padding: "20px 16px",
+                padding: "12px 8px",
                 borderRadius: 16,
                 background: "linear-gradient(135deg, rgba(245,158,11,0.06), rgba(168,85,247,0.06))",
                 border: "1px solid rgba(245,158,11,0.2)",
               }}>
                 <div style={{
-                  fontSize: "2rem", fontWeight: 800, lineHeight: 1,
+                  fontSize: "clamp(1.15rem, 4.6vw, 2rem)", fontWeight: 800, lineHeight: 1,
                   WebkitBackgroundClip: "text",
                   marginBottom: 6,
                 }}>{stat.value}</div>
-                <div style={{ fontSize: "0.75rem", color: "var(--color-text-muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                <div style={{ fontSize: "clamp(0.5rem, 1.9vw, 0.75rem)", color: "var(--color-text-muted)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                   {stat.label}
                 </div>
               </div>

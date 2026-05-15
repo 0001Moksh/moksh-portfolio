@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex justify-center flex-wrap gap-6 md:gap-8 mb-16">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:flex md:justify-center gap-4 md:gap-8 mb-16 w-full max-w-xl md:max-w-none mx-auto">
             {socialLinks.map((social, i) => {
               const IconComponent = social.icon;
               return (
@@ -60,18 +60,18 @@ const Footer = () => {
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.15, rotate: 8 }}
                   whileTap={{ scale: 0.9 }}
-                  className="group"
+                  className="group justify-self-center"
                 >
                   <a
                     href={social.url}
                     target="_blank"
                     rel="noreferrer"
                     aria-label={social.label}
-                    className={`block p-3 transition-all duration-300 hover:border-zinc-600 ${social.color} ${social.shadow}`}
+                    className={`block p-2.5 md:p-3 rounded-xl border border-transparent transition-all duration-300 hover:border-zinc-600 ${social.color} ${social.shadow}`}
                   >
-                    <IconComponent className="text-4xl transition-all duration-300 group-hover:scale-110" />
+                    <IconComponent className="text-[1.6rem] md:text-4xl transition-all duration-300 group-hover:scale-110" />
                   </a>
-                  <p className="text-xs text-zinc-500 tracking-widest font-mono text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-[10px] md:text-xs text-zinc-500 tracking-[0.18em] font-mono text-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                     {social.label.toUpperCase()}
                   </p>
                 </motion.div>

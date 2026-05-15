@@ -679,7 +679,7 @@ function Project() {
 
       {/* ── Projects Grid ── */}
       <div className="px-4 md:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mb-12">
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence>
           {filteredProjects.slice(0, visibleCount).map((project, index) => (
             <CinematicCard
               key={project.id}
