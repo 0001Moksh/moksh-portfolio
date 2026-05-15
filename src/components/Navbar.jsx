@@ -35,7 +35,7 @@ function Navbar() {
     { id: 2, text: "About" },
     { id: 3, text: "Skills" },
     { id: 4, text: "Project" },
-    // { id: 5, text: "Blog" },
+    { id: 5, text: "Certificates" },
     { id: 6, text: "Contact" },
   ];
 

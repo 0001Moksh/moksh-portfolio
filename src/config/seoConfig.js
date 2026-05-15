@@ -60,6 +60,16 @@ export const seoConfig = {
         "Full stack applications"
       ],
     },
+    certificates: {
+      title: "Certificates | Moksh Bhardwaj",
+      description: "Browse Moksh Bhardwaj's certificates and achievements in an elegant gallery section.",
+      keywords: [
+        "certificates",
+        "achievements",
+        "portfolio credentials",
+        "learning proof"
+      ],
+    },
     experience: {
       title: "Technical Skills & Experience | Moksh Bhardwaj",
       description: "Comprehensive overview of 50+ technologies including AI/ML frameworks, web development tools, cloud platforms, and databases used in production projects.",
@@ -79,16 +89,6 @@ export const seoConfig = {
         "hire generative AI engineer",
         "collaboration",
         "project inquiry"
-      ],
-    },
-    blog: {
-      title: "Blog | AI & Web Development Articles by Moksh Bhardwaj",
-      description: "Read articles and insights on generative AI, LLM engineering, full-stack AI architecture, and practical production workflows.",
-      keywords: [
-        "AI blog",
-        "machine learning articles",
-        "web development tips",
-        "technology insights"
       ],
     }
   },

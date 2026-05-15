@@ -5,7 +5,7 @@ import About from "./components/About"
 import Contact from "./components/Contact"
 import Skills from "./components/Skills"
 import Project from "./components/Project";
-import Blog from "./components/Blog";
+import Certificates from "./components/Certificates";
 import Footer from "./components/Footer";
 import SchemaInjector from "./components/SchemaInjector";
 import { Toaster, ToastIcon } from "react-hot-toast";
@@ -19,7 +19,7 @@ function App(){
     <About/>
     <Skills/>
     <Project/>
-    <Blog/>
+    <Certificates/>
     <Contact/>
     <Footer/>
     <Toaster/>

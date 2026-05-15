@@ -97,7 +97,7 @@ function CinematicCard({ project, index, onInfoClick }) {
       />
 
       {/* Card body */}
-      <div className="flex flex-col flex-1 p-5 gap-3">
+      <div className="flex flex-col flex-1 p-5 gap-3" onClick={() => onInfoClick(project)}>
         {/* Project preview image: fixed reserved area to avoid layout shift; low opacity by default, full on hover */}
         <div className="relative overflow-hidden rounded-xl h-36 transition-all duration-500">
           <img
@@ -678,7 +678,7 @@ function Project() {
       </motion.div>
 
       {/* ── Projects Grid ── */}
-      <div className="px-4 md:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+      <div className="px-4 md:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mb-12">
         <AnimatePresence mode="popLayout">
           {filteredProjects.slice(0, visibleCount).map((project, index) => (
             <CinematicCard

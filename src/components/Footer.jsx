@@ -9,7 +9,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: FaInstagram, url: "https://www.instagram.com/moksh_bhardwaj23/", label: "Instagram", color: "text-pink-400 hover:text-pink-600", shadow: "hover:shadow-pink-500/50" },
-    { icon: FaEnvelope, url: "mailto:mokshbhardwaj2333@gmail.com", label: "Email", color: "text-white hover:text-white", shadow: "hover:shadow-white/500", shadow: "hover:shadow-red-600/50" },
+    { icon: FaEnvelope, url: "mailto:mokshbhardwaj2333@gmail.com", label: "Email", color: "text-white hover:text-white", shadow: "hover:shadow-red-600/50" },
     { icon: FaLinkedin, url: "https://www.linkedin.com/in/moksh-bhardwaj-0001moksh", label: "LinkedIn", color: "text-sky-400 hover:text-sky-600", shadow: "hover:shadow-sky-500/50" },
     { icon: IoLogoYoutube, url: "https://www.youtube.com/@NexYugTech", label: "YouTube", color: "text-red-400 hover:text-red-600", shadow: "hover:shadow-red-600/50" },
     { icon: FaGithub, url: "https://github.com/0001Moksh", label: "GitHub", color: "text-gray-400 hover:text-gray-200", shadow: "hover:shadow-gray-400/50" },
