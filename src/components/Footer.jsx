@@ -52,29 +52,36 @@ const Footer = () => {
             {socialLinks.map((social, i) => {
               const IconComponent = social.icon;
               return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.5, y: 30 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.05 * i, type: "spring", stiffness: 120 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.15, rotate: 8 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="group justify-self-center"
-                >
-                  <a
-                    href={social.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={social.label}
-                    className={`block p-2.5 md:p-3 rounded-xl border border-transparent transition-all duration-300 hover:border-zinc-600 ${social.color} ${social.shadow}`}
-                  >
-                    <IconComponent className="text-[1.6rem] md:text-4xl transition-all duration-300 group-hover:scale-110" />
-                  </a>
-                  <p className="text-[10px] md:text-xs text-zinc-500 tracking-[0.18em] font-mono text-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-                    {social.label.toUpperCase()}
-                  </p>
-                </motion.div>
+            <motion.div
+  key={i}
+  initial={{ opacity: 0, scale: 0.5, y: 30 }}
+  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.05 * i, type: "spring", stiffness: 120 }}
+  viewport={{ once: true }}
+  whileHover={{ scale: 1.15, rotate: 8 }}
+  whileTap={{ scale: 0.9 }}
+  className="group justify-self-center"
+>
+  <a
+    href={social.url}
+    target="_blank"
+    rel="noreferrer"
+    aria-label={social.label}
+    className={`flex items-center justify-center
+      p-2.5 md:p-3
+      rounded-xl
+      border border-transparent
+      transition-all duration-300
+      hover:border-zinc-600
+      ${social.color} ${social.shadow}`}
+  >
+    <IconComponent className="text-[1.6rem] md:text-4xl transition-all duration-300 group-hover:scale-110" />
+  </a>
+
+  <p className="text-[10px] md:text-xs text-zinc-500 tracking-[0.18em] font-mono text-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+    {social.label.toUpperCase()}
+  </p>
+</motion.div>
               );
             })}
           </div>
