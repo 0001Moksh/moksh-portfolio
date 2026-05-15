@@ -23,7 +23,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative py-16 bg-gradient-to-b from-zinc-950 to-black overflow-hidden">
+    <footer id="footer" className="relative py-16 bg-gradient-to-b from-zinc-950 to-black overflow-hidden scroll-mt-24">
       {/* Top Accent Line */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
 

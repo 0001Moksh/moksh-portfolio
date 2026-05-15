@@ -204,8 +204,9 @@ export default function About() {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
-      style={{ paddingTop: "7rem", paddingBottom: "7rem", position: "relative", overflow: "hidden" }}
+      style={{ paddingTop: "7rem", paddingBottom: "7rem", position: "relative", overflow: "hidden", scrollMarginTop: "6rem" }}
       aria-label="About Moksh Bhardwaj"
     >
       {/* ── Global keyframe styles ── */}

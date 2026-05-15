@@ -191,7 +191,7 @@ function Skills() {
   };
 
   return (
-    <section className="bg-bg-primary relative overflow-x-clip overflow-y-visible" aria-label="Experience and skills section">
+    <section id="skills" className="bg-bg-primary relative overflow-x-clip overflow-y-visible scroll-mt-24" aria-label="Experience and skills section">
       <SEOHelmet pageKey="experience" />
 
       {/* ── Luxury ambient background orbs ── */}

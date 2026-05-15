@@ -7,6 +7,7 @@ const Skills = lazy(() => import("./components/Skills"));
 const Project = lazy(() => import("./components/Project"));
 const Certificates = lazy(() => import("./components/Certificates"));
 import Footer from "./components/Footer";
+import SectionNavigator from "./components/SectionNavigator";
 import SchemaInjector from "./components/SchemaInjector";
 import { Toaster } from "react-hot-toast";
 
@@ -24,6 +25,7 @@ function App(){
       <Contact/>
     </Suspense>
     <Footer/>
+    <SectionNavigator />
     <Toaster/>
     </>  )
 }

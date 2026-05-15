@@ -83,8 +83,9 @@ export default function Certificates() {
 
   return (
     <section
+      id="certificates"
       name="Certificates"
-      className="relative overflow-hidden py-24 bg-bg-primary"
+      className="relative overflow-hidden py-24 bg-bg-primary scroll-mt-24"
       aria-label="Certificates section"
     >
       <SEOHelmet pageKey="certificates" />

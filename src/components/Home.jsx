@@ -11,8 +11,9 @@ function Home() {
 
       {/* HERO - 100% MATCHING YOUR MOCKUP + YOUR OFFICIAL COLOR SYSTEM */}
       <motion.main
+        id="home"
         name="Home"
-        className="relative min-h-screen min-h-[100svh] flex flex-col justify-center overflow-x-clip overflow-y-hidden pt-20 md:pt-0"
+        className="relative min-h-screen min-h-[100svh] flex flex-col justify-center overflow-x-clip overflow-y-hidden pt-20 md:pt-0 scroll-mt-24"
         role="main"
         aria-label="Hero section"
       >
