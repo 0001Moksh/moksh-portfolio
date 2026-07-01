@@ -25,6 +25,7 @@ import Symptoms_to_Medicine from "../assets/Symptoms_to_Medicine.png";
 import import_medicine from "../assets/Import_Medicine.png";
 import Seema_iq from "../assets/seema_iq_logo.png";
 import Aushadhi360 from "../assets/aushadhi360.png";
+import OutreachXDeva from "../assets/OutreachXDeva.png";
 import Deva_Admin from "../assets/deva-admin.png";
 import Deva_BI from "../assets/deva-bi.png";
 
@@ -352,6 +353,44 @@ function Project() {
       githubUrl: "https://github.com/0001Moksh/AI-Agent-For-Business-Insights",
       liveDemoUrl: "https://deva-ai-business-insight-creator.vercel.app",
       videoUrl: "https://www.linkedin.com/posts/moksh-bhardwaj_ai-machinelearning-dataanalytics-ugcPost-7448963248583995392-DM9j",
+    },
+    {
+      id: 19,
+      logo: OutreachXDeva,
+      image: OutreachXDeva,
+      name: "OutreachX Deva",
+      category: "Agentic AI & AI Infrastructure",
+      overview: {
+        description:
+          "A production-ready multi-agent AI cold outreach platform that automates lead research, email personalization, campaign generation, analytics, and AI-powered sales workflows using an enterprise-grade agent architecture.",
+        features: [
+          "Multi-agent architecture with Campaign, Research, Lead, Template, Analysis, and General Agents.",
+          "AI-powered personalized cold email generation for every prospect.",
+          "Automated company and lead research using LLMs and web intelligence.",
+          "Bulk outreach campaign management with customizable templates.",
+          "Analytics dashboard for campaign performance and optimization.",
+          "LLM routing and multi-provider support through LiteLLM.",
+          "Scalable AI infrastructure with FastAPI backend and modern React frontend.",
+        ],
+        techStack: [
+          "React",
+          "FastAPI",
+          "Python",
+          "LangGraph",
+          "LiteLLM",
+          "Google Gemini",
+          "Groq",
+          "OpenRouter",
+          "MongoDB",
+          "Docker",
+          "SMTP",
+          "JWT",
+        ],
+      },
+      githubUrl: "https://github.com/0001Moksh/OutreachX-AI-Cold-Mail-Sender",
+      liveDemoUrl: "https://outreachx-deva.vercel.app/",
+      videoUrl:
+        "https://www.linkedin.com/posts/moksh-bhardwaj_ai-agenticai-generativeai-ugcPost-7477763206741118976-vnWq/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_o2XoBykUQc7Wc7eq2JRdjIvCobQ7DLNc",
     },
     {
       id: 17,
