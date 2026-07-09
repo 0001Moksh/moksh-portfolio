@@ -2,71 +2,56 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import RevealSection from './RevealSection';
 import { SEOHelmet } from "../hooks/useSEO";
-
-import html from "../assets/html.jpg";
-import css from "../assets/css.jpg";
-import js from "../assets/js.jpg";
-import crm from "../assets/crm.jpg";
-import Matplotlib from "../assets/matplotlib.png";
-import keras from "../assets/keras.png";
-import pandas from "../assets/pandas.png";
-import Sea from "../assets/seaborn.png";
-import numpy from "../assets/numpy.jpg";
-import scipy from "../assets/scipy.jpg";
-import sklearn from "../assets/sklearn.jpg";
-import opencv from "../assets/opencv.jpg";
-import tensorflow from "../assets/tensorflow.png";
-import Fastapi from "../assets/Fastapi.jpg";
-import Flask from "../assets/Flask.jpg";
-import NLP from "../assets/NLP.png";
-import genai from "../assets/genai.png";
-import langchain from "../assets/langchain.png";
-import rag from "../assets/rag.png";
-import llm from "../assets/llm.jpg";
-import python from "../assets/python.png";
-import aws from "../assets/aws.png";
-import gcp from "../assets/gcp.png";
-import azure from "../assets/azure.png";
-import github from "../assets/github.png";
-import vercel from "../assets/vercel.png";
-import netlify from "../assets/netlify.png";
-import render from "../assets/render.png";
-import firebase from "../assets/firebase.png";
-import mongodb from "../assets/mongodb.png";
-import mysql from "../assets/mysql.png";
-import huggingface from "../assets/huggingface.png";
-import pytorch from "../assets/pytorch.png";
-import faiss from "../assets/faiss.png";
-import chromadb from "../assets/chromadb.png";
-import pinecone from "../assets/pinecone.png";
-import openai from "../assets/openai.png";
-import gemini from "../assets/gemini.png";
-import streamlit from "../assets/streamlit.png";
-import neuralnets from "../assets/neuralnets.png";
-import apintegration from "../assets/apiintegration.png";
-import vectordb from "../assets/vectordb.png";
-import docker from "../assets/docker.png";
-import react from "../assets/react.png";
-import vite from "../assets/vite.png";
-import tailwind from "../assets/tailwind.png";
-import llama from "../assets/llama.png";
 import webDevBg from "../assets/webdev-bg.jpg";
-import dataScienceBg from "../assets/datascience-bg.jpg";
 import mlDlBg from "../assets/mldl-bg.jpg";
 import aiToolsBg from "../assets/aitools-bg.jpg";
 import cloudDbBg from "../assets/clouddb-bg.jpg";
-import langgraph from "../assets/langgraph.png";
-import langsmith from "../assets/langsmith.png";
 import otherToolsBg from "../assets/othertools-bg.jpg";
 
 /* ─── per-category accent config (gold-purple luxury palette) ─── */
 const CATEGORY_ACCENTS = [
-  { color: "#ffffff", glow: "rgba(245,158,11,0.35)", border: "rgba(245,158,11,0.4)", label: "text-amber-400", tag: "FULL-STACK" },
-  { color: "#a855f7", glow: "rgba(168,85,247,0.35)", border: "rgba(168,85,247,0.4)", label: "text-purple-400", tag: "ANALYTICS" },
-  { color: "#d97706", glow: "rgba(217,119,6,0.35)", border: "rgba(217,119,6,0.4)", label: "text-amber-500", tag: "ML / DL" },
-  { color: "#c084fc", glow: "rgba(192,132,252,0.35)", border: "rgba(192,132,252,0.4)", label: "text-purple-300", tag: "GEN-AI" },
-  { color: "#fbbf24", glow: "rgba(251,191,36,0.35)", border: "rgba(251,191,36,0.4)", label: "text-yellow-400", tag: "INFRA" },
-  { color: "#7c3aed", glow: "rgba(124,58,237,0.35)", border: "rgba(124,58,237,0.4)", label: "text-violet-400", tag: "TOOLS" },
+  {
+    color: "#ffffff",
+    glow: "rgba(245,158,11,0.35)",
+    border: "rgba(245,158,11,0.4)",
+    label: "text-amber-400",
+    tag: "APPLICATIONS",
+  },
+  {
+    color: "#a855f7",
+    glow: "rgba(168,85,247,0.35)",
+    border: "rgba(168,85,247,0.4)",
+    label: "text-purple-400",
+    tag: "AGENTIC AI",
+  },
+  {
+    color: "#d97706",
+    glow: "rgba(217,119,6,0.35)",
+    border: "rgba(217,119,6,0.4)",
+    label: "text-amber-500",
+    tag: "LLM STACK",
+  },
+  {
+    color: "#c084fc",
+    glow: "rgba(192,132,252,0.35)",
+    border: "rgba(192,132,252,0.4)",
+    label: "text-purple-300",
+    tag: "RAG",
+  },
+  {
+    color: "#fbbf24",
+    glow: "rgba(251,191,36,0.35)",
+    border: "rgba(251,191,36,0.4)",
+    label: "text-yellow-400",
+    tag: "DEVOPS",
+  },
+  {
+    color: "#7c3aed",
+    glow: "rgba(124,58,237,0.35)",
+    border: "rgba(124,58,237,0.4)",
+    label: "text-violet-400",
+    tag: "ECOSYSTEM",
+  },
 ];
 
 function Skills() {
@@ -76,93 +61,93 @@ function Skills() {
 
   const categories = [
     {
-      title: "Web Development",
-      description: "Production-grade full-stack stack that powers lightning-fast, pixel-perfect web applications.",
+      title: "Application Engineering",
+      description: "Modern web and API foundations tailored for production AI applications.",
       bgImage: webDevBg,
       skills: [
-        { id: 1, logo: html, name: "HTML" },
-        { id: 2, logo: css, name: "CSS" },
-        { id: 3, logo: js, name: "JavaScript" },
-        { id: 45, logo: react, name: "React" },
-        { id: 46, logo: vite, name: "Vite" },
-        { id: 47, logo: tailwind, name: "Tailwind CSS" },
-        { id: 4, logo: python, name: "Python" },
-        { id: 25, logo: Flask, name: "Flask" },
-        { id: 24, logo: Fastapi, name: "FastAPI" },
-        { id: 23, logo: apintegration, name: "API Integration" },
+        { id: 1, name: "Python", docUrl: "https://www.python.org/doc/" },
+        { id: 2, name: "FastAPI", docUrl: "https://fastapi.tiangolo.com/" },
+        { id: 3, name: "Flask", docUrl: "https://flask.palletsprojects.com/" },
+        { id: 4, name: "React", docUrl: "https://react.dev/" },
+        { id: 5, name: "Tailwind CSS", docUrl: "https://tailwindcss.com/docs" },
+        { id: 6, name: "Vite", docUrl: "https://vitejs.dev/guide/" },
+        { id: 7, name: "REST APIs", docUrl: "https://restfulapi.net/" },
+        { id: 8, name: "Authentication (JWT/OAuth)", docUrl: "https://oauth.net/2/" },
+        { id: 9, name: "Pydantic", docUrl: "https://docs.pydantic.dev/latest/" },
+        { id: 10, name: "Supabase", docUrl: "https://supabase.com/docs" },
       ],
     },
     {
-      title: "Data Science & Visualization",
-      description: "End-to-end data engineering & beautiful interactive dashboards that tell compelling stories.",
-      bgImage: dataScienceBg,
-      skills: [
-        { id: 5, logo: numpy, name: "NumPy" },
-        { id: 6, logo: pandas, name: "Pandas" },
-        { id: 7, logo: Matplotlib, name: "Matplotlib" },
-        { id: 8, logo: Sea, name: "Seaborn" },
-        { id: 9, logo: scipy, name: "SciPy" },
-      ],
-    },
-    {
-      title: "Machine Learning & Deep Learning",
-      description: "Battle-tested frameworks that deliver state-of-the-art models in production environments.",
-      bgImage: mlDlBg,
-      skills: [
-        { id: 10, logo: sklearn, name: "Scikit-learn" },
-        { id: 11, logo: opencv, name: "OpenCV" },
-        { id: 12, logo: tensorflow, name: "TensorFlow" },
-        { id: 13, logo: keras, name: "Keras" },
-        { id: 14, logo: pytorch, name: "PyTorch" },
-        { id: 22, logo: neuralnets, name: "Neural Networks" },
-      ],
-    },
-    {
-      title: "AI Tools & Generative AI",
-      description: "Agentic AI, RAG pipelines & LLM orchestration that powers intelligent applications.",
+      title: "Agentic AI",
+      description: "Designing intelligent workflows, multi-agent orchestration, and prompt-driven LLM systems.",
       bgImage: aiToolsBg,
       skills: [
-        { id: 15, logo: huggingface, name: "Hugging Face" },
-        { id: 17, logo: langchain, name: "LangChain" },
-        { id: 18, logo: langgraph, name: "LangGraph" },
-        { id: 19, logo: langsmith, name: "LangSmith" },
-        { id: 20, logo: genai, name: "GenAI" },
-        { id: 21, logo: llm, name: "LLM" },
-        { id: 22, logo: rag, name: "RAG" },
-        { id: 23, logo: NLP, name: "NLP" },
-        { id: 26, logo: openai, name: "OpenAI API" },
-        { id: 27, logo: gemini, name: "Gemini API" },
-        { id: 28, logo: llama, name: "LLaMA" },
+        { id: 11, name: "Agentic AI", docUrl: "https://platform.openai.com/docs/guides/agents" },
+        { id: 12, name: "AI Agents", docUrl: "https://platform.openai.com/docs/guides/agents" },
+        { id: 13, name: "Multi-Agent Systems", docUrl: "https://www.ibm.com/topics/multi-agent-systems" },
+        { id: 14, name: "AI Workflows", docUrl: "https://platform.openai.com/docs/guides/agents" },
+        { id: 15, name: "Prompt Engineering", docUrl: "https://platform.openai.com/docs/guides/prompt-engineering" },
+        { id: 16, name: "LLMs", docUrl: "https://platform.openai.com/docs/introduction" },
+        { id: 17, name: "Generative AI", docUrl: "https://developers.google.com/machine-learning/generative-ai" },
+        { id: 18, name: "Tool Calling", docUrl: "https://platform.openai.com/docs/guides/gpt/function-calling" },
+        { id: 19, name: "Function Calling", docUrl: "https://platform.openai.com/docs/guides/gpt/function-calling" },
+        { id: 20, name: "Model Context Protocol (MCP)", docUrl: "https://learn.microsoft.com/en-us/azure/ai-services/" },
+        { id: 21, name: "LLMOps", docUrl: "https://learn.microsoft.com/en-us/azure/ai-services/overview-llmops" },
       ],
     },
     {
-      title: "Cloud, Deployment & Databases",
-      description: "Enterprise-grade infrastructure & vector stores that scale to millions of users.",
+      title: "LLM Infrastructure",
+      description: "End-to-end model context, routing, and API platforms for modern LLM engineering.",
+      bgImage: mlDlBg,
+      skills: [
+        { id: 22, name: "LangChain", docUrl: "https://langchain.com/docs/" },
+        { id: 23, name: "LangGraph", docUrl: "https://www.langgraph.com/docs" },
+        { id: 24, name: "LangSmith", docUrl: "https://www.langsmith.com/docs" },
+        { id: 25, name: "OpenAI API", docUrl: "https://platform.openai.com/docs/api-reference/introduction" },
+        { id: 26, name: "Gemini API", docUrl: "https://developers.google.com/gemini" },
+        { id: 27, name: "Claude API", docUrl: "https://www.anthropic.com/index/claude" },
+        { id: 28, name: "LLaMA", docUrl: "https://ai.meta.com/llama/" },
+        { id: 29, name: "LiteLLM", docUrl: "https://www.litellm.ai/" },
+        { id: 30, name: "OpenRouter", docUrl: "https://openrouter.ai/docs" },
+        { id: 31, name: "DeepSeek API", docUrl: "https://api.deepseek.ai/docs" },
+      ],
+    },
+    {
+      title: "RAG & Semantic Search",
+      description: "Scaling retrieval pipelines with embeddings, hybrid search, and production-grade vector systems.",
       bgImage: cloudDbBg,
       skills: [
-        { id: 29, logo: aws, name: "AWS" },
-        { id: 30, logo: gcp, name: "GCP" },
-        { id: 31, logo: azure, name: "Azure" },
-        { id: 44, logo: docker, name: "Docker" },
-        { id: 32, logo: github, name: "GitHub" },
-        { id: 33, logo: vercel, name: "Vercel" },
-        { id: 34, logo: netlify, name: "Netlify" },
-        { id: 35, logo: render, name: "Render" },
-        { id: 36, logo: firebase, name: "Firebase" },
-        { id: 37, logo: streamlit, name: "Streamlit" },
-        { id: 38, logo: mongodb, name: "MongoDB" },
-        { id: 39, logo: mysql, name: "MySQL" },
-        { id: 40, logo: vectordb, name: "Vector DB" },
-        { id: 41, logo: faiss, name: "FAISS" },
-        { id: 42, logo: chromadb, name: "ChromaDB" },
-        { id: 43, logo: pinecone, name: "Pinecone" },
+        { id: 32, name: "RAG", docUrl: "https://platform.openai.com/docs/guides/rag" },
+        { id: 33, name: "Hybrid Search", docUrl: "https://learn.microsoft.com/en-us/azure/search/search-hybrid-search" },
+        { id: 34, name: "Embeddings", docUrl: "https://platform.openai.com/docs/guides/embeddings" },
+        { id: 35, name: "Semantic Search", docUrl: "https://learn.microsoft.com/en-us/azure/search/semantic-search-overview" },
+        { id: 36, name: "Vector Search", docUrl: "https://www.pinecone.io/learn/vector-database/" },
+        { id: 37, name: "Document Processing", docUrl: "https://learn.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/" },
+        { id: 38, name: "Chunking Strategies", docUrl: "https://platform.openai.com/docs/guides/embeddings" },
+        { id: 39, name: "FAISS", docUrl: "https://faiss.ai/" },
+        { id: 40, name: "ChromaDB", docUrl: "https://www.trychroma.com/docs/" },
+        { id: 41, name: "Pinecone", docUrl: "https://www.pinecone.io/docs/" },
+        { id: 42, name: "NLP", docUrl: "https://www.nltk.org/" },
       ],
     },
     {
-      title: "Other Tools",
-      description: "Enterprise productivity & CRM platforms that complete the modern AI stack.",
+      title: "Cloud & Observability",
+      description: "Deploying and monitoring AI systems with cloud-native infrastructure and developer workflows.",
       bgImage: otherToolsBg,
-      skills: [{ id: 48, logo: crm, name: "Zoho CRM" }],
+      skills: [
+        { id: 43, name: "PostgreSQL", docUrl: "https://www.postgresql.org/docs/" },
+        { id: 44, name: "MongoDB", docUrl: "https://www.mongodb.com/docs/" },
+        { id: 45, name: "MySQL", docUrl: "https://dev.mysql.com/doc/" },
+        { id: 46, name: "Docker", docUrl: "https://docs.docker.com/" },
+        { id: 47, name: "Git", docUrl: "https://git-scm.com/doc" },
+        { id: 48, name: "GitHub", docUrl: "https://docs.github.com/" },
+        { id: 49, name: "AWS", docUrl: "https://aws.amazon.com/documentation/" },
+        { id: 50, name: "GCP", docUrl: "https://cloud.google.com/docs" },
+        { id: 51, name: "Azure", docUrl: "https://learn.microsoft.com/en-us/azure/" },
+        { id: 52, name: "CI/CD", docUrl: "https://www.redhat.com/en/topics/devops/what-is-ci-cd" },
+        { id: 53, name: "Monitoring", docUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/overview" },
+        { id: 54, name: "Tracing", docUrl: "https://opentelemetry.io/docs/" },
+      ],
     },
   ];
 
@@ -393,48 +378,42 @@ function Skills() {
 
                   <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                     {category.skills.map((skill, i) => (
-                      <motion.div
+                      <motion.a
                         key={skill.id}
+                        href={skill.docUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
                         viewport={{ once: true }}
                         whileHover={{ x: 6 }}
                         style={{
-                          display: "flex", alignItems: "center", gap: 18,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 18,
                           padding: "14px 20px",
                           borderRadius: 16,
                           background: "rgba(255,255,255,0.02)",
-                          border: "1px solid transparent",
-                          cursor: "default",
+                          border: "1px solid rgba(148,163,184,0.20)", // Default gray border
+                          cursor: "pointer",
                           transition: "all 0.3s ease",
                           position: "relative",
                           overflow: "hidden",
+                          textDecoration: "none",
                         }}
                         className="skill-row-item"
                         onMouseEnter={(e) => {
                           e.currentTarget.style.background = `linear-gradient(135deg, ${accent.color}0d, rgba(168,85,247,0.05))`;
-                          e.currentTarget.style.borderColor = accent.border;
+                          e.currentTarget.style.borderColor = accent.color; // Accent color on hover
                           e.currentTarget.style.boxShadow = `0 4px 24px ${accent.glow}`;
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-                          e.currentTarget.style.borderColor = "transparent";
+                          e.currentTarget.style.borderColor = "rgba(148,163,184,0.20)"; // Back to gray
                           e.currentTarget.style.boxShadow = "none";
                         }}
                       >
-                        {/* icon */}
-                        <div style={{
-                          width: 52, height: 52, flexShrink: 0,
-                          background: "#fff",
-                          borderRadius: 14,
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                          boxShadow: `0 4px 16px ${accent.glow}`,
-                          padding: 8,
-                        }}>
-                          <img src={skill.logo} alt={skill.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} loading="lazy" />
-                        </div>
-
                         <div style={{ flex: 1 }}>
                           <div style={{ color: "#fff", fontWeight: 700, fontSize: "1.05rem", letterSpacing: "-0.01em" }}>
                             {skill.name}
@@ -444,7 +423,7 @@ function Skills() {
 
                         {/* trailing arrow */}
                         <div style={{ color: accent.color, opacity: 0.5, fontSize: "1rem" }}>›</div>
-                      </motion.div>
+                      </motion.a>
                     ))}
                   </div>
                 </div>
@@ -551,23 +530,22 @@ function Skills() {
                             {category.skills.slice(0, 6).map((skill) => (
                               <motion.div
                                 key={skill.id}
-                                whileHover={{ y: -4, scale: 1.1 }}
+                                whileHover={{ y: -4, scale: 1.03 }}
                                 style={{
-                                  width: 42,
-                                  height: 42,
-                                  background: "rgba(255,255,255,0.95)",
-                                  borderRadius: 10,
-                                  padding: 6,
-                                  boxShadow: `0 4px 12px ${accent.glow}`,
+                                  minWidth: 140,
+                                  padding: "10px 12px",
+                                  background: "rgba(255,255,255,0.08)",
+                                  borderRadius: 9999,
+                                  border: `1px solid rgba(255,255,255,0.12)`,
+                                  color: "#fff",
+                                  fontSize: "0.75rem",
+                                  fontWeight: 700,
+                                  letterSpacing: "0.02em",
+                                  textAlign: "center",
                                 }}
                                 className="flex items-center justify-center"
                               >
-                                <img
-                                  src={skill.logo}
-                                  alt={skill.name}
-                                  className="w-full h-full object-contain"
-                                  loading="lazy"
-                                />
+                                {skill.name}
                               </motion.div>
                             ))}
 
@@ -575,17 +553,18 @@ function Skills() {
                               <div
                                 className="hidden lg:flex items-center justify-center"
                                 style={{
-                                  width: 42,
-                                  height: 42,
+                                  minWidth: 140,
+                                  padding: "10px 12px",
                                   background: `linear-gradient(135deg, ${accent.color}33, rgba(168,85,247,0.2))`,
                                   border: `1px solid ${accent.border}`,
-                                  borderRadius: 10,
+                                  borderRadius: 9999,
                                   color: accent.color,
-                                  fontSize: "0.7rem",
+                                  fontSize: "0.75rem",
                                   fontWeight: 700,
+                                  textAlign: "center",
                                 }}
                               >
-                                +{category.skills.length - 6}
+                                +{category.skills.length - 6} more
                               </div>
                             )}
                           </div>
@@ -762,8 +741,11 @@ function Skills() {
                       const catIdx = categories.findIndex((c) => c.skills.some((s) => s.id === skill.id));
                       const acc = catIdx >= 0 ? CATEGORY_ACCENTS[catIdx] : CATEGORY_ACCENTS[0];
                       return (
-                        <motion.div
+                        <motion.a
                           key={skill.id}
+                          href={skill.docUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           initial={{ opacity: 0, y: 16 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: Math.min(i * 0.025, 0.4) }}
@@ -773,7 +755,8 @@ function Skills() {
                             padding: "24px 16px 20px",
                             display: "flex", flexDirection: "column", alignItems: "center",
                             textAlign: "center",
-                            cursor: "default",
+                            cursor: "pointer",
+                            textDecoration: "none",
                             /* glassmorphism */
                             background: "linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%)",
                             backdropFilter: "blur(12px)",
@@ -801,16 +784,6 @@ function Skills() {
                             background: `linear-gradient(90deg, transparent, ${acc.color}80, transparent)`,
                           }} />
 
-                          {/* icon */}
-                          <div style={{
-                            width: 60, height: 60, marginBottom: 14,
-                            background: "rgba(255,255,255,0.96)",
-                            borderRadius: 16, padding: 10,
-                            boxShadow: `0 6px 20px ${acc.glow}`,
-                            display: "flex", alignItems: "center", justifyContent: "center",
-                          }}>
-                            <img src={skill.logo} alt={skill.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} loading="lazy" />
-                          </div>
 
                           <span style={{ fontWeight: 700, fontSize: "0.85rem", color: "#fff", lineHeight: 1.3 }}>
                             {skill.name}
@@ -823,7 +796,7 @@ function Skills() {
                             background: acc.color,
                             boxShadow: `0 0 8px ${acc.color}`,
                           }} />
-                        </motion.div>
+                        </motion.a>
                       );
                     })
                   )}
