@@ -11,7 +11,7 @@ const getBaseUrl = (): string => {
   if (apiUrl) {
     return apiUrl.endsWith('/') ? apiUrl.slice(0, -1) : apiUrl;
   }
-  return 'http://localhost:8000';
+  return import.meta.env.DEV ? 'http://localhost:8000' : 'https://portfolio-deva-backend.vercel.app';
 };
 
 /**
