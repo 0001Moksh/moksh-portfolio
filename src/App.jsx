@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import SectionNavigator from "./components/SectionNavigator";
 import SchemaInjector from "./components/SchemaInjector";
 import { Toaster } from "react-hot-toast";
+import { ChatWidget } from "./components/ChatWidget/ChatWidget";
 
 function App(){
   return (
@@ -26,6 +27,7 @@ function App(){
     </Suspense>
     <Footer/>
     <SectionNavigator />
+    <ChatWidget />
     <Toaster/>
     </>  )
 }
