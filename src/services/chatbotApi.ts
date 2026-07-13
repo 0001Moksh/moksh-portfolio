@@ -30,8 +30,10 @@ async function fetchWithTimeout(
   while (attempt <= retries) {
     const controller = new AbortController();
     
+    let isTimeout = false;
     // Set up timeout mechanism
     const timeoutId = setTimeout(() => {
+      isTimeout = true;
       controller.abort();
     }, timeoutMs);
 
@@ -72,11 +74,15 @@ async function fetchWithTimeout(
       clearTimeout(timeoutId);
       if (cleanupSignalListener) cleanupSignalListener();
 
-      const isAbort = error.name === 'AbortError' || signal?.aborted;
+      const isManualAbort = signal?.aborted && !isTimeout;
       
       // If manually aborted by user/caller, do not retry
-      if (isAbort) {
+      if (isManualAbort) {
         throw new DOMException('Request aborted', 'AbortError');
+      }
+
+      if (isTimeout && attempt === retries) {
+        throw new Error('Request timed out');
       }
 
       // Retry on network errors
@@ -111,7 +117,7 @@ export const chatbotApi = {
           },
           signal,
         },
-        15000 // 15s timeout for session initialization
+        30000 // 30s timeout for session initialization to handle backend cold starts
       );
 
       if (!response.ok) {
