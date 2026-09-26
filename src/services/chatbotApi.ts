@@ -4,14 +4,12 @@ const DEFAULT_TIMEOUT_MS = 30000; // 30 seconds
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 1000;
 
-// Resolve API base URL securely
 const getBaseUrl = (): string => {
-  // Use VITE_API_URL if configured, otherwise fallback to local backend default
-  const apiUrl = import.meta.env.VITE_API_URL;
-  if (apiUrl) {
-    return apiUrl.endsWith('/') ? apiUrl.slice(0, -1) : apiUrl;
+  const apiUrl = import.meta.env.VITE_DEVA_BACKEND_URL?.trim();
+  if (!apiUrl) {
+    throw new Error('Chatbot backend URL is not configured. Set VITE_DEVA_BACKEND_URL.');
   }
-  return import.meta.env.DEV ? 'http://localhost:8000' : 'https://portfolio-deva-backend.vercel.app';
+  return apiUrl.replace(/\/+$/, '');
 };
 
 /**
@@ -101,41 +99,16 @@ async function fetchWithTimeout(
 
 export const chatbotApi = {
   /**
-   * Initializes a new session, returning a thread_id and created_at timestamp.
+   * Creates a client-side thread ID; the backend has no separate session endpoint.
    */
   async createNewSession(signal?: AbortSignal): Promise<ChatSession> {
-    const baseUrl = getBaseUrl();
-    const url = `${baseUrl}/chat/new`;
-
-    try {
-      const response = await fetchWithTimeout(
-        url,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          signal,
-        },
-        30000 // 30s timeout for session initialization to handle backend cold starts
-      );
-
-      if (!response.ok) {
-        throw new Error(`Failed to create chat session. Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      return {
-        thread_id: data.thread_id,
-        created_at: data.created_at,
-      };
-    } catch (error: any) {
-      if (error.name === 'AbortError') {
-        throw error;
-      }
-      console.error('Error creating new session:', error);
-      throw new Error('Unable to initialize assistant session. Please check your connection.');
+    if (signal?.aborted) {
+      throw new DOMException('Request aborted', 'AbortError');
     }
+    return {
+      thread_id: crypto.randomUUID(),
+      created_at: new Date().toISOString(),
+    };
   },
 
   /**
@@ -177,8 +150,9 @@ export const chatbotApi = {
       const data = await response.json();
       return {
         thread_id: data.thread_id,
-        response: data.response,
+        answer: data.answer,
         sources: data.sources || [],
+        model_used: data.model_used,
       };
     } catch (error: any) {
       if (error.name === 'AbortError') {

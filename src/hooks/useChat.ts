@@ -155,7 +155,7 @@ export const useChat = () => {
         const botMessage: Message = {
           id: crypto.randomUUID(),
           sender: 'bot',
-          content: response.response,
+          content: response.answer,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           sources: response.sources,
         };

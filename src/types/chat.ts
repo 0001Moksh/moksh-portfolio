@@ -15,12 +15,14 @@ export interface ChatSession {
 export interface ChatRequest {
   thread_id?: string;
   message: string;
+  model?: string;
 }
 
 export interface ChatResponse {
   thread_id: string;
-  response: string;
+  answer: string;
   sources: string[];
+  model_used?: string | null;
 }
 
 export type ChatStatus = 'idle' | 'loading' | 'error' | 'offline';
