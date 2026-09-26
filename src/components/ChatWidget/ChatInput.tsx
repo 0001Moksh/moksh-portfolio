@@ -7,24 +7,25 @@ interface ChatInputProps {
   autoFocus: boolean;
 }
 
-export const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled, autoFocus }) => {
+export const ChatInput: React.FC<ChatInputProps> = ({
+  onSend,
+  disabled,
+  autoFocus,
+}) => {
   const [text, setText] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Auto focus input on load or when chat window opens
   useEffect(() => {
-    if (autoFocus && textareaRef.current) {
+    if (autoFocus && textareaRef.current && !disabled) {
       textareaRef.current.focus();
     }
   }, [autoFocus, disabled]);
 
-  // Handle textarea height adjustment dynamically
   const adjustHeight = () => {
-    const textarea = textareaRef.current;
-    if (textarea) {
-      textarea.style.height = 'auto';
-      textarea.style.height = `${Math.min(textarea.scrollHeight, 120)}px`;
-    }
+    const el = textareaRef.current;
+    if (!el) return;
+    el.style.height = 'auto';
+    el.style.height = `${Math.min(el.scrollHeight, 128)}px`;
   };
 
   useEffect(() => {
@@ -32,20 +33,17 @@ export const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled, autoFocu
   }, [text]);
 
   const handleSubmit = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
+    e?.preventDefault();
     const trimmed = text.trim();
-    if (trimmed && !disabled) {
-      onSend(trimmed);
-      setText('');
-      // Reset height
-      if (textareaRef.current) {
-        textareaRef.current.style.height = 'auto';
-      }
+    if (!trimmed || disabled) return;
+    onSend(trimmed);
+    setText('');
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    // If Enter (without Shift), submit the form
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSubmit();
@@ -55,7 +53,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled, autoFocu
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-end gap-2 p-3 bg-slate-950 border-t border-slate-800 rounded-b-2xl relative"
+      className="flex items-end gap-2.5 p-3 bg-slate-950/90 border-t border-slate-800/80 rounded-b-2xl"
     >
       <textarea
         ref={textareaRef}
@@ -63,14 +61,15 @@ export const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled, autoFocu
         value={text}
         onChange={(e) => setText(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder={disabled ? 'Moksh Bot is typing...' : 'Type here...'}
+        placeholder={disabled ? 'Moksh is thinking…' : 'Message Moksh Bot…'}
         disabled={disabled}
-        className="flex-grow bg-slate-900 border border-slate-800 text-white rounded-xl px-3 py-2.5 text-sm resize-none focus:outline-none focus:border-primary/60 transition-colors duration-200 scrollbar-none leading-relaxed placeholder-slate-500 max-h-[120px] disabled:opacity-50"
+        className="flex-1 bg-slate-900/80 border border-slate-800 text-slate-100 rounded-xl px-3.5 py-2.5 text-sm resize-none focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/20 transition-all duration-200 placeholder:text-slate-500 max-h-32 leading-relaxed disabled:opacity-50"
       />
       <button
         type="submit"
         disabled={disabled || !text.trim()}
-        className="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl bg-primary text-white hover:bg-primary-dark active:scale-95 disabled:scale-100 disabled:opacity-30 disabled:bg-primary transition-all duration-200 cursor-pointer disabled:cursor-not-allowed shadow-[0_0_12px_rgba(168,85,247,0.3)]"
+        className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-violet-600 text-white hover:bg-violet-500 active:scale-95 disabled:opacity-30 disabled:hover:bg-violet-600 disabled:active:scale-100 transition-all duration-150 shadow-md shadow-violet-900/30"
+        title="Send"
       >
         <Send size={16} />
       </button>

@@ -11,12 +11,10 @@ export const ChatWidget: React.FC = () => {
 
   const handleToggle = () => {
     setIsOpen((prev) => !prev);
-    if (hasNewNotification) {
-      setHasNewNotification(false);
-    }
+    if (hasNewNotification) setHasNewNotification(false);
   };
 
-  // Prevent background body scroll on mobile when chat is open
+  // Lock body scroll on mobile when open
   useEffect(() => {
     if (isOpen && window.innerWidth < 640) {
       document.body.style.overflow = 'hidden';
@@ -30,49 +28,41 @@ export const ChatWidget: React.FC = () => {
 
   return (
     <>
-      {/* Floating Chat Trigger Button */}
       <motion.button
         onClick={handleToggle}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ 
-          type: 'spring', 
-          damping: 15, 
-          stiffness: 180,
-          delay: 0.8 // Load after basic portfolio entrance animations
-        }}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 left-6 z-[90] flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-purple-700 via-primary to-indigo-600 text-white shadow-[0_4px_20px_rgba(168,85,247,0.4)] hover:shadow-[0_8px_25px_rgba(168,85,247,0.6)] cursor-pointer transition-shadow duration-300 focus:outline-none group border border-primary-light/10"
-        aria-label="Toggle assistant chat"
+        transition={{ type: 'spring', damping: 16, stiffness: 200, delay: 0.6 }}
+        whileHover={{ scale: 1.06 }}
+        whileTap={{ scale: 0.94 }}
+        className="fixed bottom-6 left-6 z-[90] flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-900/40 hover:shadow-violet-800/50 border border-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/60"
+        aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
             <motion.div
-              key="close-icon"
-              initial={{ rotate: -45, opacity: 0 }}
+              key="close"
+              initial={{ rotate: -40, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 45, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              exit={{ rotate: 40, opacity: 0 }}
+              transition={{ duration: 0.18 }}
             >
-              <X size={24} className="text-white" />
+              <X size={22} />
             </motion.div>
           ) : (
             <motion.div
-              key="chat-icon"
-              initial={{ rotate: 45, opacity: 0 }}
+              key="bot"
+              initial={{ rotate: 40, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -45, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              exit={{ rotate: -40, opacity: 0 }}
+              transition={{ duration: 0.18 }}
               className="relative"
             >
-              <Bot size={24} className="text-white group-hover:scale-105 transition-transform" />
-              
-              {/* Pulsing notification badge */}
+              <Bot size={22} />
               {hasNewNotification && (
-                <span className="absolute -top-1.5 -right-1.5 flex h-3 w-3 select-none">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border border-slate-950"></span>
+                <span className="absolute -top-1.5 -right-1.5 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border border-slate-950" />
                 </span>
               )}
             </motion.div>
@@ -80,7 +70,6 @@ export const ChatWidget: React.FC = () => {
         </AnimatePresence>
       </motion.button>
 
-      {/* Chat Window Panel */}
       <ChatWindow
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}

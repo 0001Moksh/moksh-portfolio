@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { WifiOff, AlertTriangle } from 'lucide-react';
+import { WifiOff } from 'lucide-react';
 import { Message, ChatStatus } from '../../types/chat';
 import { ChatHeader } from './ChatHeader';
 import { ChatMessage } from './ChatMessage';
@@ -31,61 +31,68 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
   clearChat,
 }) => {
   const feedEndRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Scroll to bottom on new messages or when bot is typing
-  const scrollToBottom = (behavior: 'smooth' | 'auto' = 'smooth') => {
+  const scrollToBottom = (behavior: ScrollBehavior = 'smooth') => {
     feedEndRef.current?.scrollIntoView({ behavior });
   };
 
   useEffect(() => {
     if (isOpen) {
-      // Auto-scroll instantly on open, smoothly on additions
       scrollToBottom(messages.length <= 1 ? 'auto' : 'smooth');
     }
   }, [messages.length, status, isOpen]);
 
-  // Handle Escape key to close chat window
+  // Escape closes chat (or exits fullscreen first)
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose();
+        if (isFullscreen) {
+          setIsFullscreen(false);
+        } else {
+          onClose();
+        }
       }
     };
-    if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose]);
+    if (isOpen) window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isOpen, isFullscreen, onClose]);
+
+  // Reset fullscreen when closed
+  useEffect(() => {
+    if (!isOpen) setIsFullscreen(false);
+  }, [isOpen]);
+
+  const windowClasses = isFullscreen
+    ? 'fixed inset-0 z-[95] w-full h-[100dvh] rounded-none'
+    : 'fixed z-[90] w-full h-[100dvh] bottom-0 left-0 sm:w-[390px] sm:h-[600px] sm:bottom-24 sm:left-6 sm:rounded-2xl';
 
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, scale: 0.92, y: 30 }}
+          initial={{ opacity: 0, scale: 0.94, y: 24 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.92, y: 30 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-          className="fixed z-[90] flex flex-col bg-slate-950/95 border border-slate-800 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] w-full h-[100dvh] bottom-0 left-0 sm:w-[380px] sm:h-[580px] sm:bottom-24 sm:left-6 sm:rounded-2xl"
+          exit={{ opacity: 0, scale: 0.94, y: 24 }}
+          transition={{ type: 'spring', damping: 26, stiffness: 280 }}
+          className={`flex flex-col bg-slate-950/95 border border-slate-800/80 shadow-2xl shadow-black/40 backdrop-blur-xl overflow-hidden ${windowClasses}`}
         >
-          {/* Header */}
           <ChatHeader
             onClose={onClose}
             onNewChat={startNewChat}
             onClearChat={clearChat}
+            isFullscreen={isFullscreen}
+            onToggleFullscreen={() => setIsFullscreen((v) => !v)}
           />
 
-          {/* Network Offline Banner */}
           {!isOnline && (
-            <div className="flex items-center gap-2 px-4 py-2 bg-rose-950/40 border-b border-rose-900/40 text-xs text-rose-300 select-none">
-              <WifiOff size={13} className="text-rose-400" />
-              <span>Offline mode. API requests will fail.</span>
+            <div className="flex items-center gap-2 px-4 py-2 bg-rose-950/50 border-b border-rose-900/40 text-xs text-rose-300">
+              <WifiOff size={13} className="text-rose-400 shrink-0" />
+              <span>You’re offline. Messages can’t be sent right now.</span>
             </div>
           )}
 
-          {/* Messages Board */}
-          <div className="flex-grow overflow-y-auto px-4 py-4 space-y-4 scrollbar-thin scrollbar-track-slate-950 scrollbar-thumb-slate-800">
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-5 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-800/80">
             {messages.map((msg, index) => (
               <ChatMessage
                 key={msg.id}
@@ -94,15 +101,12 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                 onRetry={retryLastMessage}
               />
             ))}
-            
-            {/* Loading / Typing indicator */}
+
             {status === 'loading' && <ChatLoading />}
 
-            {/* Scroll anchor */}
             <div ref={feedEndRef} />
           </div>
 
-          {/* Message Input Panel */}
           <ChatInput
             onSend={sendMessage}
             disabled={status === 'loading' || !isOnline}
